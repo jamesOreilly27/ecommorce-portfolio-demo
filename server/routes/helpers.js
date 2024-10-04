@@ -1,5 +1,5 @@
 const checkRes = (res, resList) => {
-  if(!resList.length) {
+  if(!resList) {
     return res.status(404).json({ error: 'please check model' })
   }
 
@@ -8,25 +8,27 @@ const checkRes = (res, resList) => {
 
 
 const getAll = (res, model, assocModels) => {
-  if(assocModel) {
+  if(assocModels) {
     model.findAll({
       include: assocModels.map(assocModel => ({ model: assocModel }))
     })
-    .then(resList => checkRes(res, resList))
+    .then(list => checkRes(res, list))
   } else {
     model.findAll()
-    .then(resList => checkRes(res, resList))
+    .then(list => checkRes(res, list))
   }
 }
 
-const findById = (req, res, model) => {
-  model.findByPk(req.params.id)
-  .then(found => {
-    if(!found) {
-      return res.status(404).json({ error: `Data not found. Check the id parameter you passed in` })
-    }
-    return res.json(found)
-  })
+const findById = (req, res, model, assocModels) => {
+  if(assocModels) {
+    model.findByPk(req.params.id, {
+      include: assocModels.map(assocModel => ({ model: assocModel }))
+    })
+    .then(found => checkRes(res, found))
+  } else {
+    model.findByPk(req.params.id)
+    .then(found => checkRes(res, found))
+  }
 }
 
 module.exports = {

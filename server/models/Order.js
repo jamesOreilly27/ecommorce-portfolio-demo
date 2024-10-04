@@ -1,7 +1,7 @@
 const db = require('../db')
 const Sequelize =  require('sequelize')
 
-const Order = db.define('Order', {
+const Order = db.define('order', {
   order_date: {
     type: Sequelize.DATE
   },
