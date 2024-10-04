@@ -3,7 +3,7 @@ import React from 'react'
 function App() {
   return (
     <div>
-      <h1>We did it!</h1>
+      <h1>Api routes!</h1>
     </div>
   );
 }
