@@ -20,6 +20,7 @@ const getAll = (res, model, assocModels) => {
 
 const findById = (req, res, model, assocModels) => {
   if(assocModels) {
+    console.log("ASSOCMODELS", assocModels)
     model.findByPk(req.params.id, {
       include: assocModels.map(assocModel => ({ model: assocModel }))
     })

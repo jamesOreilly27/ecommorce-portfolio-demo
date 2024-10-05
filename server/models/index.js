@@ -19,7 +19,10 @@ OrderItem.belongsTo(Product)
 Customer.hasMany(Order)
 
 Review.belongsTo(Product)
-Review.belongsTo(User)
+Product.hasMany(Review)
+
+Review.belongsTo(Customer)
+Customer.hasMany(Review)
 
 /***** CART ASSOCIATIONS *****/
 Cart.hasMany(CartItem)
@@ -42,5 +45,6 @@ module.exports = {
   OrderItem,
   Customer,
   Cart,
-  CartItem
+  CartItem,
+  Review
 }
