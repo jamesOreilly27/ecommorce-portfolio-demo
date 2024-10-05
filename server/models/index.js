@@ -18,6 +18,9 @@ OrderItem.belongsTo(Product)
 
 Customer.hasMany(Order)
 
+Review.belongsTo(Product)
+Review.belongsTo(User)
+
 /***** CART ASSOCIATIONS *****/
 Cart.hasMany(CartItem)
 CartItem.belongsTo(Cart)
