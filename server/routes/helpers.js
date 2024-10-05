@@ -54,8 +54,15 @@ const upsert = (req, res, model) => {
   })
 }
 
+const destroy = (req, res, model) => {
+  model.destroy({
+    where: { id: req.params.id }
+  })
+}
+
 module.exports = {
   getAll,
   findById,
-  upsert
+  upsert,
+  destroy
 }
