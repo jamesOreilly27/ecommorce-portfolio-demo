@@ -6,7 +6,6 @@ const checkRes = (res, resList) => {
   return res.json(resList)
 }
 
-
 const getAll = (res, model, assocModels) => {
   if(assocModels) {
     model.findAll({
@@ -40,7 +39,7 @@ const updateRow = (req, res, model) => {
 }
 
 const insertRow = (req, res, model) => {
-model.create(req.body)
+  model.create(req.body)
   .then(created => res.json(created))
 }
 
@@ -50,7 +49,7 @@ const upsert = (req, res, model) => {
     if(row) {
       updateRow(req, res, model)
     } else {
-      insertRow(req, res, next)
+      insertRow(req, res, model)
     }
   })
 }
