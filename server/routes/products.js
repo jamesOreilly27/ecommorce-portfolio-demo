@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 
 /***** Get by ID *****/
 router.get('/:id', (req, res, next) => {
-  findById(req, res, Product)
+  findById(req, res, Product, [Review])
 })
 
 module.exports = router
