@@ -6,6 +6,7 @@ const Customer = require('./Customer')
 const ProductCategory = require('./ProductCategory')
 const Cart = require('./Cart')
 const CartItem = require('./CartItem')
+const Review = require('./Review')
 
 // Relationships between models
 Category.belongsToMany(Product, { through: ProductCategory })
@@ -13,7 +14,6 @@ Product.belongsToMany(Category, { through: ProductCategory })
 
 Order.hasMany(OrderItem)
 OrderItem.belongsTo(Order)
-
 OrderItem.belongsTo(Product)
 
 Customer.hasMany(Order)
