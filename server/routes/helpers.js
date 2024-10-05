@@ -31,7 +31,32 @@ const findById = (req, res, model, assocModels) => {
   }
 }
 
+const updateRow = (req, res, model) => {
+  model.update(req.body, {
+    where: { id: req.params.id },
+    returning: true
+  })
+    .then(updated => res.json(updated))
+}
+
+const insertRow = (req, res, model) => {
+model.create(req.body)
+  .then(created => res.json(created))
+}
+
+const upsert = (req, res, model) => {
+  model.findByPk(req.params.id)
+  .then(row => {
+    if(row) {
+      updateRow(req, res, model)
+    } else {
+      insertRow(req, res, next)
+    }
+  })
+}
+
 module.exports = {
   getAll,
-  findById
+  findById,
+  upsert
 }
