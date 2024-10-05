@@ -14,7 +14,7 @@ const createApp = () => {
   app.use(express.static(path.join(__dirname, '../public')))
   
   //Routes
-  // app.use('/api', require('./routes'))
+  app.use('/api', require('./routes/index'))
 
   // Catch-all route for serving index.html
   app.use('*', (req, res, next) => res.sendFile(path.join(__dirname, '..', 'public', 'index.html')))
