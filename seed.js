@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Order, OrderItem } = require('./server/models')
+const { Customer, Product, Category, Review, Order, OrderItem } = require('./server/models')
 const chalk = require('chalk')
 
 async function seed() {
@@ -210,6 +210,12 @@ async function seed() {
 
   console.log(chalk.red.bgWhite.bold(`seeded ${categories.length} categories`))
 
+  const reviews = await Promise.all([
+    Review.create({ rating: 5, comment: "Great coffee!", productId: 1, customerId: 1 }),
+    Review.create({ rating: 4, comment: "Nice flavor profile", productId: 2, customerId: 1 })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`seeded ${reviews.length} reviews`))
 }
 
 seed()
