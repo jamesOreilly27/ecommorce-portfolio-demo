@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, Order, OrderItem } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem } = require('./server/models')
 const chalk = require('chalk')
 
 async function seed() {
@@ -216,6 +216,130 @@ async function seed() {
   ])
 
   console.log(chalk.red.bgWhite.bold(`seeded ${reviews.length} reviews`))
+
+  const productCategories = await Promise.all([
+    // Product 1 - Whole Bean Coffee (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 1,
+      categoryId: 2
+    }),
+  
+    // Product 2 - Ground Coffee (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 2,
+      categoryId: 1
+    }),
+  
+    // Product 3 - Decaf Blend Ground Coffee (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 3,
+      categoryId: 1
+    }),
+  
+    // Product 4 - Ethiopian Yirgacheffe Coffee Beans (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 4,
+      categoryId: 2
+    }),
+  
+    // Product 5 - Dark Roast Espresso Beans (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 5,
+      categoryId: 2
+    }),
+  
+    // Product 6 - Organic Fair Trade Coffee Pods (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 6,
+      categoryId: 1
+    }),
+  
+    // Product 7 - Coffee Maker (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 7,
+      categoryId: 3
+    }),
+  
+    // Product 8 - Coffee Mug (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 8,
+      categoryId: 3
+    }),
+  
+    // Product 9 - Coffee Grinder (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 9,
+      categoryId: 3
+    }),
+  
+    // Product 10 - Coffee Creamer (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 10,
+      categoryId: 3
+    }),
+  
+    // Product 11 - Coffee Syrup (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 11,
+      categoryId: 3
+    }),
+  
+    // Product 12 - Coffee Filter (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 12,
+      categoryId: 3
+    }),
+  
+    // Product 13 - Coffee Thermos (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 13,
+      categoryId: 3
+    }),
+  
+    // Product 14 - Coffee Lover's Gift Set (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 14,
+      categoryId: 3
+    }),
+  
+    // Product 15 - Coffee Table Book (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 15,
+      categoryId: 3
+    }),
+  
+    // Product 16 - Coffee Subscription (Category: Miscellaneous) - debatable
+    ProductCategory.create({
+      productId: 16,
+      categoryId: 3 // Consider a new category for subscriptions if needed
+    }),
+  
+    // Product 17 - Coffee Chocolate Chip Ice Cream (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 17,
+      categoryId: 3
+    }),
+  
+    // Product 18 - Coffee Cake (Category: Food)
+    ProductCategory.create({
+      productId: 18,
+      categoryId: 3
+    }),
+  
+    // Product 19 - Coffee Body Scrub (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 19,
+      categoryId: 3
+    }),
+  
+    // Product 20 - Coffee Scented Soap (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 20,
+      categoryId: 3
+    })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`Put ${productCategories.length} products into their categories`))
 }
 
 seed()
