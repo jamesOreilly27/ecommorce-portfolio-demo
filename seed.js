@@ -1,6 +1,7 @@
 const db = require('./server/db.js')
 const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem } = require('./server/models')
 const chalk = require('chalk')
+const { promisify } = require('util')
 
 async function seed() {
   await db.sync({ force: true });
@@ -340,6 +341,64 @@ async function seed() {
   ])
 
   console.log(chalk.red.bgWhite.bold(`Put ${productCategories.length} products into their categories`))
+
+  const orders = await Promise.all([
+    // Create 5 orders for the first customer
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 100.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 150.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 75.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 200.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 125.00,
+    }),
+  
+    // Create 5 orders for the second customer
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 250.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 300.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 175.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 225.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 150.00,
+    })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`created ${orders.length} orders`))
 }
 
 seed()
