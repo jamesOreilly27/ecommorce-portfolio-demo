@@ -18,11 +18,13 @@ const getAll = (res, model, assocModels) => {
   }
 }
 
-const findById = (req, res, model, assocModels) => {
+const findById = (req, res, model, assocModels, nestedAssocModels) => {
   if(assocModels) {
     model.findByPk(req.params.id, {
-      include: assocModels.map(assocModel => ({ model: assocModel }))
-    })
+      include: assocModels.map(assocModel => {
+        const nestedAssoc = nestedAssocModels && nestedAssocModels[assocModel.name]
+        return nestedAssoc ? { model: assocModel, include: nestedAssoc } : { model: assocModel }
+      })})
     .then(found => checkRes(res, found))
   } else {
     model.findByPk(req.params.id)
