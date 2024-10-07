@@ -1,6 +1,10 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, Order, OrderItem } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem } = require('./server/models')
 const chalk = require('chalk')
+
+const genRandomNum = () => {
+  return Math.floor(Math.random() * 9) + 1
+}
 
 async function seed() {
   await db.sync({ force: true });
@@ -216,6 +220,428 @@ async function seed() {
   ])
 
   console.log(chalk.red.bgWhite.bold(`seeded ${reviews.length} reviews`))
+
+  const productCategories = await Promise.all([
+    // Product 1 - Whole Bean Coffee (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 1,
+      categoryId: 2
+    }),
+  
+    // Product 2 - Ground Coffee (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 2,
+      categoryId: 1
+    }),
+  
+    // Product 3 - Decaf Blend Ground Coffee (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 3,
+      categoryId: 1
+    }),
+  
+    // Product 4 - Ethiopian Yirgacheffe Coffee Beans (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 4,
+      categoryId: 2
+    }),
+  
+    // Product 5 - Dark Roast Espresso Beans (Category: Coffee Beans)
+    ProductCategory.create({
+      productId: 5,
+      categoryId: 2
+    }),
+  
+    // Product 6 - Organic Fair Trade Coffee Pods (Category: Ground Coffee)
+    ProductCategory.create({
+      productId: 6,
+      categoryId: 1
+    }),
+  
+    // Product 7 - Coffee Maker (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 7,
+      categoryId: 3
+    }),
+  
+    // Product 8 - Coffee Mug (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 8,
+      categoryId: 3
+    }),
+  
+    // Product 9 - Coffee Grinder (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 9,
+      categoryId: 3
+    }),
+  
+    // Product 10 - Coffee Creamer (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 10,
+      categoryId: 3
+    }),
+  
+    // Product 11 - Coffee Syrup (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 11,
+      categoryId: 3
+    }),
+  
+    // Product 12 - Coffee Filter (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 12,
+      categoryId: 3
+    }),
+  
+    // Product 13 - Coffee Thermos (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 13,
+      categoryId: 3
+    }),
+  
+    // Product 14 - Coffee Lover's Gift Set (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 14,
+      categoryId: 3
+    }),
+  
+    // Product 15 - Coffee Table Book (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 15,
+      categoryId: 3
+    }),
+  
+    // Product 16 - Coffee Subscription (Category: Miscellaneous) - debatable
+    ProductCategory.create({
+      productId: 16,
+      categoryId: 3 // Consider a new category for subscriptions if needed
+    }),
+  
+    // Product 17 - Coffee Chocolate Chip Ice Cream (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 17,
+      categoryId: 3
+    }),
+  
+    // Product 18 - Coffee Cake (Category: Food)
+    ProductCategory.create({
+      productId: 18,
+      categoryId: 3
+    }),
+  
+    // Product 19 - Coffee Body Scrub (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 19,
+      categoryId: 3
+    }),
+  
+    // Product 20 - Coffee Scented Soap (Category: Miscellaneous)
+    ProductCategory.create({
+      productId: 20,
+      categoryId: 3
+    })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`Put ${productCategories.length} products into their categories`))
+
+  const orders = await Promise.all([
+    // Create 5 orders for the first customer
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 100.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[0].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+  
+    // Create 5 orders for the second customer
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    }),
+    Order.create({
+      customer_id: customers[1].id,
+      order_date: new Date(Math.floor(Math.random() * (new Date().getTime() - new Date(2023, 0, 1).getTime()) + new Date(2023, 0, 1).getTime())),
+      total_amount: 0.00,
+    })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`created ${orders.length} orders`))
+
+  const createItemQuantities = count => {
+    const quantities = []
+    for(let i = 0; i < count; i++) {
+      quantities.push(genRandomNum())
+    }
+
+    return quantities
+  }
+  
+  const OrderItemTotals = createItemQuantities(30)
+
+  const orderItems = await Promise.all([
+    OrderItem.create({
+      id: 1,
+      orderId: orders[0].id,
+      productId: coffeeProducts[3].id,
+      quantity: OrderItemTotals[0],
+      price: (coffeeProducts[3].price * OrderItemTotals[0])
+    }),
+    OrderItem.create({
+      id: 2,
+      orderId: orders[0].id,
+      productId: coffeeProducts[10].id,
+      quantity: OrderItemTotals[1],
+      price: (coffeeProducts[10].price * OrderItemTotals[1])
+    }),
+    OrderItem.create({
+      id: 3,
+      orderId: orders[0].id,
+      productId: coffeeProducts[15].id,
+      quantity: OrderItemTotals[2],
+      price: (coffeeProducts[15].price * OrderItemTotals[2])
+    }),
+    OrderItem.create({
+      id: 4,
+      orderId: orders[1].id,
+      productId: coffeeProducts[4].id,
+      quantity: OrderItemTotals[3],
+      price: (coffeeProducts[4].price * OrderItemTotals[3])
+    }),
+    OrderItem.create({
+      id: 5,
+      orderId: orders[1].id,
+      productId: coffeeProducts[5].id,
+      quantity: OrderItemTotals[4],
+      price: (coffeeProducts[5].price * OrderItemTotals[4])
+    }),
+    OrderItem.create({
+      id: 6,
+      orderId: orders[2].id,
+      productId: coffeeProducts[5].id,
+      quantity: OrderItemTotals[5],
+      price: (coffeeProducts[5].price * OrderItemTotals[5])
+    }),
+    OrderItem.create({
+      id: 7,
+      orderId: orders[3].id,
+      productId: coffeeProducts[5].id,
+      quantity: OrderItemTotals[6],
+      price: (coffeeProducts[5].price * OrderItemTotals[6])
+    }),
+    OrderItem.create({
+      id: 8,
+      orderId: orders[3].id,
+      productId: coffeeProducts[8].id,
+      quantity: OrderItemTotals[7],
+      price: (coffeeProducts[8].price * OrderItemTotals[7])
+    }),
+    OrderItem.create({
+      id: 9,
+      orderId: orders[3].id,
+      productId: coffeeProducts[4].id,
+      quantity: OrderItemTotals[8],
+      price: (coffeeProducts[4].price * OrderItemTotals[8])
+    }),
+    OrderItem.create({
+      id: 10,
+      orderId: orders[4].id,
+      productId: coffeeProducts[8].id,
+      quantity: OrderItemTotals[9],
+      price: (coffeeProducts[8].price * OrderItemTotals[9])
+    }),
+    OrderItem.create({
+      id: 11,
+      orderId: orders[5].id,
+      productId: coffeeProducts[18].id,
+      quantity: OrderItemTotals[10],
+      price: (coffeeProducts[18].price * OrderItemTotals[10])
+    }),
+    OrderItem.create({
+      id: 12,
+      orderId: orders[5].id,
+      productId: coffeeProducts[6].id,
+      quantity: OrderItemTotals[11],
+      price: (coffeeProducts[6].price * OrderItemTotals[11])
+    }),
+    OrderItem.create({
+      id: 13,
+      orderId: orders[6].id,
+      productId: coffeeProducts[5].id,
+      quantity: OrderItemTotals[12],
+      price: (coffeeProducts[5].price * OrderItemTotals[12])
+    }),
+    OrderItem.create({
+      id: 14,
+      orderId: orders[6].id,
+      productId: coffeeProducts[13].id,
+      quantity: OrderItemTotals[13],
+      price: (coffeeProducts[13].price * OrderItemTotals[13])
+    }),
+    OrderItem.create({
+      id: 15,
+      orderId: orders[6].id,
+      productId: coffeeProducts[8].id,
+      quantity: OrderItemTotals[14],
+      price: (coffeeProducts[8].price * OrderItemTotals[14])
+    }),
+    OrderItem.create({
+      id: 16,
+      orderId: orders[7].id,
+      productId: coffeeProducts[7].id,
+      quantity: OrderItemTotals[15],
+      price: (coffeeProducts[7].price * OrderItemTotals[15])
+    }),
+    OrderItem.create({
+      id: 17,
+      orderId: orders[7].id,
+      productId: coffeeProducts[9].id,
+      quantity: OrderItemTotals[16],
+      price: (coffeeProducts[9].price * OrderItemTotals[16])
+    }),
+    OrderItem.create({
+      id: 18,
+      orderId: orders[7].id,
+      productId: coffeeProducts[17].id,
+      quantity: OrderItemTotals[17],
+      price: (coffeeProducts[17].price * OrderItemTotals[17])
+    }),
+    OrderItem.create({
+      id: 19,
+      orderId: orders[7].id,
+      productId: coffeeProducts[14].id,
+      quantity: OrderItemTotals[18],
+      price: (coffeeProducts[14].price * OrderItemTotals[18])
+    }),
+    OrderItem.create({
+      id: 20,
+      orderId: orders[8].id,
+      productId: coffeeProducts[8].id,
+      quantity: OrderItemTotals[19],
+      price: (coffeeProducts[8].price * OrderItemTotals[19])
+    }),
+    OrderItem.create({
+      id: 21,
+      orderId: orders[8].id,
+      productId: coffeeProducts[16].id,
+      quantity: OrderItemTotals[20],
+      price: (coffeeProducts[16].price * OrderItemTotals[20])
+    }),
+    OrderItem.create({
+      id: 22,
+      orderId: orders[8].id,
+      productId: coffeeProducts[11].id,
+      quantity: OrderItemTotals[21],
+      price: (coffeeProducts[11].price * OrderItemTotals[21])
+    }),
+    OrderItem.create({
+      id: 23,
+      orderId: orders[8].id,
+      productId: coffeeProducts[10].id,
+      quantity: OrderItemTotals[22],
+      price: (coffeeProducts[10].price * OrderItemTotals[22])
+    }),
+    OrderItem.create({
+      id: 24,
+      orderId: orders[8].id,
+      productId: coffeeProducts[5].id,
+      quantity: OrderItemTotals[23],
+      price: (coffeeProducts[5].price * OrderItemTotals[23])
+    }),
+    OrderItem.create({
+      id: 25,
+      orderId: orders[9].id,
+      productId: coffeeProducts[8].id,
+      quantity: OrderItemTotals[24],
+      price: (coffeeProducts[8].price * OrderItemTotals[24])
+    }),
+    OrderItem.create({
+      id: 26,
+      orderId: orders[9].id,
+      productId: coffeeProducts[4].id,
+      quantity: OrderItemTotals[25],
+      price: (coffeeProducts[4].price * OrderItemTotals[25])
+    }),
+    OrderItem.create({
+      id: 27,
+      orderId: orders[9].id,
+      productId: coffeeProducts[3].id,
+      quantity: OrderItemTotals[26],
+      price: (coffeeProducts[3].price * OrderItemTotals[26])
+    }),
+    OrderItem.create({
+      id: 28,
+      orderId: orders[4].id,
+      productId: coffeeProducts[17].id,
+      quantity: OrderItemTotals[27],
+      price: (coffeeProducts[17].price * OrderItemTotals[27])
+    }),
+    OrderItem.create({
+      id: 29,
+      orderId: orders[4].id,
+      productId: coffeeProducts[2].id,
+      quantity: OrderItemTotals[28],
+      price: (coffeeProducts[2].price * OrderItemTotals[28])
+    }),
+    OrderItem.create({
+      id: 30,
+      orderId: orders[4].id,
+      productId: coffeeProducts[3].id,
+      quantity: OrderItemTotals[29],
+      price: (coffeeProducts[3].price * OrderItemTotals[29])
+    })
+  ])
+
+  console.log(chalk.red.bgWhite.bold(`created ${orderItems.length} order items`))
+
+  orders.forEach(order => {
+    let total = 0
+    orderItems.forEach(item => {
+      if(order.id === item.orderId) {
+        total += parseFloat(item.price)
+      }
+    })
+
+    console.log(total)
+
+    order.update({ total_amount: total })
+  })
+
 }
 
 seed()
