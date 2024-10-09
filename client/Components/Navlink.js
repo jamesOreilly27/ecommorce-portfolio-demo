@@ -10,8 +10,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000000;
   &:hover {
-    background-color: #D2B48C;
+    background-color: #8D693A;
+    color: #FFFAFA;
     transition: all .7s;
   }
 `
@@ -19,12 +21,7 @@ const Container = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   font-family: 'Scope One', serif;
-  color: #000000;
-
-  &:hover {
-    color: #FFFAFA;
-    transition: all .3s;
-  }
+  color: inherit;
 `
 
 const Navlink = ({ item }) => (

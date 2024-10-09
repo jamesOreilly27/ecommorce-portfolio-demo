@@ -5,18 +5,21 @@ import { Navbar } from '../Components'
 const Wrapper = styled.div`
   display: flex;
   height: 10%;
-  width: 100%;
-  background-color: red;
+  background-color: #D2B48C;
 `
 
-const Logo = styled.img`
-  width: 90px;
-  height: 90px;
+const Logo = styled.div`
+  background-image: url('/images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 10vw;
+  min-height: 10vw;
 `
 
 const Header = () => (
   <Wrapper>
-    <Logo src="/images/logo.png" />
+    <Logo />
     <Navbar />
   </Wrapper>
 )
