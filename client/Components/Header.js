@@ -1,5 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Navbar } from '../Components'
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 10%;
+  width: 100%;
+  background-color: red;
+`
 
 const Logo = styled.img`
   width: 90px;
@@ -7,9 +15,10 @@ const Logo = styled.img`
 `
 
 const Header = () => (
-  <div>
+  <Wrapper>
     <Logo src="/images/logo.png" />
-  </div>
+    <Navbar />
+  </Wrapper>
 )
 
 export default Header
