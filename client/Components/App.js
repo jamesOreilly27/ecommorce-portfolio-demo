@@ -1,11 +1,14 @@
 import React from 'react'
+import { Header, Footer } from '../Components'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <h1>Api routes!</h1>
-    </div>
-  );
+    <Router>
+      <Header />
+      <Footer />
+    </Router>
+  )
 }
 
 export default App
