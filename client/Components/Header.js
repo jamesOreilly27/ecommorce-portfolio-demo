@@ -17,11 +17,11 @@ const Logo = styled.div`
   min-height: 10vw;
 `
 
-const Header = () => (
+const Header = ({ user }) => (
   <Wrapper>
     <Logo />
     <Navbar />
-    <UserHeaderSection />
+    <UserHeaderSection user={user} />
   </Wrapper>
 )
 

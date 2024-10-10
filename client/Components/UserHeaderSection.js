@@ -33,12 +33,12 @@ const User = styled(FontAwesomeIcon)`
 `
 
 
-const UserHeaderSection = () => (
+const UserHeaderSection = ({ user }) => (
   <Wrapper>
-    <Authlink to={'/login'}>
+    <Authlink to={'/account'}>
       <User icon={faUserCircle} size="2x" />
     </Authlink>
-    <Link to="/your-account/orders">
+    <Link to="/cart">
       <Cart icon={faShoppingCart} size="2x" />
     </Link>
   </Wrapper>

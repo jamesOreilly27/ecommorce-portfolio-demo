@@ -12,11 +12,18 @@ const Wrapper = styled.div`
 
 const App = () => {
   const { data, isLoading, isError } = useGetMeQuery(1)
-  console.log('DATA RETRIEVED: ', data)
+
+  if(isLoading) {
+    return ( <div> Loading... </div> )
+  }
+  
+  if(isError) {
+    return ( <div> Error Fetching Data </div> )
+  }
   return  (
     <Router>
       <Wrapper>
-        <Header />
+        <Header user={data} />
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
