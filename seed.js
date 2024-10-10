@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem } = require('./server/models')
 const chalk = require('chalk')
 
 const genRandomNum = () => {
