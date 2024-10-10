@@ -4,7 +4,7 @@ import { Navbar, UserHeaderSection } from '../Components'
 
 const Wrapper = styled.div`
   display: flex;
-  height: 10%;
+  height: 20vh;
   background-color: #D2B48C;
 `
 
