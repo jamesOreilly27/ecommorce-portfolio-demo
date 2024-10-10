@@ -14,8 +14,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 15vw;
-  margin-left: 25vw;
+  width: 17vw;
+  margin-left: 20vw;
 `
 
 const Authlink = styled(Link)`
