@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Footer, HomePage } from '../Components'
+import { Header, Footer, HomePage, AccountHome } from '../Components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useGetMeQuery } from '../store/slices'
 import styled from 'styled-components'
@@ -26,6 +26,7 @@ const App = () => {
         <Header user={data} />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/account" element={<AccountHome user={data} />} />
         </Routes>
         <Footer />
       </Wrapper>
