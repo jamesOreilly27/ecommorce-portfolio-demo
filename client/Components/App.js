@@ -9,18 +9,16 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-function App() {
-  return (
-    <Router>
-      <Wrapper>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-        <Footer />
-      </Wrapper>
-    </Router>
-  )
-}
+const App = () => (
+  <Router>
+    <Wrapper>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      <Footer />
+    </Wrapper>
+  </Router>
+)
 
 export default App
