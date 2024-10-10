@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Navbar } from '../Components'
+import { Navbar, UserHeaderSection } from '../Components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,6 +21,7 @@ const Header = () => (
   <Wrapper>
     <Logo />
     <Navbar />
+    <UserHeaderSection />
   </Wrapper>
 )
 

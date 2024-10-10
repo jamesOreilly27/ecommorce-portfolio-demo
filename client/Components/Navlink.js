@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000000;
+  color: #333333;
   &:hover {
     background-color: #8D693A;
     color: #FFFAFA;

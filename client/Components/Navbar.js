@@ -12,8 +12,8 @@ const Wrapper = styled.nav`
 
 const navItems = [
   { name: 'Shop', linkTo: '/collections' },
-  { name: 'Subscriptions', linkTo: '/subscribe' },
-  { name: 'Contact Us', linkTo: '/contact' }
+  { name: 'Subscribe', linkTo: '/subscribe' },
+  { name: 'About Us', linkTo: '/about' }
 ]
 
 const Navbar = () => (
