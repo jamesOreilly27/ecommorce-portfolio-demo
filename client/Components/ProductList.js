@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetProductsQuery } from "../store/productSlice"
+import { useGetProductsQuery } from "../store/slices/productSlice"
 
 const ProductList = () => {
   const { data, isLoading, isError } = useGetProductsQuery()

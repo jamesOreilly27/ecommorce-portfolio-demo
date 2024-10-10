@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { productApi } from "./productSlice"
+import { productApi } from "./slices"
 import logger from 'redux-logger'
 import { composeWithDevTools } from '@redux-devtools/extension'
 
