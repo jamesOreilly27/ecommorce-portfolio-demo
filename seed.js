@@ -640,6 +640,45 @@ async function seed() {
     order.update({ total_amount: total })
   })
 
+  const carts = await Promise.all([
+    Cart.create({
+      id: 1,
+      customerId: 1,
+      status: 'open',
+      total_amount: 0.00,
+    })
+  ])
+
+  const cartItems = await Promise.all([
+    CartItem.create({
+      id: 1,
+      cartId: carts[0].id,
+      productId: coffeeProducts[4].id,
+      quantity: 3,
+      price: (3 * coffeeProducts[4].price)
+    }),
+    CartItem.create({
+      id: 2,
+      cartId: carts[0].id,
+      productId: coffeeProducts[10].id,
+      quantity: 1,
+      price: 1 * coffeeProducts[10].price
+    })
+  ])
+
+  console.log(chalk.bgWhite.red.bold(`put ${cartItems.length} items in cart`))
+
+  let newCartTotal = 0
+  
+  cartItems.forEach(item => {
+    newCartTotal += parseFloat(item.price)
+  })
+
+  carts[0].update({ total_amount: newCartTotal })
+  .then(updated => {
+    console.log('UPDATED: ', updated)
+  })
+
 }
 
 seed()
