@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { productApi } from "./slices"
+import { productApi, customerApi } from "./slices"
 import logger from 'redux-logger'
 import { composeWithDevTools } from '@redux-devtools/extension'
 
@@ -8,11 +8,13 @@ const errHandling = store => next => action => {
     return next(action)
   } catch (error) {
     console.error(`Error dispatching action: ${action.type} with payload: ${JSON.stringify(action.payload)}`, error)
+    console.error("productApi", typeof productApi.reducerPath, "customerApi", customerApi.reducerPath)
   }
 }
 
 const reducer = {
-  [productApi.reducerPath]: productApi.reducer
+  [productApi.reducerPath]: productApi.reducer,
+  [customerApi.reducerPath]: customerApi.reducer
 }
 
 const middleware = [
