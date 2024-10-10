@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ProductList } from '../Components'
 
 const Wrapper = styled.div`
 
@@ -7,7 +8,7 @@ const Wrapper = styled.div`
 
 const Homepage = () => (
   <Wrapper>
-    Hello from HomePage
+    <ProductList />
   </Wrapper>
 )
 
