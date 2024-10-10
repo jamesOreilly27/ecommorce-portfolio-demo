@@ -19,6 +19,7 @@ const reducer = {
 
 const middleware = [
   productApi.middleware,
+  customerApi.middleware,
   logger,
   composeWithDevTools,
   errHandling
