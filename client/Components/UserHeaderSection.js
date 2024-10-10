@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CartIcon } from '../Components'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
@@ -13,19 +14,18 @@ const chooseLink = isLoggedIn => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 17vw;
-  margin-left: 20vw;
 `
 
 const Authlink = styled(Link)`
   text-decoration: none;
   font-family: 'Scope One', serif;
-  font-size: 13px;
-`
-
-const Cart = styled(FontAwesomeIcon)`
-  color: #333333;
+  min-height: 70px;
+  min-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const User = styled(FontAwesomeIcon)`
@@ -36,11 +36,9 @@ const User = styled(FontAwesomeIcon)`
 const UserHeaderSection = ({ user }) => (
   <Wrapper>
     <Authlink to={'/account'}>
-      <User icon={faUserCircle} size="2x" />
+      <User icon={faUserCircle} size="3x" />
     </Authlink>
-    <Link to="/cart">
-      <Cart icon={faShoppingCart} size="2x" />
-    </Link>
+    <CartIcon cart={user.cart} />
   </Wrapper>
 )
 

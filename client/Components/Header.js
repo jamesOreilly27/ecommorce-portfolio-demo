@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   height: 20vh;
   background-color: #D2B48C;
+  justify-content: space-around;
 `
 
 const Logo = styled.div`
@@ -13,8 +14,8 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  min-width: 10vw;
-  min-height: 10vw;
+  min-width: 100px;
+  min-height: 100px;
 `
 
 const Header = ({ user }) => (
