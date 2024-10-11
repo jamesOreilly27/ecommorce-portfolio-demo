@@ -2,14 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGetCategoriesQuery } from '../store/slices'
 import { CategoryCard } from  '../Components'
+import { FlexContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
+const Wrapper = styled(FlexContainer)`
   background-color: red;
-  width: 100vw;
   height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 `
 
 const Categories = () => {

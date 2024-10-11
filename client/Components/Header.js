@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Navbar, UserHeaderSection } from '../Components'
+import { FlexContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
-  display: flex;
-  height: 20vh;
+const Wrapper = styled(FlexContainer)`
+  height: 15.5vh;
   background-color: #D2B48C;
-  justify-content: space-around;
 `
 
 const Logo = styled.div`
@@ -14,8 +13,8 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 80px;
+  max-height: 80px;
 `
 
 const Header = ({ user }) => (

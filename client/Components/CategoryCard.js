@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FlexColContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
+const Wrapper = styled(FlexColContainer)`
   border-radius: 30px;
-  min-height: 100%;
-  min-width: 24%;
-  background-color: yellow;
+  min-height: 80%;
+  min-width: 30%;
+  background-color: green;
   padding: 0.2em;
-  margin: .5em;
+  margin: 0.2em;
 `
 
 const CategoryCard = ({ category }) => (

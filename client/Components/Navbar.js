@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Navlink } from '../Components'
+import { FlexContainer } from './styled-components/layout'
 
-const Wrapper = styled.nav`
-  display: flex;
-  justify-content: space-around;
-  width: 55%;
-  margin-left: -3vw;
+const Wrapper = styled(FlexContainer)`
+  width: 60%;
 `
 
 const navItems = [
