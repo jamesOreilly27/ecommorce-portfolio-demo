@@ -4,7 +4,7 @@ export const categoryApi = createApi({
   reducerPath: 'categoryApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api/categories'}),
   endpoints: builder => ({
-    getCategories: buulder.query({
+    getCategories: builder.query({
       query: () => '',
       transformResponse: response => response
     })
