@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useGetCategoriesQuery } from '../store/slices'
+import { CategoryCard } from  '../Components'
 
 const Wrapper = styled.div`
   background-color: red;
@@ -7,10 +9,24 @@ const Wrapper = styled.div`
   height: 50vh;
 `
 
-const Categories = () => (
-  <Wrapper>
-    This is a container for categories
-  </Wrapper>
-)
+const Categories = () => {
+  const { data, isLoading, isError } = useGetCategoriesQuery()
+
+  if(isLoading) {
+    return ( <div> Loading... </div> )
+  }
+
+  if(isError) {
+    return ( <div> Error Fetching Data </div> )
+  }
+
+  return (
+    <Wrapper>
+      {data.map(category =>
+        <CategoryCard category={category} />
+      )}
+    </Wrapper>
+  )
+}
 
 export default Categories
