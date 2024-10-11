@@ -11,7 +11,6 @@ const Wrapper = styled(FlexColContainer)`
 
 const Image = styled(FlexContainer)`
   background-color: white;
-  height: 50%;
   width: 100%;
   align-items: center;
   flex: 2;

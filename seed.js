@@ -153,7 +153,6 @@ async function seed() {
       description: "Learn everything there is to know about coffee with this beautifully illustrated coffee table book.",
       price: 29.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
-      featured: true
     }),
   
     // Product 16 - Coffee Subscription
@@ -174,7 +173,7 @@ async function seed() {
   
     // Product 18 - Coffee Cake
     Product.create({
-      name: "Moist Coffee Cake with Chocolate Chips",
+      name: "Moist Coffee Cake",
       description: "Enjoy a delicious and decadent coffee cake with moist cake and chocolate chips. Perfect for a morning treat or afternoon snack.",
       price: 8.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
@@ -196,6 +195,7 @@ async function seed() {
       description: "Pamper yourself with our coffee scented soap. Made with natural ingredients and perfect for a luxurious bath time experience.",
       price: 8.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
     })
   ])
     
