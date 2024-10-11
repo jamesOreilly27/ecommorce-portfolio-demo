@@ -14,15 +14,15 @@ const chooseLink = isLoggedIn => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 17vw;
+  justify-content: space-between;
+  width: 19vw;
 `
 
 const Authlink = styled(Link)`
   text-decoration: none;
   font-family: 'Scope One', serif;
-  min-height: 70px;
-  min-width: 70px;
+  max-height: 48px;
+  max-width: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
