@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  height: 80vh;
+  height: 70vh;
   width: 100vw;
 `
 
@@ -13,7 +13,7 @@ const Image = styled.img`
 
 const Banner = () => (
   <Wrapper>
-    <Image src="/images/banner.jpeg" />
+    <Image src="/images/banner.jpg" />
   </Wrapper>
 )
 
