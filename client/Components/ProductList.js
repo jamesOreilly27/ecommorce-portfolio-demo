@@ -1,5 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useGetProductsQuery } from "../store/slices/productSlice"
+import { ProductCard } from '../Components'
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`
 
 const ProductList = () => {
   const { data, isLoading, isError } = useGetProductsQuery()
@@ -12,11 +20,11 @@ const ProductList = () => {
   }
 
   return (
-    <ul>
+    <Wrapper>
       {data.map(product => {
-        return <li key={product.id}> {product.name} </li>
+        return ( <ProductCard key={product.id} product={product} /> )
       })}
-    </ul>
+    </Wrapper>
   )
 }
 
