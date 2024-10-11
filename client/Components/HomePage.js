@@ -1,15 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Banner, Categories } from '../Components'
+import { Banner, Categories, ProductList } from '../Components'
+import { Container } from './styled-components/layout'
 
 const Wrapper = styled.div`
+  
+`
 
+const FeatProducts = styled(Container)`
+  background-color: #D2B48C;
+  width: 100vw;
 `
 
 const Homepage = () => (
   <Wrapper>
     <Banner />
-    <Categories featured />
+    <Categories />
+    <FeatProducts>
+      <ProductList featured />
+    </FeatProducts>
   </Wrapper>
 )
 
