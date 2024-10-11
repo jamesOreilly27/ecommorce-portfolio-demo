@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 
-const ProductList = () => {
+const ProductList = ({ featured }) => {
   const { data, isLoading, isError } = useGetProductsQuery()
   if(isLoading) {
     return <div> Loading... </div>
@@ -19,9 +19,13 @@ const ProductList = () => {
     return <div> Error fetching data </div>
   }
 
+  const filteredProducts = featured
+  ? data.filter((product) => product.featured === true) // Filter for featured products
+  : data; // Render all products if featured is false
+
   return (
     <Wrapper>
-      {data.map(product => {
+      {filteredProducts.map(product => {
         return ( <ProductCard key={product.id} product={product} /> )
       })}
     </Wrapper>

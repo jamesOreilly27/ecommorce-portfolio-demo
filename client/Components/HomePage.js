@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const Homepage = () => (
   <Wrapper>
     <Banner />
-    <ProductList />
+    <ProductList featured />
   </Wrapper>
 )
 
