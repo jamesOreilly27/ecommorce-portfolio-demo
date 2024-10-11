@@ -7,6 +7,9 @@ const Wrapper = styled.div`
   background-color: red;
   width: 100vw;
   height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `
 
 const Categories = () => {
