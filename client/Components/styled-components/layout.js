@@ -13,3 +13,7 @@ export const FlexColContainer = styled(Container)`
   display: flex;
   flex-direction: column;
 `
+
+export const Title = styled.h1`
+  font-size: 20px;
+`

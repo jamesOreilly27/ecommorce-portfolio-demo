@@ -5,8 +5,7 @@ import { CategoryCard } from  '../Components'
 import { FlexContainer } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
-  background-color: red;
-  height: 50vh;
+  
 `
 
 const Categories = () => {
@@ -23,7 +22,7 @@ const Categories = () => {
   return (
     <Wrapper>
       {data.map(category =>
-        <CategoryCard category={category} />
+        <CategoryCard key={category.id} category={category} />
       )}
     </Wrapper>
   )
