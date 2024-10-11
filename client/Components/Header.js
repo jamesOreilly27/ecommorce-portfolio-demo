@@ -21,6 +21,7 @@ const Header = ({ user }) => (
   <Wrapper>
     <Logo />
     <Navbar />
+
     <UserHeaderSection user={user} />
   </Wrapper>
 )

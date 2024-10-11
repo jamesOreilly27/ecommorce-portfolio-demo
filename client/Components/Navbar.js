@@ -4,13 +4,13 @@ import { Navlink } from '../Components'
 import { FlexContainer } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
-  width: 60%;
+  font-size: 14px;
 `
 
 const navItems = [
   { name: 'Shop', linkTo: '/collections' },
   { name: 'Subscribe', linkTo: '/subscribe' },
-  { name: 'About Us', linkTo: '/about' }
+  { name: 'Gifts', linkTo: '/gifts' }
 ]
 
 const Navbar = () => (
