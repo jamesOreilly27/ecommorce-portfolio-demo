@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Navbar, UserHeaderSection } from '../Components'
+import { Navbar, IconLink } from '../Components'
 import { FlexContainer } from './styled-components/layout'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart'
 
 const Wrapper = styled(FlexContainer)`
-  height: 15.5vh;
+  height: 12vh;
   background-color: #D2B48C;
 `
 
@@ -13,16 +15,16 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  min-width: 80px;
-  max-height: 80px;
+  min-width: 60px;
+  flex: 1;
 `
 
 const Header = ({ user }) => (
   <Wrapper>
     <Logo />
     <Navbar />
-
-    <UserHeaderSection user={user} />
+    <IconLink icon={faUserCircle} user={user} />
+    <IconLink icon={faShoppingCart} user={user} />
   </Wrapper>
 )
 

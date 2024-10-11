@@ -5,6 +5,7 @@ import { FlexContainer } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
   font-size: 14px;
+  flex: 6;
 `
 
 const navItems = [
