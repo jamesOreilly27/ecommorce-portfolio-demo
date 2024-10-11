@@ -1,3 +1,9 @@
+import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram'
+import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube'
+import { faCcVisa } from '@fortawesome/free-brands-svg-icons/faCcVisa'
+
 const mainMenu = {
   title: 'Menu',
   links: [
@@ -25,39 +31,32 @@ const contactMenu = {
   title: "Get in Touch",
   links: [
     { name: '555-555-5555', to: '/' },
-    { name: 'Email us', to: "/" }
-  ]
-}
-
-const hoursMenu = {
-  title: "Business Hours",
-  links: [
+    { name: 'Email Us', to: "/" }
+  ],
+  title2: "Business Hours",
+  links2: [
     { name: "Mon-Fri: 9am - 5pm ET", to:'/' }
+  ],
+  title3: "Follow Us",
+  links3: [
+    { icon: faInstagram, to: 'instagram.com' },
+    { icon: faFacebook, to: 'facebook.com' },
+    { icon: faYoutube, to: 'youtube.com' },
+    { icon: faTwitter, to: 'twitter.com' }
   ]
 }
 
-const followUsMenu = {
-  name: "Follow Us",
+const cardMenu = {
+  title: "We Accept",
   links: [
-    { name: "Instagram", to: 'instagram.com' },
-    { name: "Facebook", to: 'facebook.com' },
-    { name: "youtube", to: 'youtube.com' },
-    { name: "Twitter", to: 'twitter.com' }
-  ]
+    {icon: faCcVisa, to: "/"}
+  ],
+  cards: true
 }
-
-// const cardMenu = {
-//   name: "We Accept",
-//   links: [
-//     {name: 
-//     }
-//   ]
-// }
 
 export const FooterMenus = [
   mainMenu,
   policyMenu,
   contactMenu,
-  hoursMenu,
-  followUsMenu
+  cardMenu
 ]
