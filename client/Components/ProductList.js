@@ -6,7 +6,6 @@ import { ProductCard } from '../Components'
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
 `
 
 const ProductList = ({ featured }) => {
