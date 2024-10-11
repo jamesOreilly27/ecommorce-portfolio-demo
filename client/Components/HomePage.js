@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProductList, Banner } from '../Components'
+import { Banner, Categories } from '../Components'
 
 const Wrapper = styled.div`
 
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const Homepage = () => (
   <Wrapper>
     <Banner />
-    <ProductList featured />
+    <Categories featured />
   </Wrapper>
 )
 
