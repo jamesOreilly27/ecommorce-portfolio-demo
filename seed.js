@@ -144,6 +144,7 @@ async function seed() {
       description: "Give the gift of coffee with our curated coffee gift set. Includes a variety of coffee beans, a mug, and a coffee grinder.",
       price: 69.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
     }),
   
     // Product 15 - Coffee Table Book
@@ -152,6 +153,7 @@ async function seed() {
       description: "Learn everything there is to know about coffee with this beautifully illustrated coffee table book.",
       price: 29.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
     }),
   
     // Product 16 - Coffee Subscription
@@ -176,6 +178,7 @@ async function seed() {
       description: "Enjoy a delicious and decadent coffee cake with moist cake and chocolate chips. Perfect for a morning treat or afternoon snack.",
       price: 8.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
     }),
   
     // Product 19 - Coffee Body Scrub
@@ -184,6 +187,7 @@ async function seed() {
       description: "Exfoliate and invigorate your skin with our coffee bean body scrub. Made with natural ingredients and perfect for a spa-like experience.",
       price: 12.99,
       image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
     }),
   
     // Product 20 - Coffee Soap
@@ -675,9 +679,6 @@ async function seed() {
   })
 
   carts[0].update({ total_amount: newCartTotal })
-  .then(updated => {
-    console.log('UPDATED: ', updated)
-  })
 
 }
 

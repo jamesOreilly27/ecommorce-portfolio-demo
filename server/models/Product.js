@@ -24,6 +24,10 @@ const Product = db.define('product', {
   is_active: {
     type: Sequelize.BOOLEAN,
     defaultValue: true
+  },
+  featured: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
