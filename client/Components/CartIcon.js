@@ -19,7 +19,7 @@ const Wrapper = styled(Link)`
  const Cart = styled(FontAwesomeIcon)`
   color: #333333;
 `
-const Quantity = styled.div`
+const QuantityBubble = styled.div`
   position: absolute;
   background-color: #896A41;
   border-radius: 50%;
@@ -36,9 +36,9 @@ const CartIcon = ({ cart }) => (
   <Wrapper>
     {console.log('CART: ', cart)}
     <Cart icon={faShoppingCart} size="3x" />
-    <Quantity>
+    <QuantityBubble>
       {cart['cart-items'].length}
-    </Quantity>
+    </QuantityBubble>
   </Wrapper>
 )
 
