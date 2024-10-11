@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   height: 30vh;
-  width: 24%;
-  padding: 0.5%;
+  width: 25%;
 `
 
 const ProductCard = ({ product }) => (

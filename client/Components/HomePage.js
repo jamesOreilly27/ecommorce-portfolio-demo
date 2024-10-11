@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Banner, Categories, ProductList } from '../Components'
-import { Container } from './styled-components/layout'
+import { Container, Title } from './styled-components/layout'
 
 const Wrapper = styled.div`
   
@@ -12,11 +12,17 @@ const FeatProducts = styled(Container)`
   width: 100vw;
 `
 
+const SectionTitle = styled(Title)`
+  display: flex;
+  justify-content: center;
+`
+
 const Homepage = () => (
   <Wrapper>
     <Banner />
     <Categories />
     <FeatProducts>
+      <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
     </FeatProducts>
   </Wrapper>
