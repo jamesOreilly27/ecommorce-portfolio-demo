@@ -23,8 +23,8 @@ const Header = ({ user }) => (
   <Wrapper>
     <Logo />
     <Navbar />
-    <IconLink icon={faUserCircle} route="/account" user={user} />
-    <IconLink icon={faShoppingCart} route="/cart" user={user} isCart />
+    <IconLink icon={faUserCircle} route="/account" user={user} size="2x" />
+    <IconLink icon={faShoppingCart} route="/cart" user={user} size="2x" isCart />
   </Wrapper>
 )
 

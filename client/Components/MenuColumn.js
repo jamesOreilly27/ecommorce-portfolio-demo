@@ -33,6 +33,12 @@ const Link = styled(NoDecLink)`
   padding-bottom: 15px;
 `
 
+const CardContainer = styled(FlexContainer)`
+  padding: 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`
+
 const MenuColumn = ({ menu }) => {
   if(menu.cards) {
     return (
@@ -40,11 +46,13 @@ const MenuColumn = ({ menu }) => {
         <Header>
           {menu.title}
         </Header>
-        {menu.links.map(link => (
-          <IconLink icon={link.icon} user="" route={link.to}>
-            {link.name}
-          </IconLink>
-        ))}
+        <CardContainer>
+          {menu.links.map(link => (
+            <IconLink icon={link.icon} user="" route={link.to} size="2x">
+              {link.name}
+            </IconLink>
+          ))}
+        </CardContainer>
       </Wrapper>
     )
   } else {
@@ -78,7 +86,7 @@ const MenuColumn = ({ menu }) => {
               <IconContainer>
                 {menu.links3.map(link => {
                   return (
-                    <IconLink icon={link.icon} user="" route={link.to}>
+                    <IconLink icon={link.icon} user="" route={link.to} size="2x" >
                       {link.name}
                     </IconLink>
                   )

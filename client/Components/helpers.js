@@ -3,6 +3,13 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube'
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons/faCcVisa'
+import { faCcAmex } from '@fortawesome/free-brands-svg-icons/faCcAmex'
+import { faCcDiscover } from '@fortawesome/free-brands-svg-icons/faCcDiscover'
+import { faPaypal } from '@fortawesome/free-brands-svg-icons/faPaypal'
+import { faCcMastercard } from '@fortawesome/free-brands-svg-icons/faCcMastercard'
+import { faCcDinersClub } from '@fortawesome/free-brands-svg-icons/faCcDinersClub'
+import { faCcApplePay } from '@fortawesome/free-brands-svg-icons/faCcApplePay'
+import { faCcAmazonPay } from '@fortawesome/free-brands-svg-icons/faCcAmazonPay'
 
 const mainMenu = {
   title: 'Menu',
@@ -49,7 +56,14 @@ const contactMenu = {
 const cardMenu = {
   title: "We Accept",
   links: [
-    {icon: faCcVisa, to: "/"}
+    { icon: faCcVisa, to: "/" },
+    { icon: faCcAmex, to: "/" },
+    { icon: faCcDiscover, to: '/' },
+    { icon: faCcMastercard, to: '/' },
+    { icon: faCcDinersClub, to: '/' },
+    { icon: faPaypal, to: '/' },
+    { icon: faCcApplePay, to: '/' },
+    { icon: faCcAmazonPay, to: '/' }
   ],
   cards: true
 }

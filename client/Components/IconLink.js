@@ -8,6 +8,7 @@ const Wrapper = styled(FlexContainer)`
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 0.2em;
 `
 
 const Link = styled(NoDecLink)`
@@ -16,8 +17,7 @@ const Link = styled(NoDecLink)`
 `
 
 const Icon = styled(FontAwesomeIcon)`
-  max-height: 20px;
-  max-width: 20px;
+  padding: 0;
 `
 
 const QuantityBubble = styled(FlexContainer)`
@@ -32,10 +32,10 @@ const QuantityBubble = styled(FlexContainer)`
   right: -0.3em;
 `
 
-const IconLink = ({ icon, user, route, isCart }) => (
+const IconLink = ({ icon, user, route, size, isCart }) => (
   <Wrapper>
     <Link to={route}>
-      <Icon icon={icon} size="2x"/>
+      <Icon icon={icon} size={size} />
     </Link>
     {isCart&&
       <QuantityBubble>
