@@ -4,8 +4,9 @@ import { Navlink } from '../Components'
 import { FlexContainer } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
-  font-size: 14px;
+  font-size: 18px;
   flex: 6;
+  padding: 0.7em;
 `
 
 const navItems = [

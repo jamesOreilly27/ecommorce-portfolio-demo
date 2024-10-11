@@ -12,5 +12,4 @@ export const FlexContainer = styled(Container)`
 export const FlexColContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  align-items: 
 `

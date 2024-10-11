@@ -1,18 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FlexColContainer } from './styled-components/layout'
 import { Link } from 'react-router-dom'
 
-const Container = styled.div`
+const Container = styled(FlexColContainer)`
   border-radius: .3em;
-  height: 90%;
-  width: 25%;
   padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #333333;
   &:hover {
-    background-color: #8D693A;
     color: #FFFAFA;
     transition: all .7s;
   }
