@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart'
 
 const Wrapper = styled(Link)`
-  text-decoration: none;
   font-family: 'Scope One', serif;
   color: #F8F8F8;
   max-height: 48px;

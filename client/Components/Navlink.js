@@ -4,7 +4,6 @@ import { FlexColContainer } from './styled-components/layout'
 import { Link } from 'react-router-dom'
 
 const Container = styled(FlexColContainer)`
-  border-radius: .3em;
   padding: 5px;
   color: #333333;
   &:hover {
