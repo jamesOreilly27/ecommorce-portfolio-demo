@@ -468,6 +468,7 @@ async function seed() {
     Category.create({
       name: 'Ground Coffee',
       description: 'Pre-ground coffee, ready to brew.',
+      featured: true
     }),
     Category.create({
       name: 'Coffee Beans',
@@ -487,11 +488,13 @@ async function seed() {
     }),
     Category.create({
       name: "Gifts",
-      description: "From soaps and bodywash to monthly subcriptions, we have everything the coffee fanatic in your life needs."
+      description: "From soaps and bodywash to monthly subcriptions, we have everything the coffee fanatic in your life needs.",
+      featured: true
     }),
     Category.create({
       name: "Treats",
-      description: "satisy your sweet tooth"
+      description: "satisy your sweet tooth",
+      featured: true
     }),
     Category.create({
       name: "Pods",

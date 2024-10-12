@@ -13,6 +13,10 @@ const Category = db.define('category', {
   },
   description: {
     type: Sequelize.TEXT
+  },
+  featured: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
