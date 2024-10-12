@@ -3,10 +3,39 @@ import styled from 'styled-components'
 import { useSelector, useDispatch, useState } from 'react-redux'
 import { incrementIndex, decrementIndex } from '../store/slices'
 import { ReviewCard } from '../Components'
-import { FlexContainer } from './styled-components/layout'
+import { FlexContainer, FlexColContainer } from './styled-components/layout'
 
-const Wrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexColContainer)`
 
+`
+
+const ReviewSection = styled(FlexContainer)`
+  position: relative;
+  height: 60vh;
+  background-color: #00356b;
+  width: 100vw;
+`
+
+const CenterReview = styled.div`
+  position: absolute;
+  min-width: 37.5%;
+  opacity: 1;
+  z-index: 2;
+  transform: translateX(0);
+  border: 1px solid red;
+`
+
+const LeftReview = styled.div`
+  position: absolute;
+  min-width: 32%;
+  opacity: 0.7;
+  z-index: 1;
+  transform: translateX(-80%);
+  border: 1px solid red;
+`
+
+const RightReview = styled(LeftReview)`
+  transform: translateX(80%);
 `
 
 const CustomerReviews = ({ reviews }) => {
@@ -28,8 +57,6 @@ const CustomerReviews = ({ reviews }) => {
   }
 
   const visibleReviews = setVisibleReviews(reviews)
-
-  console.log(visibleReviews)
   const maxIndex = reviews.length - 1
 
   const handleLeftClick = () => {
@@ -46,9 +73,17 @@ const CustomerReviews = ({ reviews }) => {
 
   return (
     <Wrapper>
-      {visibleReviews.map(review => {
-        return <ReviewCard review={review} />
-      })}
+      <ReviewSection>
+        <LeftReview>
+          <ReviewCard review={reviews[currentIndex - 1]} />
+        </LeftReview>
+        <CenterReview>
+          <ReviewCard review={reviews[currentIndex]} />
+        </CenterReview>
+        <RightReview>
+          <ReviewCard review={reviews[currentIndex + 1]} />
+        </RightReview>
+      </ReviewSection>
     </Wrapper>
   )
 }
