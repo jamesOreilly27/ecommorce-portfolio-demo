@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { shuffle } from './helpers'
+import { getRandomIndices } from './helpers'
 
 export const reviewApi = createApi({
   reducerPath: 'reviewApi',
@@ -11,10 +11,7 @@ export const reviewApi = createApi({
     }),
     topReviews: builder.query({
       query: () => '/five-star',
-      transformResponse: response => {
-        console.log('RESPONSE: ', shuffle(response).slice(0,6))
-        return shuffle(response).slice(0, 6)
-      }
+      transformResponse: response => getRandomIndices(response, 6)
     })
   })
 })
