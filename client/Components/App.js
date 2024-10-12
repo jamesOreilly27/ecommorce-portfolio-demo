@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Footer, HomePage, AccountHome } from '../Components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useGetMeQuery, useGetReviewsQuery } from '../store/slices'
+import { useGetMeQuery, useTopReviewsQuery } from '../store/slices'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const App = () => {
   const { data: userData, isLoading: userFetchLoading, isError: userFetchError } = useGetMeQuery(1)
-  const { data: reviewData, isLoading: reviewFetchLoading, isError: reviewFetchError } = useGetReviewsQuery()
+  const { data: reviewData, isLoading: reviewFetchLoading, isError: reviewFetchError } = useTopReviewsQuery()
 
   if(userFetchLoading || reviewFetchLoading) {
     return ( <div> Loading... </div> )
