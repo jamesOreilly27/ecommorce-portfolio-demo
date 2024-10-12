@@ -2,6 +2,7 @@ const db = require('./server/db.js')
 const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem } = require('./server/models')
 const chalk = require('chalk')
 
+
 const genRandomNum = () => {
   return Math.floor(Math.random() * 9) + 1
 }
@@ -9,27 +10,47 @@ const genRandomNum = () => {
 async function seed() {
   await db.sync({ force: true });
 
+  const numCustomers = 20
+  const customers = []
+
+  for (let i = 0; i < numCustomers; i++) {
+    const firstName = `Customer${i + 1}` // Generate unique first names
+    const lastName = `Lastname${i + 1}` // Use faker for random last names
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`
+
+    customers.push(new Promise((resolve, reject) => {
+      Customer.create({
+        first_name: firstName,
+        last_name: lastName,
+        email
+      }, (err, customer) => {
+          if(err) { reject(err) }
+          else { resolve(customer) }
+          })
+      }))
+    }
+
   // Create Customers
-  const customers = await Promise.all([
-    Customer.create({
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'johndoe@example.com',
-      password: 'hashed_password',
-      address: '123 Main St',
-      town: 'Anytown',
-      zip_code: '12345',
-    }),
-    Customer.create({
-      first_name: 'Jane',
-      last_name: 'Smith',
-      email: 'janesmith@example.com',
-      password: 'hashed_password',
-      address: '456 Elm St',
-      town: 'Cityville',
-      zip_code: '54321'
-    }),
-  ])
+  // const customers = await Promise.all([
+  //   Customer.create({
+  //     first_name: 'John',
+  //     last_name: 'Doe',
+  //     email: 'johndoe@example.com',
+  //     password: 'hashed_password',
+  //     address: '123 Main St',
+  //     town: 'Anytown',
+  //     zip_code: '12345',
+  //   }),
+  //   Customer.create({
+  //     first_name: 'Jane',
+  //     last_name: 'Smith',
+  //     email: 'janesmith@example.com',
+  //     password: 'hashed_password',
+  //     address: '456 Elm St',
+  //     town: 'Cityville',
+  //     zip_code: '54321'
+  //   }),
+  // ])
 
   console.log(chalk.red.bgWhite.bold(`seeded ${customers.length} customers`))
 
