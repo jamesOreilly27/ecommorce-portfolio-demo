@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { productApi, customerApi, categoryApi, reviewApi } from "./slices"
+import reviewSlider from "./slices/reviewSlider"
 import logger from 'redux-logger'
 import { composeWithDevTools } from '@redux-devtools/extension'
 
@@ -15,7 +16,8 @@ const reducer = {
   [productApi.reducerPath]: productApi.reducer,
   [customerApi.reducerPath]: customerApi.reducer,
   [categoryApi.reducerPath]: categoryApi.reducer,
-  [reviewApi.reducerPath]: reviewApi.reducer
+  [reviewApi.reducerPath]: reviewApi.reducer,
+  reviewSlider
 }
 
 const middleware = [
