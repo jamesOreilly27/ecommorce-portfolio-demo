@@ -9,7 +9,7 @@ export const NoDecLink = styled(Link)`
 export const Button = styled.button`
   width: ${({ width }) => `${width}%`};
   height: ${({ height }) => `${height}px`};
-  background-color: ${({ backgroundColor }) => backgroundColor };
+  background-color: #333333;
   color: #F8F8FF;
   border-radius: 4px;
   border: 1px solid #F8F8FF;

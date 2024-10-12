@@ -9,8 +9,9 @@ const Wrapper = styled(FlexColContainer)`
   align-items: center;
 `
 
-const Image = styled(FlexContainer)`
-  background-color: white;
+const Image = styled.img`
+  display: flex;
+  justify-content: space-evenly;
   width: 100%;
   align-items: center;
   flex: 2;
@@ -22,18 +23,18 @@ const CardTitle = styled(Title)`
   align-items: center;
 `
 
-const CategoryCard = ({ category }) => (
-  <Wrapper>
-    <Image>
-      Image placeholder
-    </Image>
-    <CardTitle>
-      {category.name}
-    </CardTitle>
-    <Button width={57} height={35} backgroundColor='#8DABD3'>
-      shop now
-    </Button>
-  </Wrapper>
-)
+const CategoryCard = ({ category, imgSource }) => {
+  return (
+    <Wrapper>
+      <Image src={imgSource} />
+      <CardTitle>
+        {category.name}
+      </CardTitle>
+      <Button width={57} height={35}>
+        Shop Now
+      </Button>
+    </Wrapper>
+  )
+}
 
 export default CategoryCard

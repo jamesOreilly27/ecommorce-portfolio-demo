@@ -26,7 +26,7 @@ const Homepage = () => (
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
-      <Button height={35} width={13} backgroundColor='green'>
+      <Button height={35} width={13}>
         view all
       </Button>
     </FeatProducts>

@@ -22,7 +22,7 @@ const Categories = () => {
   return (
     <Wrapper>
       {data.map(category =>
-        <CategoryCard key={category.id} category={category} />
+        <CategoryCard key={category.id} category={category} imgSource={`/images/${category.name}.png`} />
       )}
     </Wrapper>
   )
