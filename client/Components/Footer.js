@@ -12,7 +12,6 @@ const Wrapper = styled(FlexContainer)`
 const Footer = () => (
   <Wrapper>
     {FooterMenus.map(menu => {
-      console.log('MENU: ', menu)
       return <MenuColumn key={menu.title} menu={menu} />
     })}
   </Wrapper>

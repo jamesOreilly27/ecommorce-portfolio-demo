@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const reviewApi = create({
+export const reviewApi = createApi({
   reducerPath: 'reviewApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api/reviews'}),
   endpoints: builder => ({
@@ -11,4 +11,4 @@ export const reviewApi = create({
   })
 })
 
-export const { useGetRewviewsQuery } = reviewApi
+export const { useGetReviewsQuery } = reviewApi

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { productApi, customerApi, categoryApi } from "./slices"
+import { productApi, customerApi, categoryApi, reviewApi } from "./slices"
 import logger from 'redux-logger'
 import { composeWithDevTools } from '@redux-devtools/extension'
 
@@ -14,13 +14,15 @@ const errHandling = store => next => action => {
 const reducer = {
   [productApi.reducerPath]: productApi.reducer,
   [customerApi.reducerPath]: customerApi.reducer,
-  [categoryApi.reducerPath]: categoryApi.reducer
+  [categoryApi.reducerPath]: categoryApi.reducer,
+  [reviewApi.reducerPath]: reviewApi.reducer
 }
 
 const middleware = [
   productApi.middleware,
   customerApi.middleware,
   categoryApi.middleware,
+  reviewApi.middleware,
   logger,
   composeWithDevTools,
   errHandling

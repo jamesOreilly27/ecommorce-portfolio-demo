@@ -5,9 +5,11 @@ const Wrapper = styled.div`
 
 `
 
-const CustomerReviews = () => (
+const CustomerReviews = ({ reviews }) => (
   <Wrapper>
-    Hello from CustomerReviews
+    {reviews.map(review => {
+      return ( <div> {review.comment} </div> )
+    })}
   </Wrapper>
 )
 

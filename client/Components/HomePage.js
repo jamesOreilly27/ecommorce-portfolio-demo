@@ -19,8 +19,9 @@ const SectionTitle = styled(Title)`
   justify-content: center;
 `
 
-const Homepage = () => (
+const Homepage = ({ reviews }) => (
   <Wrapper>
+    {console.log('REVIEWS: ', reviews)}
     <Banner />
     <Categories />
     <FeatProducts>
@@ -30,7 +31,7 @@ const Homepage = () => (
         view all
       </Button>
     </FeatProducts>
-    <CustomerReviews />
+    <CustomerReviews reviews={reviews} />
   </Wrapper>
 )
 
