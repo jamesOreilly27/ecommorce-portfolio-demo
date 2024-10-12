@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useFeaturdCategoriesQuery } from '../store/slices'
+import { useFeaturedCategoriesQuery } from '../store/slices'
 import { CategoryCard } from  '../Components'
 import { FlexContainer } from './styled-components/layout'
 
@@ -9,7 +9,7 @@ const Wrapper = styled(FlexContainer)`
 `
 
 const Categories = () => {
-  const { data, isLoading, isError } = useFeaturdCategoriesQuery()
+  const { data, isLoading, isError } = useFeaturedCategoriesQuery()
 
   if(isLoading) {
     return ( <div> Loading... </div> )

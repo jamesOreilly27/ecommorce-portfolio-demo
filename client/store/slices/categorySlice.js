@@ -8,11 +8,11 @@ export const categoryApi = createApi({
       query: () => '',
       transformResponse: response => response
     }),
-    feturedCategories: builder.query({
+    featuredCategories: builder.query({
       query: () => "/featured",
       transformResponse: response => response
     })
   })
 })
 
-export const { useGetCategoriesQuery, useFeaturdCategoriesQuery } = categoryApi
+export const { useGetCategoriesQuery, useFeaturedCategoriesQuery } = categoryApi
