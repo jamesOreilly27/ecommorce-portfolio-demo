@@ -12,8 +12,6 @@ const CustomerReviews = ({ reviews }) => {
   const currentIndex = useSelector(state => state.reviewSlider.currentIndex)
   const dispatch = useDispatch()
 
-  console.log('CURRENTINDEX: ', currentIndex)
-
   const maxIndex = reviews.length - 1
 
   const handleLeftClick = () => {
