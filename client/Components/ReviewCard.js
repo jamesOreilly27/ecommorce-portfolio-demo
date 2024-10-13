@@ -5,8 +5,6 @@ import { FlexContainer } from './styled-components/layout'
 const Wrapper = styled(FlexContainer)`
   justify-content: center;
   align-items: center;
-  height: 55vh;
-  background-color: white;
   width: 100%;
 `
 

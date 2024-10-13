@@ -21,7 +21,6 @@ const SectionTitle = styled(Title)`
 
 const Homepage = ({ reviews }) => (
   <Wrapper>
-    {console.log('REVIEWS: ', reviews)}
     <Banner />
     <Categories />
     <FeatProducts>

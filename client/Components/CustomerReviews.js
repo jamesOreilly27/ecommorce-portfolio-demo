@@ -1,52 +1,71 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector, useDispatch, useState } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { incrementIndex, decrementIndex } from '../store/slices'
-import { ReviewCard } from '../Components'
+import { ReviewCard, IndexIndicator } from '../Components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
+import { Button } from './styled-components/clickables'
 
 const Wrapper = styled(FlexColContainer)`
-
-`
-
-const ReviewSection = styled(FlexContainer)`
-  position: relative;
-  height: 60vh;
+  height: 77vh;
   background-color: #00356b;
   width: 100vw;
 `
 
-const CenterReview = styled.div`
+const ReviewSection = styled(FlexContainer)`
+  position: relative;
+  margin-top: 32vh;
+  align-items: center;
+`
+
+const ButtonsSection = styled(FlexContainer)`
+  z-index:3;
+  justify-content: space-between;
+`
+
+const CenterReview = styled(FlexContainer)`
   position: absolute;
-  min-width: 37.5%;
+  width: 36vw;
+  height: 65vh;
   opacity: 1;
   z-index: 2;
   transform: translateX(0);
-  border: 1px solid red;
+  background-color: white;
 `
 
-const LeftReview = styled.div`
+const LeftReview = styled(FlexContainer)`
   position: absolute;
-  min-width: 32%;
+  width: 30vw;
+  height: 55vh;
+  background-color: white;
   opacity: 0.7;
   z-index: 1;
-  transform: translateX(-80%);
-  border: 1px solid red;
+  transform: translateX(-100%);
 `
 
 const RightReview = styled(LeftReview)`
-  transform: translateX(80%);
+  transform: translateX(100%);
+`
+
+const IndexIndicatorSection = styled(FlexContainer)`
+  margin-top: 25vh;
 `
 
 const CustomerReviews = ({ reviews }) => {
-  const currentIndex = useSelector(state => state.reviewSlider.currentIndex)
+  const { currentIndex, currentPage } = useSelector(state => state.reviewSlider)
   const dispatch = useDispatch()
 
-  const setVisibleReviews = reviews => {
+  const chooseActivePage = () => {
+    return reviews.map((_, index) => ({
+      id: index + 1,
+      isActive: index + 1 === currentPage,
+    }))
+  }
+  
+  const setVisibleReviews = () => {
     const lastIndex = reviews.length - 1
-    const firstIndex = reviews[0]
     if(currentIndex === 0) {
-      return [reviews[lastIndex], reviews[firstIndex], reviews[firstIndex+1]]
+      return [reviews[lastIndex], reviews[0], reviews[1]]
     }
 
     if(currentIndex === lastIndex) {
@@ -56,7 +75,7 @@ const CustomerReviews = ({ reviews }) => {
     return reviews.slice(currentIndex - 1, currentIndex + 2)
   }
 
-  const visibleReviews = setVisibleReviews(reviews)
+  const visibleReviews = setVisibleReviews()
   const maxIndex = reviews.length - 1
 
   const handleLeftClick = () => {
@@ -75,15 +94,26 @@ const CustomerReviews = ({ reviews }) => {
     <Wrapper>
       <ReviewSection>
         <LeftReview>
-          <ReviewCard review={reviews[currentIndex - 1]} />
+          <ReviewCard review={visibleReviews[0]} />
         </LeftReview>
         <CenterReview>
-          <ReviewCard review={reviews[currentIndex]} />
+          <ReviewCard review={visibleReviews[1]} />
         </CenterReview>
         <RightReview>
-          <ReviewCard review={reviews[currentIndex + 1]} />
+          <ReviewCard review={visibleReviews[2]} />
         </RightReview>
       </ReviewSection>
+      <ButtonsSection>
+        <Button width={15} height={40} onClick={handleLeftClick}>
+          Decrement
+        </Button>
+        <Button width={15} height={40} onClick={handleRightClick}>
+          Increment
+        </Button>
+      </ButtonsSection>
+      <IndexIndicatorSection>
+        <IndexIndicator pages={chooseActivePage()} />
+      </IndexIndicatorSection>
     </Wrapper>
   )
 }
