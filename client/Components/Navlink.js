@@ -32,11 +32,10 @@ const Navlink = ({ item }) => {
 
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {console.log('TESTING: ', item.dropdownList)}
       <StyledLink to={item.linkTo}>
         {item.name}
       </StyledLink>
-      <DropdownMenu menu={item.dropdownList} render={willRenderDropdown()}/>
+      <DropdownMenu menu={{ basePath: item.linkTo, links: item.dropdownList }} render={willRenderDropdown()}/>
     </Wrapper>
   )
 }

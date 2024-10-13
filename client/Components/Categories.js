@@ -10,7 +10,7 @@ const Wrapper = styled(FlexContainer)`
 const Categories = ({ categories }) => {
   return (
     <Wrapper>
-      {categories.map(category =>
+      {categories && categories.map(category =>
         <CategoryCard key={category.id} category={category} imgSource={`/images/${category.name}.png`} />
       )}
     </Wrapper>

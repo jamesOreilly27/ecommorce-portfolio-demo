@@ -11,9 +11,9 @@ const Wrapper = styled(FlexContainer)`
 
 const Navbar = ({ categories }) => {
   const navItems = [
-    { id: 1, name: 'Shop', linkTo: '/collections', dropdownList: categories },
-    { id: 2, name: 'Subscribe', linkTo: '/subscribe' },
-    { id: 3, name: 'Gifts', linkTo: '/gifts' }
+    { id: 1, name: 'Shop', linkTo: '/categories', dropdownList: categories },
+    { id: 2, name: 'Subscribe', linkTo: '/subscribe', dropdownList: [{ id: 1, name: "testingSubscribe" }] },
+    { id: 3, name: 'Gifts', linkTo: '/products', dropdownList: [{ id: 1, name: "testingGifts" }]  }
   ]
   return (
     <Wrapper>
