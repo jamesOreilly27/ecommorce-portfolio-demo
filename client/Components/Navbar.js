@@ -9,16 +9,17 @@ const Wrapper = styled(FlexContainer)`
   padding: 0.7em;
 `
 
-const navItems = [
-  { name: 'Shop', linkTo: '/collections' },
-  { name: 'Subscribe', linkTo: '/subscribe' },
-  { name: 'Gifts', linkTo: '/gifts' }
-]
-
-const Navbar = () => (
-  <Wrapper>
-    {navItems.map(item => <Navlink key={item.name} item={item} />)}
-  </Wrapper>
-)
+const Navbar = ({ categories }) => {
+  const navItems = [
+    { id: 1, name: 'Shop', linkTo: '/collections', dropdownList: categories },
+    { id: 2, name: 'Subscribe', linkTo: '/subscribe' },
+    { id: 3, name: 'Gifts', linkTo: '/gifts' }
+  ]
+  return (
+    <Wrapper>
+      {navItems.map(item => <Navlink key={item.id} item={item} />)}
+    </Wrapper>
+  )
+}
 
 export default Navbar

@@ -19,10 +19,10 @@ const Logo = styled.div`
   flex: 1;
 `
 
-const Header = ({ user }) => (
+const Header = ({ user, categories }) => (
   <Wrapper>
     <Logo />
-    <Navbar />
+    <Navbar categories={categories} />
     <IconLink icon={faUserCircle} route="/account" user={user} size="2x" />
     <IconLink icon={faShoppingCart} route="/cart" user={user} size="2x" isCart />
   </Wrapper>

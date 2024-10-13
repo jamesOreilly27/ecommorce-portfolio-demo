@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Footer, HomePage, AccountHome } from '../Components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useGetMeQuery, useTopReviewsQuery } from '../store/slices'
+import { useGetMeQuery, useTopReviewsQuery, useGetCategoriesQuery } from '../store/slices'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 const App = () => {
   const { data: userData, isLoading: userFetchLoading, isError: userFetchError } = useGetMeQuery(1)
   const { data: reviewData, isLoading: reviewFetchLoading, isError: reviewFetchError } = useTopReviewsQuery()
+  const { data: categoryData, isLoading: categoryFetchLoading, isError: categoryFetchError } = useGetCategoriesQuery()
 
   if(userFetchLoading || reviewFetchLoading) {
     return ( <div> Loading... </div> )
@@ -23,9 +24,9 @@ const App = () => {
   return  (
     <Router>
       <Wrapper>
-        <Header user={userData} />
+        <Header user={userData} categories={categoryData} />
         <Routes>
-          <Route path="/" element={<HomePage reviews={reviewData}/>} />
+          <Route path="/" element={<HomePage reviews={reviewData} categories={categoryData} />} />
           <Route path="/account" element={<AccountHome user={userData} />} />
         </Routes>
         <Footer />

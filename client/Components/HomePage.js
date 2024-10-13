@@ -19,10 +19,10 @@ const SectionTitle = styled(Title)`
   justify-content: center;
 `
 
-const Homepage = ({ reviews }) => (
+const Homepage = ({ reviews, categories }) => (
   <Wrapper>
-    <Banner />
-    <Categories />
+    {/* <Banner /> */}
+    <Categories categories={categories} />
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
