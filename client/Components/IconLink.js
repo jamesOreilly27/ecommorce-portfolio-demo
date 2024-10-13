@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FlexContainer } from './styled-components/layout'
+import { FlexContainer, FlexColContainer } from './styled-components/layout'
 import { NoDecLink } from './styled-components/clickables'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Wrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexColContainer)`
   justify-content: center;
   align-items: center;
   position: relative;
@@ -12,7 +12,7 @@ const Wrapper = styled(FlexContainer)`
 `
 
 const Link = styled(NoDecLink)`
-  width: 100%
+  width: 100%;
   height: 100%
 `
 
@@ -32,17 +32,40 @@ const QuantityBubble = styled(FlexContainer)`
   right: -0.3em;
 `
 
-const IconLink = ({ icon, user, route, size, isCart }) => (
-  <Wrapper>
-    <Link to={route}>
-      <Icon icon={icon} size={size} />
-    </Link>
-    {isCart&&
-      <QuantityBubble>
-        {user.cart['cart-items'].length}
-      </QuantityBubble>
-    }
-  </Wrapper>
-)
+const CartItemsContainer = styled(FlexColContainer)`
+  align-items: center;
+`
+
+const IconLink = ({ icon, user, route, size, isCart }) => {
+
+  const [ state, setState ] = useState({ hovering: false })
+  
+  const handleMouseEnter = () => {
+    setState({ hovering: true })
+  }
+
+  const handleMouseLeave = () => {
+    setState({ hovering: false })
+  }
+
+  const willRenderDropdown = () => isCart && state.hovering
+  return (
+    <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Link to={route}>
+        <Icon icon={icon} size={size} />
+      </Link>
+      {isCart&&
+        <QuantityBubble>
+          {user.cart['cart-items'].length}
+        </QuantityBubble>
+      }
+      {willRenderDropdown() &&
+        <CartItemsContainer>
+          TESTING CONTAINER
+        </CartItemsContainer>
+      }
+    </Wrapper>
+  )
+}
 
 export default IconLink
