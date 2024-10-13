@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { DropdownMenu } from '../Components'
-import { FlexColContainer, FlexContainer } from './styled-components/layout'
+import { FlexColContainer } from './styled-components/layout'
 import { Link } from 'react-router-dom'
 
 const Wrapper = styled(FlexColContainer)`
