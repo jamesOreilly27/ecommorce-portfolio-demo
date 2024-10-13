@@ -24,10 +24,10 @@ const DropdownItem = styled(FlexContainer)`
 `
 
 const DropdownMenu = ({ menu, render }) => { 
-  console.log('MENU: ', menu)
+  const renderCheck = menu && render
   return (
     <Wrapper>
-      {menu && menu.map(menuItem => {
+      {renderCheck && menu.map(menuItem => {
         return (
           <DropdownItem>
             {menuItem.name}
