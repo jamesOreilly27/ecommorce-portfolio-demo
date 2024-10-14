@@ -48,7 +48,7 @@ const MenuColumn = ({ menu }) => {
         </Header>
         <CardContainer>
           {menu.links.map(link => (
-            <IconLink icon={link.icon} user="" route={link.to} size="2x">
+            <IconLink key={link.id} icon={link.icon} user="" route={link.to} size="2x">
               {link.name}
             </IconLink>
           ))}

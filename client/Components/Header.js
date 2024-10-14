@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Navbar, IconLink } from '../Components'
+import { Navbar, IconLink, OrderItemList } from '../Components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart'
@@ -39,8 +39,8 @@ const Header = ({ user, categories }) => {
           <IconLink icon={faUserCircle} route="/account" user={user} size="2x" />
           <IconLink icon={faShoppingCart} route="/cart" user={user} size="2x" isCart setDisplayCart={setDisplayCart} />
         </Icons>
-        {displayCart &&
-          <div>Testing</div>
+        {true &&
+          <OrderItemList items={user.cart['cart-items']} />
         }
       </IconContainer>
     </Wrapper>

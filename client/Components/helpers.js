@@ -56,14 +56,14 @@ const contactMenu = {
 const cardMenu = {
   title: "We Accept",
   links: [
-    { icon: faCcVisa, to: "/" },
-    { icon: faCcAmex, to: "/" },
-    { icon: faCcDiscover, to: '/' },
-    { icon: faCcMastercard, to: '/' },
-    { icon: faCcDinersClub, to: '/' },
-    { icon: faPaypal, to: '/' },
-    { icon: faCcApplePay, to: '/' },
-    { icon: faCcAmazonPay, to: '/' }
+    { id: 1, icon: faCcVisa, to: "/" },
+    { id: 2, icon: faCcAmex, to: "/" },
+    { id: 3, icon: faCcDiscover, to: '/' },
+    { id: 4, icon: faCcMastercard, to: '/' },
+    { id: 5, icon: faCcDinersClub, to: '/' },
+    { id: 6, icon: faPaypal, to: '/' },
+    { id: 7, icon: faCcApplePay, to: '/' },
+    { id: 8, icon: faCcAmazonPay, to: '/' }
   ],
   cards: true
 }
