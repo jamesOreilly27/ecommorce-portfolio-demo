@@ -36,19 +36,16 @@ const CartItemsContainer = styled(FlexColContainer)`
   align-items: center;
 `
 
-const IconLink = ({ icon, user, route, size, isCart }) => {
-
-  const [ state, setState ] = useState({ hovering: false })
+const IconLink = ({ icon, user, route, size, isCart, setDisplayCart }) => {
   
   const handleMouseEnter = () => {
-    setState({ hovering: true })
+    setDisplayCart(true)
   }
 
   const handleMouseLeave = () => {
-    setState({ hovering: false })
+    setDisplayCart(false)
   }
-
-  const willRenderDropdown = () => isCart && state.hovering
+  
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to={route}>
@@ -58,11 +55,6 @@ const IconLink = ({ icon, user, route, size, isCart }) => {
         <QuantityBubble>
           {user.cart['cart-items'].length}
         </QuantityBubble>
-      }
-      {willRenderDropdown() &&
-        <CartItemsContainer>
-          TESTING CONTAINER
-        </CartItemsContainer>
       }
     </Wrapper>
   )
