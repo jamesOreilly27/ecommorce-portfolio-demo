@@ -36,11 +36,22 @@ const Header = ({ user, categories }) => {
       <Navbar categories={categories} />
       <IconContainer>
         <Icons>
-          <IconLink icon={faUserCircle} route="/account" user={user} size="2x" />
-          <IconLink icon={faShoppingCart} route="/cart" user={user} size="2x" isCart setDisplayCart={setDisplayCart} />
+          <IconLink
+            icon={faUserCircle}
+            route="/account"
+            user={user}
+            size="2x"
+          />
+          <IconLink
+            icon={faShoppingCart}
+            route="/" user={user}
+            size="2x"
+            isCart 
+            displayCart={displayCart}
+            setDisplayCart={setDisplayCart} />
         </Icons>
-        {true &&
-          <OrderItemList cart={user.cart} />
+        {displayCart &&
+          <OrderItemList cart={user.cart} displayCart={displayCart} />
         }
       </IconContainer>
     </Wrapper>

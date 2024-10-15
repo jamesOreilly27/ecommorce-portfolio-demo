@@ -36,18 +36,14 @@ const CartItemsContainer = styled(FlexColContainer)`
   align-items: center;
 `
 
-const IconLink = ({ icon, user, route, size, isCart, setDisplayCart }) => {
+const IconLink = ({ icon, user, route, size, isCart, displayCart, setDisplayCart }) => {
   
-  const handleMouseEnter = () => {
-    setDisplayCart(true)
+  const handleClick = () => {
+    setDisplayCart(!displayCart)
   }
 
-  const handleMouseLeave = () => {
-    setDisplayCart(false)
-  }
-  
   return (
-    <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Wrapper onClick={handleClick}>
       <Link to={route}>
         <Icon icon={icon} size={size} />
       </Link>

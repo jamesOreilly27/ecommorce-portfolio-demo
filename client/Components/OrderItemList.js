@@ -12,17 +12,20 @@ const Wrapper = styled(FlexColContainer)`
   right: -1em
 `
 
-const OrderItemList = ({ cart }) => {
-  const { data, isLoading, isError } = useGetCartItemsQuery(cart.id)
+const OrderItemList = ({ cart, displayCart }) => {
+  const { data, isLoading, isError, refetch } = useGetCartItemsQuery(cart.id)
   const [cartItems, setCartItems] = useState(data || [])
   const [updateQty] = useUpdateCartItemMutation()
   const [deleteItem] = useDeleteCartItemMutation()
 
   useEffect(() => {
     if (data) {
-      setCartItems(data);
+      setCartItems(data)
     }
-  }, [data])
+    if(displayCart) {
+      refetch()
+    }
+  }, [data, displayCart, refetch])
 
   if(isLoading) {
     return ( <div> Loading... </div> )
