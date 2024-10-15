@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
 import { CartItem } from '../Components'
-import { useGetCartItemsQuery, useUpdateCartItemMutation } from '../store/slices'
+import { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutation } from '../store/slices'
 
 const Wrapper = styled(FlexColContainer)`
   min-width: 56vw;
@@ -16,6 +16,7 @@ const OrderItemList = ({ cart }) => {
   const { data, isLoading, isError } = useGetCartItemsQuery(cart.id)
   const [cartItems, setCartItems] = useState(data || [])
   const [updateQty] = useUpdateCartItemMutation()
+  const [deleteItem] = useDeleteCartItemMutation()
 
   useEffect(() => {
     if (data) {
@@ -32,17 +33,25 @@ const OrderItemList = ({ cart }) => {
   }
 
   const incrementQty = (item, cartItems) => {
+    let newItems = []
     const updatedItem = Object.assign({ ...item, quantity: item.quantity + 1 })
-    const newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
+    newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
     setCartItems(newItems)
     updateQty(updatedItem)
   }
   
   const decrementQty = (item, cartItems) => {
-    const updatedItem = Object.assign({ ...item, quantity: item.quantity -1 })
-    const newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
+    let newItems = []
+    let updatedItem
+    if(item.quantity === 1) {
+      newItems = cartItems.filter(cartItem => cartItem.id !== item.id)
+      deleteItem(item.id)
+    } else {
+      updatedItem = Object.assign({ ...item, quantity: item.quantity -1 })
+      newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
+      updateQty(updatedItem)
+    }
     setCartItems(newItems)
-    updateQty(updatedItem)
   }
 
   return (

@@ -1,6 +1,6 @@
 const express = require('express')
 const { CartItem, Product } = require('../models')
-const { findById, getAll, getAllWhere } = require('./helpers')
+const { findById, getAll, getAllWhere, destroy } = require('./helpers')
 
 const router = express.Router()
 
@@ -15,6 +15,10 @@ router.put('/:id', (req, res, next) => {
   })
   .then(update => res.json(update[1]))
   .catch(err => console.log(err))
+})
+
+router.delete('/:id', (req, res, next) => {
+  destroy(req, res, CartItem)
 })
 
 module.exports = router
