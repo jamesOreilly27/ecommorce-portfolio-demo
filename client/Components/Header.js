@@ -40,7 +40,7 @@ const Header = ({ user, categories }) => {
           <IconLink icon={faShoppingCart} route="/cart" user={user} size="2x" isCart setDisplayCart={setDisplayCart} />
         </Icons>
         {true &&
-          <OrderItemList items={user.cart['cart-items']} />
+          <OrderItemList cart={user.cart} />
         }
       </IconContainer>
     </Wrapper>

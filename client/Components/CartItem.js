@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
-import { useGetProductByIdQuery } from '../store/slices'
 
 const Wrapper = styled(FlexContainer)`
   justify-content: flex-start;
@@ -59,34 +58,30 @@ const PriceContainer = styled(FlexContainer)`
   width: 100%;
 `
 
-const CartItem = ({ item }) => {
-  const { data: product, isLoading, isError } = useGetProductByIdQuery(item.productId)
-  console.log('PRODUCT: ', product)
+const CartItem = ({ item, handleIncrement, handleDecrement }) => {
   return (
     <Wrapper>
       <Image src={'/images/Ground Coffee.png'} />
-      {product &&
-        <NewContainer>
-          <TitlesContainer>
-            <ProductTitle>
-              {product.name}
-            </ProductTitle>
-            <div>{product.categories[0].name}</div>
-          </TitlesContainer> 
-          <ProductInfo>
-            <PriceContainer>{`$${product.price}`}</PriceContainer>
-            <QuantityControlContainer>
-              <Clicker>
-                -
-              </Clicker>
-              <div>{item.quantity}</div>
-              <Clicker>
-                +
-              </Clicker>
-            </QuantityControlContainer>
-          </ProductInfo>
-        </NewContainer>
-      }
+      <NewContainer>
+        <TitlesContainer>
+          <ProductTitle>
+            {item.product.name}
+          </ProductTitle>
+          <div>{item.product.name}</div>
+        </TitlesContainer> 
+        <ProductInfo>
+          <PriceContainer>{`${item.product.price}`}</PriceContainer>
+          <QuantityControlContainer>
+            <Clicker onClick={handleDecrement}>
+              -
+            </Clicker>
+            <div>{item.quantity}</div>
+            <Clicker onClick={handleIncrement}>
+              +
+            </Clicker>
+          </QuantityControlContainer>
+        </ProductInfo>
+      </NewContainer>
     </Wrapper>
   )
 }
