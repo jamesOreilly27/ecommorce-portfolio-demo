@@ -37,7 +37,8 @@ const OrderItemList = ({ cart, displayCart }) => {
 
   const incrementQty = (item, cartItems) => {
     let newItems = []
-    const updatedItem = Object.assign({ ...item, quantity: item.quantity + 1 })
+    console.log('ITEM: ', cartItems[0].price, "PRODUCT: ", parseFloat(cartItems[0].product.price))
+    const updatedItem = Object.assign({ ...item, quantity: item.quantity + 1, price: (parseFloat(item.price) + parseFloat(item.product.price)).toFixed(2) })
     newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
     setCartItems(newItems)
     updateQty(updatedItem)
@@ -50,7 +51,7 @@ const OrderItemList = ({ cart, displayCart }) => {
       newItems = cartItems.filter(cartItem => cartItem.id !== item.id)
       deleteItem(item.id)
     } else {
-      updatedItem = Object.assign({ ...item, quantity: item.quantity -1 })
+      updatedItem = Object.assign({ ...item, quantity: item.quantity -1, price: (parseFloat(item.price) - parseFloat(item.product.price)).toFixed(2) })
       newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
       updateQty(updatedItem)
     }

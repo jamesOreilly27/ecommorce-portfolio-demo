@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FlexContainer, FlexColContainer } from './styled-components/layout'
+import { FlexContainer, FlexColContainer, Title } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
   justify-content: flex-start;
+  align-items: center;
 `
 
 const Image = styled.img`
@@ -17,10 +18,11 @@ const Image = styled.img`
 const NewContainer = styled(FlexContainer)`
   min-width: 37vw;
   justify-content: space-between;
+  align-items: center;
 `
 
 const TitlesContainer = styled(FlexColContainer)`
-  min-width: 30vw;
+  
 `
 
 const ProductTitle = styled.div`
@@ -58,6 +60,10 @@ const PriceContainer = styled(FlexContainer)`
   width: 100%;
 `
 
+const TotalPrice = styled(Title)`
+
+`
+
 const CartItem = ({ item, handleIncrement, handleDecrement }) => {
   return (
     <Wrapper>
@@ -82,6 +88,9 @@ const CartItem = ({ item, handleIncrement, handleDecrement }) => {
           </QuantityControlContainer>
         </ProductInfo>
       </NewContainer>
+      <TotalPrice>
+        {item.price}
+      </TotalPrice>
     </Wrapper>
   )
 }
