@@ -76,7 +76,7 @@ const CartItem = ({ item, handleIncrement, handleDecrement }) => {
           <div>{item.product.name}</div>
         </TitlesContainer> 
         <ProductInfo>
-          <PriceContainer>{`${item.product.price}`}</PriceContainer>
+          <PriceContainer>{`$${item.product.price}`}</PriceContainer>
           <QuantityControlContainer>
             <Clicker onClick={handleDecrement}>
               -
@@ -89,7 +89,7 @@ const CartItem = ({ item, handleIncrement, handleDecrement }) => {
         </ProductInfo>
       </NewContainer>
       <TotalPrice>
-        {item.price}
+        {`$${item.price}`}
       </TotalPrice>
     </Wrapper>
   )
