@@ -15,7 +15,7 @@ const Categories = ({ categories, featured }) => {
 
   return (
     <Wrapper>
-      {filteredCategories && filteredCategories.map(category =>
+      {categories && filteredCategories.map(category =>
         <CategoryCard key={category.id} category={category} imgSource={`/images/${category.name}.png`} />
       )}
     </Wrapper>

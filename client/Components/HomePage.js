@@ -19,18 +19,22 @@ const SectionTitle = styled(Title)`
   justify-content: center;
 `
 
+const FeatProductsLink = styled(NoDecLink)`
+  width: 10vw;
+`
+
 const Homepage = ({ reviews, categories }) => (
   <Wrapper>
-    {/* <Banner /> */}
+    <Banner />
     <Categories categories={categories} featured />
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
-      <NoDecLink to={`/products`}>
-        <Button height={35} width={13}>
+      <FeatProductsLink to={`/products`}>
+        <Button width={100} height={35}>
           view all
         </Button>
-      </NoDecLink>
+      </FeatProductsLink>
     </FeatProducts>
     <CustomerReviews reviews={reviews} />
   </Wrapper>

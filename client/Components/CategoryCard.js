@@ -35,7 +35,7 @@ const CategoryCard = ({ category, imgSource }) => {
         {category.name}
       </CardTitle>
       <WrapperLink to={`/category/${category.id}`}>
-        <Button width={57} height={35}>
+        <Button width={100} height={35}>
           Shop Now
         </Button>
       </WrapperLink>
