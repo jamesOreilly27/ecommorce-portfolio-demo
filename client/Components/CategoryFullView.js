@@ -21,8 +21,6 @@ const CategoryFullView = () => {
   console.log(params)
   const { data, isLoading, isError } = useGetSingleCategoryQuery(parseInt(params.id))
 
-  console.log('DATA: ', data)
-
   if(isLoading) {
     return <div> Loading...</div>
   }
