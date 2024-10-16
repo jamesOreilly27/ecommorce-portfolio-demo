@@ -85,6 +85,6 @@ export const FooterMenus = [
 
 export const featuredFilter = (data, featured)=> {
   return featured
-    ? data.filter((item) => item.featured === true) // Filter for featured products
-    : data // Render all products if featured is false
+    ? data.filter((item) => item.featured === true) // Filter for featured things
+    : data // Render all things if featured is false
 }
