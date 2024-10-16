@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import { useGetProductByIdQuery } from '../store/slices'
-import { FlexContainer, FlexColContainer } from './styled-components/layout'
+import { FlexContainer } from './styled-components/layout'
 
 const Wrapper = styled(FlexContainer)`
 

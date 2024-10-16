@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
+import { Button, NoDecLink } from './styled-components/clickables'
 import { CartItem } from '../Components'
 import { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutation } from '../store/slices'
 
@@ -16,7 +17,11 @@ const TotalPrice = styled(FlexContainer)`
   justify-content: flex-end;
 `
 
-const OrderItemList = ({ cart, displayCart }) => {
+const ButtonContainer = styled(NoDecLink)`
+
+`
+
+const OrderItemList = ({ cart, displayCart, setDisplayCart }) => {
   const { data, isLoading, isError, refetch } = useGetCartItemsQuery(cart.id)
   const [cartItems, setCartItems] = useState(data || [])
   const [updateQty] = useUpdateCartItemMutation()
@@ -30,6 +35,10 @@ const OrderItemList = ({ cart, displayCart }) => {
       refetch()
     }
   }, [data, displayCart, refetch])
+  
+  const handleCheckoutClick = () => {
+    setDisplayCart(!displayCart)
+  }
 
   if(isLoading) {
     return ( <div> Loading... </div> )
@@ -85,6 +94,14 @@ const OrderItemList = ({ cart, displayCart }) => {
         <TotalPrice>
           {`$${getTotalPrice(cartItems)}`}
         </TotalPrice>
+        <ButtonContainer
+          to={'/checkout'}
+          onClick={handleCheckoutClick}
+        >
+          <Button>
+            Checkout
+          </Button>
+        </ButtonContainer>
     </Wrapper>
   )
 }

@@ -51,7 +51,7 @@ const Header = ({ user, categories }) => {
             setDisplayCart={setDisplayCart} />
         </Icons>
         {displayCart &&
-          <OrderItemList cart={user.cart} displayCart={displayCart} />
+          <OrderItemList cart={user.cart} displayCart={displayCart} setDisplayCart={setDisplayCart} />
         }
       </IconContainer>
     </Wrapper>
