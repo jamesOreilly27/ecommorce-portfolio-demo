@@ -74,3 +74,17 @@ export const FooterMenus = [
   contactMenu,
   cardMenu
 ]
+
+/**
+ * Filters an array of items based on a boolean `featured` property.
+ *
+ * @param {Array} data - The array of items to be filtered.
+ * @param {boolean} featured - Whether to filter for featured items (true) or all items (false).
+ * @returns {Array} A new array containing filtered or unfiltered items.
+ */
+
+export const featuredFilter = (data, featured)=> {
+  return featured
+    ? data.filter((item) => item.featured === true) // Filter for featured products
+    : data // Render all products if featured is false
+}

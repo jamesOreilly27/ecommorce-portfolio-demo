@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGetProductsQuery } from "../store/slices/productSlice"
 import { ProductCard } from '../Components'
+import { featuredFilter } from './helpers'
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,9 +20,7 @@ const ProductList = ({ featured }) => {
     return <div> Error fetching data </div>
   }
 
-  const filteredProducts = featured
-  ? data.filter((product) => product.featured === true) // Filter for featured products
-  : data // Render all products if featured is false
+  const filteredProducts = featuredFilter(data, featured)
 
   return (
     <Wrapper>

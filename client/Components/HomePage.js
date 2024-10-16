@@ -22,7 +22,7 @@ const SectionTitle = styled(Title)`
 const Homepage = ({ reviews, categories }) => (
   <Wrapper>
     {/* <Banner /> */}
-    <Categories categories={categories} />
+    <Categories categories={categories} featured />
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
