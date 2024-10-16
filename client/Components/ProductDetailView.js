@@ -4,13 +4,12 @@ import { useParams } from 'react-router-dom'
 import { useGetProductByIdQuery } from '../store/slices'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
+const Wrapper = styled(FlexContainer)`
 
 `
 
 const ProductDetailView = ({  }) => {
   const params = useParams()
-  console.log('PARAMS: ', params)
   const { data, isLoading, isError } = useGetProductByIdQuery(parseInt(params.id))
 
   if(isLoading) {
