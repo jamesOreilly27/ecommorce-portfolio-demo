@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Banner, Categories, ProductList, CustomerReviews } from '../Components'
 import { FlexColContainer, Title } from './styled-components/layout'
-import { Button } from './styled-components/clickables'
+import { Button, NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled.div`
   
@@ -26,9 +26,11 @@ const Homepage = ({ reviews, categories }) => (
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
       <ProductList featured />
-      <Button height={35} width={13}>
-        view all
-      </Button>
+      <NoDecLink to={`/products`}>
+        <Button height={35} width={13}>
+          view all
+        </Button>
+      </NoDecLink>
     </FeatProducts>
     <CustomerReviews reviews={reviews} />
   </Wrapper>
