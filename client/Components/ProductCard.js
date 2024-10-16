@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FlexColContainer, FlexContainer } from './styled-components/layout'
+import { NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled(FlexColContainer)`
   width: 25%;
   justify-content: space-between;
   align-items: center;
+`
+
+const LinkContainer = styled(NoDecLink)`
+
 `
 
 const Image = styled(FlexContainer)`
@@ -29,15 +34,17 @@ const Price = styled(FlexContainer)`
 
 const ProductCard = ({ product }) => (
   <Wrapper>
-    <Image>
-      Image Placeholder
-    </Image>
-    <CardTitle>
-      {product.name}
-    </CardTitle>
-    <Price>
-      {`$${product.price}`}
-    </Price>
+    <LinkContainer to={`/products/${product.id}`}>
+      <Image>
+        Image Placeholder
+      </Image>
+      <CardTitle>
+        {product.name}
+      </CardTitle>
+      <Price>
+        {`$${product.price}`}
+      </Price>
+    </LinkContainer>
   </Wrapper>
 )
 
