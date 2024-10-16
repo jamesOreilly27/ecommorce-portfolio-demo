@@ -18,6 +18,21 @@ const getAll = (res, model, assocModels) => {
   }
 }
 
+const getAllWhere = (res, model, condition, assocModels) => {
+  if (assocModels) {
+    model.findAll({
+      where: condition,
+      include: assocModels.map((assocModel) => ({ model: assocModel }))
+    })
+    .then((list) => checkRes(res, list))
+  } else {
+    model.findAll({
+      where: condition,
+    })
+    .then((list) => checkRes(res, list))
+  }
+}
+
 const findById = (req, res, model, assocModels, nestedAssocModels) => {
   if(assocModels) {
     model.findByPk(req.params.id, {
@@ -64,6 +79,7 @@ const destroy = (req, res, model) => {
 
 module.exports = {
   getAll,
+  getAllWhere,
   findById,
   upsert,
   destroy

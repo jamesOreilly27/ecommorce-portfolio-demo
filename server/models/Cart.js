@@ -11,8 +11,8 @@ const Cart = db.define('cart', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  price: {
-    type: Sequelize.DECIMAL(2, 10)
+  total_amount: {
+    type: Sequelize.DECIMAL(10, 2)
   }
 })
 
