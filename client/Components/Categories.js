@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CategoryCard } from  '../Components'
 import { FlexContainer } from './styled-components/layout'
+import { NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled(FlexContainer)`
   

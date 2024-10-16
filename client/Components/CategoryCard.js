@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FlexColContainer, FlexContainer, Title } from './styled-components/layout'
-import { Button } from './styled-components/clickables'
+import { Button, NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled(FlexColContainer)`
   min-width: 32%;
@@ -23,6 +23,10 @@ const CardTitle = styled(Title)`
   align-items: center;
 `
 
+const WrapperLink = styled(NoDecLink)`
+
+`
+
 const CategoryCard = ({ category, imgSource }) => {
   return (
     <Wrapper>
@@ -30,9 +34,11 @@ const CategoryCard = ({ category, imgSource }) => {
       <CardTitle>
         {category.name}
       </CardTitle>
-      <Button width={57} height={35}>
-        Shop Now
-      </Button>
+      <WrapperLink to={`/category/${category.id}`}>
+        <Button width={57} height={35}>
+          Shop Now
+        </Button>
+      </WrapperLink>
     </Wrapper>
   )
 }

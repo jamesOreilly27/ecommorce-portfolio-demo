@@ -6,10 +6,14 @@ import { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutat
 
 const Wrapper = styled(FlexColContainer)`
   min-width: 56vw;
-  background-color: red;
+  background-color: #D2B48C;
   position: absolute;
   top: 4.2em;
   right: -1em
+`
+
+const TotalPrice = styled(FlexContainer)`
+  justify-content: flex-end;
 `
 
 const OrderItemList = ({ cart, displayCart }) => {
@@ -58,6 +62,15 @@ const OrderItemList = ({ cart, displayCart }) => {
     setCartItems(newItems)
   }
 
+  const getTotalPrice = items =>{
+    let total = 0
+    items.forEach(item => {
+      total += parseFloat(item.price)
+    })
+
+    return total.toFixed(2)
+  }
+
   return (
     <Wrapper>
       {cartItems && 
@@ -69,6 +82,9 @@ const OrderItemList = ({ cart, displayCart }) => {
             handleDecrement={() => decrementQty(item, cartItems)}
           />
         ))}
+        <TotalPrice>
+          {`$${getTotalPrice(cartItems)}`}
+        </TotalPrice>
     </Wrapper>
   )
 }

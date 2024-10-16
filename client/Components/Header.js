@@ -20,8 +20,8 @@ const Logo = styled.div`
 `
 
 const IconContainer = styled(FlexColContainer)`
-  background-color: green;
   width: 15em;
+  justify-content: center;
 `
 
 const Icons = styled(FlexContainer)`

@@ -20,7 +20,7 @@ const ProductList = ({ featured }) => {
 
   const filteredProducts = featured
   ? data.filter((product) => product.featured === true) // Filter for featured products
-  : data; // Render all products if featured is false
+  : data // Render all products if featured is false
 
   return (
     <Wrapper>
