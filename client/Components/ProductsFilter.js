@@ -14,7 +14,7 @@ const ProductsFilter = () => {
       categories: ["Light Roast", "Medium Roast", "Dark Roast"]
     },
     {
-      header: "Caffeine Level",
+      header: "Caffeine",
       categories: ["Regular Caffeine", "Decaf", "Half Caf"]
     }
   ]

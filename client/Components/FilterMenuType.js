@@ -20,14 +20,18 @@ const Wrapper = styled(FlexColContainer)`
 const Header = styled(FlexContainer)`
   width: 10em;
   align-items: flex-start;
+  padding: 0;
+  justify-content: flex-start;
 `
 
 const MenuTitle = styled(Title)`
   margin: 0;
+  flex: 2;
 `
 
 const Clicker = styled(FlexContainer)`
   padding: .1em;
+  flex: 1;
   transform: ${({ itemsDisplay }) =>
     itemsDisplay
       ? "rotate(0deg);"
@@ -35,8 +39,8 @@ const Clicker = styled(FlexContainer)`
   }
   ${({ itemsDisplay }) =>
     itemsDisplay
-      ? css`animation: ${rotateAnimation} .4s ease-in-out`
-      : css`animation: ${rotateBack} .4s ease-in-out`
+      ? css`animation: ${rotateAnimation} .1s ease-in-out`
+      : css`animation: ${rotateBack} .1s ease-in-out`
   }}
 `
 
@@ -48,7 +52,6 @@ const FilterMenuType = ({ menu }) => {
   }
   return (
     <Wrapper>
-      {console.log(itemsDisplay)}
       <Header>
         <MenuTitle>
           {menu.header}
