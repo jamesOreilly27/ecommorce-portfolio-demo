@@ -34,7 +34,7 @@ const Price = styled(FlexContainer)`
 
 const ProductCard = ({ product }) => (
   <Wrapper>
-    <LinkContainer to={`/products/${product.id}`}>
+    {/* <LinkContainer to={`/products/${product.id}`}>
       <Image>
         Image Placeholder
       </Image>
@@ -44,7 +44,8 @@ const ProductCard = ({ product }) => (
       <Price>
         {`$${product.price}`}
       </Price>
-    </LinkContainer>
+    </LinkContainer> */}
+    {`${product.name} (${product.id})`}
   </Wrapper>
 )
 

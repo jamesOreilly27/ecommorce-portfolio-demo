@@ -29,6 +29,7 @@ export { default as MenuColumn } from './MenuColumn'
 
 //Products View
 export { default as ProductsView } from './ProductsView'
+export { default as ProductsFilter } from './ProductsFilter'
 
 //ProductList related
 export { default as ProductList } from './ProductList'
