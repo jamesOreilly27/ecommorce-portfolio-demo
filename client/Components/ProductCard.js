@@ -4,7 +4,7 @@ import { FlexColContainer, FlexContainer } from './styled-components/layout'
 import { NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled(FlexColContainer)`
-  width: 25%;
+  min-width: 25%;
   justify-content: space-between;
   align-items: center;
 `
@@ -34,7 +34,7 @@ const Price = styled(FlexContainer)`
 
 const ProductCard = ({ product }) => (
   <Wrapper>
-    {/* <LinkContainer to={`/products/${product.id}`}>
+    <LinkContainer to={`/products/${product.id}`}>
       <Image>
         Image Placeholder
       </Image>
@@ -44,8 +44,7 @@ const ProductCard = ({ product }) => (
       <Price>
         {`$${product.price}`}
       </Price>
-    </LinkContainer> */}
-    {`${product.name} (${product.id})`}
+    </LinkContainer>
   </Wrapper>
 )
 

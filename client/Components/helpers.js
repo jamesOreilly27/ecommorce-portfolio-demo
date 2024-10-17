@@ -83,7 +83,7 @@ export const FooterMenus = [
  * @returns {Array} A new array containing filtered or unfiltered items.
  */
 
-export const featuredFilter = (data, featured)=> {
+export const featuredFilter = (data, featured) => {
   return featured
     ? data.filter((item) => item.featured === true) // Filter for featured things
     : data // Render all things if featured is false

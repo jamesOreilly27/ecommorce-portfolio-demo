@@ -3,17 +3,27 @@ import styled from 'styled-components'
 import { FlexContainer, FlexColContainer, Title } from './styled-components/layout'
 import { useGetSingleCategoryQuery } from '../store/slices'
 import { useParams } from 'react-router-dom'
+import { ProductCard } from '../Components'
 
 const Wrapper = styled(FlexContainer)`
 
 `
 
-const Container = styled(FlexContainer)`
+const Container = styled(FlexColContainer)`
 
 `
 
-const ProductsContainer = styled(FlexContainer)`
+const ContentWrapper = styled(FlexContainer)`
+width: 100vw;
+`
 
+const ProductFilterContainer = styled(FlexColContainer)`
+  background-color: red;
+  width: 100%;
+`
+
+const ProductCardsContainer = styled(FlexContainer)`
+  flex-wrap: wrap;
 `
 
 const CategoryFullView = () => {
@@ -36,11 +46,16 @@ const CategoryFullView = () => {
         <Title>
           {data.name}
         </Title>
-        <ProductsContainer>
-          {data && data.products.map(product => {
-            return <div>{product.name}</div>
-          })}
-        </ProductsContainer>
+        <ContentWrapper>
+          <ProductFilterContainer>
+
+          </ProductFilterContainer>
+          <ProductCardsContainer>
+            {data.products.map(product => {
+              return <ProductCard key={product.id} product={product} />
+            })}
+          </ProductCardsContainer>
+        </ContentWrapper>
       </Container>
       }
     </Wrapper>
