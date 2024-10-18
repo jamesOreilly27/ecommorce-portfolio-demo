@@ -104,7 +104,7 @@ export const buildMenu = (menu, categories) => {
 export const buildMiscMenu = (menu, categories) => {
   categories.forEach(category => {
     if(category.id >= 4 && category.id <= 7) {
-      menu.categories.push(menu)
+      menu.categories.push(category)
     }
   })
   

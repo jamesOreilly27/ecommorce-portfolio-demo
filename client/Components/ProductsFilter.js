@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer, Title } from './styled-components/layout'
-import { CoffeeTypes } from '../Components'
+import { CoffeeTypes, MiscTypes } from '../Components'
 import { buildMenu, buildMiscMenu } from './helpers'
 
 const Wrapper = styled(FlexColContainer)`
@@ -14,7 +14,7 @@ const ProductsFilter = ({ categories,  handleCoffeeSelect, handleMiscSelect }) =
     { id: 2, header: "Caffeine", selector: 'caf', categories: [] },
   ]
 
-  const miscType = { id: 1, header: "Gifts and Treats", categories: [] }
+  const miscType = { id: 3, header: "Gifts and Treats", categories: [] }
 
   const coffeeTypeMenu = buildMenu(coffeeTypes, categories)
   const miscTypeMenu = buildMiscMenu(miscType, categories)
@@ -22,6 +22,7 @@ const ProductsFilter = ({ categories,  handleCoffeeSelect, handleMiscSelect }) =
   return (
     <Wrapper>
       <CoffeeTypes menu={coffeeTypeMenu} handleSelect={handleCoffeeSelect} />
+      <MiscTypes menu={miscTypeMenu} handleSelect={handleMiscSelect} />
 
     </Wrapper>
   )

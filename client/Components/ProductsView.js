@@ -15,6 +15,7 @@ const ProductsView = ({ categories }) => {
   const { data, isLoading, isError, refetch } = useGetProductsQuery({categoryIds: categoryIds.join(), isCoffeeFilter: isCoffeeFilter })
 
   const manageSelections = id => {
+    console.log("ID TESTING: ", id)
     if(categoryIds.includes(id)) {
       setCategoryIds(categoryIds.filter(catId => id !== catId))
     } else {
@@ -29,6 +30,7 @@ const ProductsView = ({ categories }) => {
   }
 
   const handleMiscSelect = id => {
+    console.log("FIRING HANDLE MISC SELECT")
     manageSelections(id)
     setIsCoffeeFilter(false)
     refetch()
