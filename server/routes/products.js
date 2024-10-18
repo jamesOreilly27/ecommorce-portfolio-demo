@@ -8,17 +8,30 @@ const router = express.Router()
 
 /***** All Products *****/
 router.get('/', (req, res, next) => {
-  const { categoryIds } = req.query
+  const { categoryIds, isCoffeeFilter } = req.query
   const parsedCategoryIds = categoryIds ? categoryIds.split(',').map(Number) : []
 
-  const association = { model: Category }
-  if(categoryIds) {
-    association['where'] = { id: { [Op.in]: parsedCategoryIds } }
-  }
+  if(isCoffeeFilter) {
+    Product.findAll({
+      include: { model: Category }
+    })
+    .then(products => {
+      return products.filter(product => {
+        return product.categories.every(category => parsedCategoryIds.includes(category.id))
+      })
+    })
+    .then(response => res.json(response))
+    .catch(err => res.json(err))
+  } else {
+      const association = { model: Category }
+      if(categoryIds) {
+        association['where'] = { id: { [Op.in]: parsedCategoryIds } }
+      }
 
-  Product.findAll({ include: association })
-  .then(response => res.json(response))
-  .catch(err => res.json(err))
+      Product.findAll({ include: association })
+      .then(response => res.json(response))
+      .catch(err => res.json(err))
+  }
 })
 
 

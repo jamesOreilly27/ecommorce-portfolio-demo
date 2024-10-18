@@ -5,9 +5,9 @@ export const productApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '/api/products'}),
   endpoints: builder => ({
     getProducts: builder.query({
-      query: categoryIds => ({
+      query: (categoryIds, isCoffeeFilter) => ({
         url: '',
-        params: { categoryIds }
+        params: { categoryIds, isCoffeeFilter }
       }),
       transformResponse: response => response
     }),

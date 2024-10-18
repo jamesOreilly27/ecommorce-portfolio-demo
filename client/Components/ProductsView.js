@@ -11,7 +11,8 @@ const Wrapper = styled(FlexContainer)`
 
 const ProductsView = ({ categories }) => {
   const [categoryIds, setCategoryIds] = useState([])
-  const { data, isLoading, isError, refetch } = useGetProductsQuery(categoryIds.join())
+  const [isCoffeeFilter, setIsCoffeeFilter] = useState(false)
+  const { data, isLoading, isError, refetch } = useGetProductsQuery(categoryIds.join(), isCoffeeFilter)
 
   const handleSelect = id => {
     if(categoryIds.includes(id)) {
