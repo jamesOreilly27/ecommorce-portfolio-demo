@@ -12,11 +12,9 @@ const Checkbox = styled.input`
 `
 
 const CategoryCheckbox = ({ category, handleSelect }) => {
-  const [isChecked, setIsChecked] = useState(false)
   
   const handleChange = () => {
-    setIsChecked(!isChecked)
-    handleSelect(category.id, isChecked)
+    handleSelect(category.id)
   }
 
   return (

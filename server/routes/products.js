@@ -11,13 +11,13 @@ router.get('/', (req, res, next) => {
   const { categoryIds, isCoffeeFilter } = req.query
   const parsedCategoryIds = categoryIds ? categoryIds.split(',').map(Number) : []
 
-  if(isCoffeeFilter) {
+  if(isCoffeeFilter && categoryIds) {
     Product.findAll({
       include: { model: Category }
     })
     .then(products => {
       return products.filter(product => {
-        return product.categories.every(category => parsedCategoryIds.includes(category.id))
+        return parsedCategoryIds.every(id => product.categories.some(category => category.id === id))
       })
     })
     .then(response => res.json(response))

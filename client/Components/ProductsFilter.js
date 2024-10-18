@@ -8,7 +8,7 @@ const Wrapper = styled(FlexColContainer)`
 
 `
 
-const ProductsFilter = ({ categories, handleSelect }) => {
+const ProductsFilter = ({ categories,  handleCoffeeSelect, handleMiscSelect }) => {
   const coffeeTypes = [
     { id: 1, header: "Roast Level", selector: 'roast', categories: [] },
     { id: 2, header: "Caffeine", selector: 'caf', categories: [] },
@@ -17,12 +17,11 @@ const ProductsFilter = ({ categories, handleSelect }) => {
   const miscType = { id: 1, header: "Gifts and Treats", categories: [] }
 
   const coffeeTypeMenu = buildMenu(coffeeTypes, categories)
-  console.log('TESTING: ', coffeeTypeMenu)
   const miscTypeMenu = buildMiscMenu(miscType, categories)
 
   return (
     <Wrapper>
-      <CoffeeTypes menu={coffeeTypeMenu} handleSelect={handleSelect} />
+      <CoffeeTypes menu={coffeeTypeMenu} handleSelect={handleCoffeeSelect} />
 
     </Wrapper>
   )
