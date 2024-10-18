@@ -1,26 +1,29 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer, Title } from './styled-components/layout'
-import { FilterMenuType } from '../Components'
-import { buildMenu } from './helpers'
+import { CoffeeTypes } from '../Components'
+import { buildMenu, buildMiscMenu } from './helpers'
 
 const Wrapper = styled(FlexColContainer)`
 
 `
 
 const ProductsFilter = ({ categories, handleSelect }) => {
-  const menusList = [
+  const coffeeTypes = [
     { id: 1, header: "Roast Level", selector: 'roast', categories: [] },
-    { id: 2, header: "Caffeine", selector: 'caf', categories: [] }
+    { id: 2, header: "Caffeine", selector: 'caf', categories: [] },
   ]
 
-  const builtMenu = buildMenu(menusList, categories)
+  const miscType = { id: 1, header: "Gifts and Treats", categories: [] }
+
+  const coffeeTypeMenu = buildMenu(coffeeTypes, categories)
+  console.log('TESTING: ', coffeeTypeMenu)
+  const miscTypeMenu = buildMiscMenu(miscType, categories)
 
   return (
     <Wrapper>
-      {builtMenu.map(menu => {
-        return <FilterMenuType key={menu.id} menu={menu} handleSelect={handleSelect} />
-      })}
+      <CoffeeTypes menu={coffeeTypeMenu} handleSelect={handleSelect} />
+
     </Wrapper>
   )
 }

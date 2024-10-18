@@ -97,5 +97,16 @@ export const buildMenu = (menu, categories) => {
       }
     })
   })
+
+  return menu
+}
+
+export const buildMiscMenu = (menu, categories) => {
+  categories.forEach(category => {
+    if(category.id >= 4 && category.id <= 7) {
+      menu.categories.push(menu)
+    }
+  })
+  
   return menu
 }
