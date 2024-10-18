@@ -50,7 +50,6 @@ const OrderItemList = ({ cart, displayCart, setDisplayCart }) => {
 
   const incrementQty = (item, cartItems) => {
     let newItems = []
-    console.log('ITEM: ', cartItems[0].price, "PRODUCT: ", parseFloat(cartItems[0].product.price))
     const updatedItem = Object.assign({ ...item, quantity: item.quantity + 1, price: (parseFloat(item.price) + parseFloat(item.product.price)).toFixed(2) })
     newItems = cartItems.map(cartItem => cartItem.id === item.id ? updatedItem : cartItem)
     setCartItems(newItems)

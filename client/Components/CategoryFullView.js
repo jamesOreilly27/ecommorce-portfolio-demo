@@ -28,7 +28,6 @@ const ProductCardsContainer = styled(FlexContainer)`
 
 const CategoryFullView = () => {
   const params = useParams()
-  console.log(params)
   const { data, isLoading, isError } = useGetSingleCategoryQuery(parseInt(params.id))
 
   if(isLoading) {

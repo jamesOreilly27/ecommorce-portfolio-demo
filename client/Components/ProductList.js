@@ -9,10 +9,9 @@ const Wrapper = styled.div`
 `
 
 const ProductList = ({ products }) => {
-
   return (
     <Wrapper>
-      {products.map(product => {
+      {products&& products.map(product => {
         return ( <ProductCard key={product.id} product={product} /> )
       })}
     </Wrapper>

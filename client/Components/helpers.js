@@ -88,3 +88,14 @@ export const featuredFilter = (data, featured) => {
     ? data.filter((item) => item.featured === true) // Filter for featured things
     : data // Render all things if featured is false
 }
+
+export const buildMenu = (menu, categories) => {
+  menu.forEach(section => {
+    categories.forEach(category => {
+      if(category.name.toLowerCase().includes(section.selector)) {
+        section.categories.push(category)
+      }
+    })
+  })
+  return menu
+}

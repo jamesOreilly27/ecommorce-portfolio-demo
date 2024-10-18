@@ -25,7 +25,6 @@ const FeatProductsLink = styled(NoDecLink)`
 
 const Homepage = ({ reviews, categories, products }) => (
   <Wrapper>
-    {console.log('TESTING: ', products)}
     <Banner />
     <Categories categories={categories} featured />
     <FeatProducts>

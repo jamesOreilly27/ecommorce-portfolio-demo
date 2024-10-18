@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { FlexContainer, FlexColContainer, Title } from './styled-components/layout'
-//import {  } from '../Components
+import { CategoryCheckbox } from '../Components'
 
 const rotateAnimation = keyframes`
   0% { transform: rotate(180deg); }
@@ -44,25 +44,32 @@ const Clicker = styled(FlexContainer)`
   }}
 `
 
-const FilterMenuType = ({ menu }) => {
+const FilterMenuType = ({ menu, handleSelect }) => {
   const [ itemsDisplay, setItemsDisplay ] = useState(false)
 
-  const handleClick = () => {
+  const handleArrowClick = () => {
     setItemsDisplay(!itemsDisplay)
   }
+
   return (
     <Wrapper>
       <Header>
         <MenuTitle>
           {menu.header}
         </MenuTitle>
-        <Clicker onClick={handleClick} itemsDisplay={itemsDisplay}>
+        <Clicker onClick={handleArrowClick} itemsDisplay={itemsDisplay}>
           {"^"}
         </Clicker>
       </Header>
       {itemsDisplay &&
         menu.categories.map(category => {
-          return <div key={category}> {category} </div>
+          return (
+            <CategoryCheckbox
+              key={category.id}
+              category={category} 
+              handleSelect={handleSelect}
+            />
+          )
         })
       }
     </Wrapper>

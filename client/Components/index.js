@@ -31,6 +31,7 @@ export { default as MenuColumn } from './MenuColumn'
 export { default as ProductsView } from './ProductsView'
 export { default as ProductsFilter } from './ProductsFilter'
 export { default as FilterMenuType } from './FilterMenuType'
+export { default as CategoryCheckbox } from './CategoryCheckbox'
 
 //ProductList related
 export { default as ProductList } from './ProductList'
