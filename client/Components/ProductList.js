@@ -1,19 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProductCard } from '../Components'
+import { ProductCard, PageNumbers } from '../Components'
+import { FlexContainer, FlexColContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
+const Wrapper = styled(FlexColContainer)`
+  
+`
+
+const ProductContainer = styled(FlexContainer)`
   flex-wrap: ${({ featured }) => featured ? 'nowrap' : 'wrap'}
 `
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, numPages, activePage, incrementPage, decrementPage }) => {
   return (
     <Wrapper>
-      {products&& products.map(product => {
-        return ( <ProductCard key={product.id} product={product} /> )
-      })}
+      <ProductContainer>
+        {products&& products.map(product => {
+          return ( <ProductCard key={product.id} product={product} /> )
+        })}
+      </ProductContainer>
+      <PageNumbers
+        numPages={numPages}
+        activePage={activePage}
+        incrementPage={incrementPage}
+        decrementPage={decrementPage}
+      />
     </Wrapper>
   )
 }

@@ -10,8 +10,7 @@ const router = express.Router()
 router.get('/', (req, res, next) => {
   const { categoryIds, isCoffeeFilter } = req.query
   const parsedCategoryIds = categoryIds ? categoryIds.split(',').map(Number) : []
-  console.log('FIRING: ', isCoffeeFilter)
-
+  
   if(isCoffeeFilter === 'true' && categoryIds) {
     Product.findAll({
       include: { model: Category }

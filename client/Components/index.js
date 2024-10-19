@@ -37,6 +37,7 @@ export { default as CategoryCheckbox } from './CategoryCheckbox'
 
 //ProductList related
 export { default as ProductList } from './ProductList'
+export { default as PageNumbers } from './PageNumbers'
 export { default as ProductCard } from './ProductCard'
 
 //Single Product Details

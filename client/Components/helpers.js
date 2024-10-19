@@ -110,3 +110,22 @@ export const buildMiscMenu = (menu, categories) => {
   
   return menu
 }
+
+export const paginate = (items, pageSize) => {
+  const pages = []
+  let currentPage = []
+
+  for (let i = 0; i < items.length; i++) {
+    currentPage.push(items[i]);
+    if (currentPage.length === pageSize) {
+      pages.push(currentPage)
+      currentPage = []
+    }
+  }
+
+  if (currentPage.length > 0) {
+    pages.push(currentPage)
+  }
+
+  return pages
+}
