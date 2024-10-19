@@ -59,7 +59,7 @@ const ProductsView = ({ categories }) => {
 
   useEffect(() => {
     if (data) {
-      const qtyPerPage = 10
+      const qtyPerPage = 6
       createPages(data, qtyPerPage)
     }
   }, [data])
