@@ -93,7 +93,7 @@ const ProductsView = ({ categories }) => {
         handleMiscSelect={handleMiscSelect}
       />
       <ProductList
-        products={productPages[activePage]}
+        products={productPages[activePage - 1]}
         numPages={productPages.length}
         incrementPage={incrementPage}
         decrementPage={decrementPage}

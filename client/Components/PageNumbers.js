@@ -17,6 +17,7 @@ const PageNumbers = ({ numPages, activePage, incrementPage, decrementPage }) => 
   return (
     <Wrapper>
       <PageNumberButton onClick={() => {
+        if(activePage > 1)
         decrementPage(activePage - 1)
       }}>
         First Page
