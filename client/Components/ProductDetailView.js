@@ -28,8 +28,14 @@ const DetailHeader = styled(FlexColContainer)`
 
 `
 
-const ReviewsContainer = styled(FlexContainer)`
+const DetailTitle = styled(Title)`
+  margin: 0;
+`
 
+const ReviewsContainer = styled(FlexContainer)`
+  justify-content: flex-start;
+  font-size: 8px;
+  align-items: center;
 `
 
 // const SelectorContainer = styled(FlexContainer)`
@@ -43,6 +49,8 @@ const ProductDetailView = ({  }) => {
   const params = useParams()
   const { data, isLoading, isError } = useGetProductByIdQuery(parseInt(params.id))
 
+  console.log('DATA: ', data)
+
   if(isLoading) {
     return <div> Loading...</div>
   }
@@ -51,8 +59,6 @@ const ProductDetailView = ({  }) => {
     return <div>Error fetching Data</div>
   }
 
-  console.log('DATA: ', data)
-
   return (
     <Wrapper>
       <ImageContainer>
@@ -60,9 +66,15 @@ const ProductDetailView = ({  }) => {
       </ImageContainer>
       <DetailContainer>
         <DetailHeader>
-          <Title>{data.name}</Title>
+          <DetailTitle>{data.name}</DetailTitle>
           <ReviewsContainer>
-            <ReactStars rating={getReviewAvg(data.reviews)} />
+            <ReactStars
+              value={getReviewAvg(data.reviews)}
+              activeColor="#ffd700"
+            />
+            <div>
+              {`See (${data.reviews.length}) more reviews`}
+            </div>
           </ReviewsContainer>
         </DetailHeader>
         <SelectorContainer options={{time: 10}} />
