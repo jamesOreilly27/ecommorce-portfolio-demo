@@ -8,6 +8,12 @@ router.get('/:cartId', (req, res, next) => {
   getAllWhere(res, CartItem, {cartId: req.params.cartId}, [Product])
 })
 
+router.post('/', (req, res, next) => {
+  CartItem.create(req.body)
+  .then(newItem => res.json(newItem))
+  .catch(next)
+})
+
 router.put('/:id', (req, res, next) => {
   CartItem.update(req.body, {
     where: { id: req.params.id },
