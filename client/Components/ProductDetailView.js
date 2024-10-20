@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ReactStars from "react-rating-stars-component"
 import { useParams } from 'react-router-dom'
@@ -43,6 +43,29 @@ const ProductDetailView = ({  }) => {
   const params = useParams()
   const { data, isLoading, isError } = useGetProductByIdQuery(parseInt(params.id))
 
+  const [itemToAdd, setItemToAdd] = useState({
+    cartId: 0,
+    productId: 0,
+    quantity: 1,
+    style: "",
+    bag_size: 1,
+    price: 1
+  })
+
+  useEffect(() => {
+    if (data) {
+      setItemToAdd(Object.assign({...itemToAdd, productId: data.id, price: 1 * data.price}))
+    }
+  }, [data])
+
+  const handleStyleSelect = coffeeStyle => {
+    setItemToAdd(Object.assign({...itemToAdd, style: coffeeStyle}))
+  }
+
+  const handleSizeSelect = size => {
+    setItemToAdd(Object.assign({...itemToAdd, box_size: size}))
+  }
+
   console.log('DATA: ', data)
 
   if(isLoading) {
@@ -55,6 +78,7 @@ const ProductDetailView = ({  }) => {
 
   return (
     <Wrapper>
+      {console.log('TESTING: ', itemToAdd)}
       <ImageContainer>
         Image PlaceHolder
       </ImageContainer>
@@ -71,8 +95,14 @@ const ProductDetailView = ({  }) => {
             </div>
           </ReviewsContainer>
         </DetailHeader>
-        <SelectorContainer options={{time: 10}} />
-        <SelectorContainer options={{time: 10}} />
+        <SelectorContainer
+          options={['Whole Bean', 'Ground Coffee', 'Pods']}
+          handleClick={handleStyleSelect}
+        />
+        <SelectorContainer
+          options={['1 lb', '2 lb', '5 lb']}
+          handleClick={handleSizeSelect}
+        />
         <Button
           width={40}
           height={35}
