@@ -5,12 +5,21 @@ const { findById, getAll, getAllWhere, destroy } = require('./helpers')
 const router = express.Router()
 
 router.get('/:cartId', (req, res, next) => {
-  getAllWhere(res, CartItem, {cartId: req.params.cartId}, [Product])
+  CartItem.findAll({
+    where: { cartId: req.params.cartId },
+    include: { model: Product }
+  })
+  .then(cartItem => res.json(cartItem))
+  .catch(next)
+  // getAllWhere(res, CartItem, {cartId: req.params.cartId}, [Product])
 })
 
 router.post('/', (req, res, next) => {
   CartItem.create(req.body)
-  .then(newItem => res.json(newItem))
+  .then(newItem => {
+    console.log('newItem: ', newItem)
+    return res.json(newItem)
+  })
   .catch(next)
 })
 

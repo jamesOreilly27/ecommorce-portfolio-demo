@@ -42,9 +42,10 @@ const ReviewsContainer = styled(FlexContainer)`
 const ProductDetailView = ({ user }) => {
   const params = useParams()
   const { data, isLoading, isError } = useGetProductByIdQuery(parseInt(params.id))
+  const [addItem] = useCreateCartItemMutation()
 
   const [itemToAdd, setItemToAdd] = useState({
-    cartId: user.cart.Id,
+    cartId: user.cart.id,
     productId: 0,
     quantity: 1,
     style: "Whole Bean",
@@ -65,6 +66,10 @@ const ProductDetailView = ({ user }) => {
   const handleSizeSelect = size => {
     console.log(parseInt(size[0]))
     setItemToAdd(Object.assign({...itemToAdd, bag_size: parseInt(size[0])}))
+  }
+
+  const handleAdd = () => {
+    addItem(itemToAdd)
   }
 
   console.log('DATA: ', data)
@@ -108,6 +113,7 @@ const ProductDetailView = ({ user }) => {
         <Button
           width={40}
           height={35}
+          onClick={handleAdd}
         >
           Add to cart
         </Button>

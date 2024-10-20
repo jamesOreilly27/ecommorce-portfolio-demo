@@ -22,9 +22,7 @@ const OptionContainer = styled(FlexContainer)`
 const SelectorContainer = ({ options, handleClick, selected }) => {
 
   const checkIsSelected = (option, selected) => {
-    option && console.log('FIRING: ', selected)
     if(parseInt(option[0])) {
-      console.log("TESTING: ", option[0]===selected)
       return parseInt(option[0]) === selected
     } else {
       return selected === option
