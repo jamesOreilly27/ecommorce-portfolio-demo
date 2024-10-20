@@ -39,15 +39,15 @@ const ReviewsContainer = styled(FlexContainer)`
   align-items: center;
 `
 
-const ProductDetailView = ({  }) => {
+const ProductDetailView = ({ user }) => {
   const params = useParams()
   const { data, isLoading, isError } = useGetProductByIdQuery(parseInt(params.id))
 
   const [itemToAdd, setItemToAdd] = useState({
-    cartId: 0,
+    cartId: user.cart.Id,
     productId: 0,
     quantity: 1,
-    style: "",
+    style: "Whole Bean",
     bag_size: 1,
     price: 1
   })
@@ -63,7 +63,8 @@ const ProductDetailView = ({  }) => {
   }
 
   const handleSizeSelect = size => {
-    setItemToAdd(Object.assign({...itemToAdd, box_size: size}))
+    console.log(parseInt(size[0]))
+    setItemToAdd(Object.assign({...itemToAdd, bag_size: parseInt(size[0])}))
   }
 
   console.log('DATA: ', data)
@@ -78,7 +79,6 @@ const ProductDetailView = ({  }) => {
 
   return (
     <Wrapper>
-      {console.log('TESTING: ', itemToAdd)}
       <ImageContainer>
         Image PlaceHolder
       </ImageContainer>
@@ -97,10 +97,12 @@ const ProductDetailView = ({  }) => {
         </DetailHeader>
         <SelectorContainer
           options={['Whole Bean', 'Ground Coffee', 'Pods']}
+          selected={itemToAdd.style}
           handleClick={handleStyleSelect}
         />
         <SelectorContainer
           options={['1 lb', '2 lb', '5 lb']}
+          selected={itemToAdd.bag_size}
           handleClick={handleSizeSelect}
         />
         <Button

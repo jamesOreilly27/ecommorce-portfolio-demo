@@ -16,17 +16,29 @@ const OptionContainer = styled(FlexContainer)`
   width: 35%;
   height: 100%;
   border-right: 1px solid red;
+  ${({ selected }) => selected ? "background-color: pink" : "background-color: green"}
 `
 
-const SelectorContainer = ({ options, handleClick }) => {
+const SelectorContainer = ({ options, handleClick, selected }) => {
 
+  const checkIsSelected = (option, selected) => {
+    option && console.log('FIRING: ', selected)
+    if(parseInt(option[0])) {
+      console.log("TESTING: ", option[0]===selected)
+      return parseInt(option[0]) === selected
+    } else {
+      return selected === option
+    }
+  }
   return (
     <Wrapper>
       {options.map(option => {
         return (
-          <OptionContainer onClick={() => {
-            handleClick(option)
-          }}>
+          <OptionContainer
+            selected={checkIsSelected(option, selected)}
+            onClick={() => {
+              handleClick(option)
+            }}>
             {option}
           </OptionContainer>
         )

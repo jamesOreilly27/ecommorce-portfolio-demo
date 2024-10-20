@@ -11,12 +11,10 @@ const CartItem = db.define('cart-item', {
     type: Sequelize.DECIMAL(10, 2)
   },
   style: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   bag_size: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   }
 })
 
