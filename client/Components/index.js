@@ -42,6 +42,7 @@ export { default as ProductCard } from './ProductCard'
 
 //Single Product Details
 export { default as ProductDetailView } from './ProductDetailView'
+export { default as SelectorContainer } from './SelectorContainer'
 
 
 /*************** Category Specific ***************/

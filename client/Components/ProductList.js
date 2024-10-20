@@ -19,12 +19,15 @@ const ProductList = ({ products, numPages, activePage, incrementPage, decrementP
           return ( <ProductCard key={product.id} product={product} /> )
         })}
       </ProductContainer>
-      <PageNumbers
-        numPages={numPages}
-        activePage={activePage}
-        incrementPage={incrementPage}
-        decrementPage={decrementPage}
-      />
+      {activePage &&
+        <PageNumbers
+          numPages={numPages}
+          activePage={activePage}
+          incrementPage={incrementPage}
+          decrementPage={decrementPage}
+        />
+    
+      }
     </Wrapper>
   )
 }

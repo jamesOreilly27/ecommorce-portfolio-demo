@@ -2138,6 +2138,8 @@ async function seed() {
       cartId: carts[0].id,
       productId: products[4].id,
       quantity: 3,
+      style: "Whole Bean",
+      bag_size: 1,
       price: (3 * products[4].price)
     }),
     CartItem.create({
@@ -2145,6 +2147,8 @@ async function seed() {
       cartId: carts[0].id,
       productId: products[10].id,
       quantity: 1,
+      style: "Whole Bean",
+      bag_size: 2,
       price: 1 * products[10].price
     })
   ])

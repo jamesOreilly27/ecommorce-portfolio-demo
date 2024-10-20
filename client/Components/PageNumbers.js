@@ -12,8 +12,7 @@ const PageNumberButton = styled.button`
 `
 
 const PageNumbers = ({ numPages, activePage, incrementPage, decrementPage }) => {
-  console.log('ACTIVE PAGE: ', activePage)
-  console.log('NUM PAGES: ', numPages)
+
   return (
     <Wrapper>
       <PageNumberButton onClick={() => {
