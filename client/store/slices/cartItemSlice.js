@@ -8,12 +8,19 @@ export const cartItemApi = createApi({
       query: cartId => `/${cartId}`,
       transformResponse: response => response
     }),
+    createCartItem: builder.mutation({
+      query: cartItem => ({
+        url: "/",
+        method: "POST",
+        body: cartItem
+      })
+    }),
     updateCartItem: builder.mutation({
       query: (cartItem) => ({
         url: `/${cartItem.id}`,
         method: "PUT",
         body: cartItem
-      }),
+      })
     }),
     deleteCartItem: builder.mutation({
       query:  id => ({
@@ -25,4 +32,4 @@ export const cartItemApi = createApi({
   })
 })
 
-export const { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutation } = cartItemApi
+export const { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutation, useCreateCartItemMutation } = cartItemApi

@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReactStars from "react-rating-stars-component"
 import { useParams } from 'react-router-dom'
-import { useGetProductByIdQuery } from '../store/slices'
+import { useGetProductByIdQuery, useCreateCartItemMutation } from '../store/slices'
 import { FlexColContainer, FlexContainer, Title } from './styled-components/layout'
+import { Button } from './styled-components/clickables'
 import { SelectorContainer } from '../Components'
 import { getReviewAvg } from './helpers'
 
@@ -37,13 +38,6 @@ const ReviewsContainer = styled(FlexContainer)`
   font-size: 8px;
   align-items: center;
 `
-
-// const SelectorContainer = styled(FlexContainer)`
-//   height: 20%;
-//   width: 100%;
-//   background-color: green;
-//   margin: 10px 0;
-// `
 
 const ProductDetailView = ({  }) => {
   const params = useParams()
@@ -79,6 +73,12 @@ const ProductDetailView = ({  }) => {
         </DetailHeader>
         <SelectorContainer options={{time: 10}} />
         <SelectorContainer options={{time: 10}} />
+        <Button
+          width={40}
+          height={35}
+        >
+          Add to cart
+        </Button>
       </DetailContainer>
     </Wrapper>
   )
