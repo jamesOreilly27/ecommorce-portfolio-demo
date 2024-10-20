@@ -62,7 +62,7 @@ const ProductDetailView = ({  }) => {
         <DetailHeader>
           <Title>{data.name}</Title>
           <ReviewsContainer>
-            <ReactStars rating={getReviewAvg(reviews)} />
+            <ReactStars rating={getReviewAvg(data.reviews)} />
           </ReviewsContainer>
         </DetailHeader>
         <SelectorContainer options={{time: 10}} />

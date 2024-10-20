@@ -132,8 +132,8 @@ export const paginate = (items, pageSize) => {
 
 export const getReviewAvg = reviews => {
   let total = 0
-  objects.forEach(object => {
-    total += object.rating
+  reviews.forEach(review => {
+    total += review.rating
   })
-  return total / objects.length
+  return total / reviews.length
 }
