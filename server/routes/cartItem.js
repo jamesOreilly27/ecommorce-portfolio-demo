@@ -11,7 +11,6 @@ router.get('/:cartId', (req, res, next) => {
   })
   .then(cartItem => res.json(cartItem))
   .catch(next)
-  // getAllWhere(res, CartItem, {cartId: req.params.cartId}, [Product])
 })
 
 router.post('/', (req, res, next) => {
