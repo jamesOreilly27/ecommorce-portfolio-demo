@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
+import { DeliveryInfo, PaymentInfo, Cart } from '../Components'
 
-const Wrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexColContainer)`
 
 `
 
 const Checkout = ({  }) => {
   return (
     <Wrapper>
-      Hello from Checkout
+      <DeliveryInfo />
+      <PaymentInfo />
+      <Cart />
     </Wrapper>
   )
 }
