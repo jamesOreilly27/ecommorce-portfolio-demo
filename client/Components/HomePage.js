@@ -23,13 +23,13 @@ const FeatProductsLink = styled(NoDecLink)`
   width: 10vw;
 `
 
-const Homepage = ({ reviews, categories }) => (
+const Homepage = ({ reviews, categories, products }) => (
   <Wrapper>
     <Banner />
     <Categories categories={categories} featured />
     <FeatProducts>
       <SectionTitle> Our Favorites </SectionTitle>
-      <ProductList featured />
+      <ProductList products={products} />
       <FeatProductsLink to={`/products`}>
         <Button width={100} height={35}>
           view all

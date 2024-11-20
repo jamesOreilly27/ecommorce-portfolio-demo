@@ -1,32 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useGetProductsQuery } from "../store/slices/productSlice"
-import { ProductCard } from '../Components'
-import { featuredFilter } from './helpers'
+import { ProductCard, PageNumbers } from '../Components'
+import { FlexContainer, FlexColContainer } from './styled-components/layout'
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
+const Wrapper = styled(FlexColContainer)`
+  
+`
+
+const ProductContainer = styled(FlexContainer)`
   flex-wrap: ${({ featured }) => featured ? 'nowrap' : 'wrap'}
 `
 
-const ProductList = ({ featured }) => {
-  const { data, isLoading, isError } = useGetProductsQuery()
-  if(isLoading) {
-    return <div> Loading... </div>
-  }
-
-  if(isError) {
-    return <div> Error fetching data </div>
-  }
-
-  const filteredProducts = featuredFilter(data, featured)
-
+const ProductList = ({ products, numPages, activePage, incrementPage, decrementPage }) => {
   return (
     <Wrapper>
-      {filteredProducts.map(product => {
-        return ( <ProductCard key={product.id} product={product} /> )
-      })}
+      <ProductContainer>
+        {products&& products.map(product => {
+          return ( <ProductCard key={product.id} product={product} /> )
+        })}
+      </ProductContainer>
+      {activePage &&
+        <PageNumbers
+          numPages={numPages}
+          activePage={activePage}
+          incrementPage={incrementPage}
+          decrementPage={decrementPage}
+        />
+    
+      }
     </Wrapper>
   )
 }

@@ -22,7 +22,7 @@ const getAllWhere = (res, model, condition, assocModels) => {
   if (assocModels) {
     model.findAll({
       where: condition,
-      include: assocModels.map((assocModel) => ({ model: assocModel }))
+      include: assocModels.map(assocModel => [assocModel])
     })
     .then((list) => checkRes(res, list))
   } else {

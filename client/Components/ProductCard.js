@@ -4,7 +4,7 @@ import { FlexColContainer, FlexContainer } from './styled-components/layout'
 import { NoDecLink } from './styled-components/clickables'
 
 const Wrapper = styled(FlexColContainer)`
-  width: 25%;
+  min-width: 25%;
   justify-content: space-between;
   align-items: center;
 `

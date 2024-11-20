@@ -83,8 +83,57 @@ export const FooterMenus = [
  * @returns {Array} A new array containing filtered or unfiltered items.
  */
 
-export const featuredFilter = (data, featured)=> {
+export const featuredFilter = (data, featured) => {
   return featured
     ? data.filter((item) => item.featured === true) // Filter for featured things
     : data // Render all things if featured is false
+}
+
+export const buildMenu = (menu, categories) => {
+  menu.forEach(section => {
+    categories.forEach(category => {
+      if(category.name.toLowerCase().includes(section.selector)) {
+        section.categories.push(category)
+      }
+    })
+  })
+
+  return menu
+}
+
+export const buildMiscMenu = (menu, categories) => {
+  categories.forEach(category => {
+    if(category.id >= 4 && category.id <= 7) {
+      menu.categories.push(category)
+    }
+  })
+  
+  return menu
+}
+
+export const paginate = (items, pageSize) => {
+  const pages = []
+  let currentPage = []
+
+  for (let i = 0; i < items.length; i++) {
+    currentPage.push(items[i]);
+    if (currentPage.length === pageSize) {
+      pages.push(currentPage)
+      currentPage = []
+    }
+  }
+
+  if (currentPage.length > 0) {
+    pages.push(currentPage)
+  }
+
+  return pages
+}
+
+export const getReviewAvg = reviews => {
+  let total = 0
+  reviews.forEach(review => {
+    total += review.rating
+  })
+  return total / reviews.length
 }

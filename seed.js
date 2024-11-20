@@ -7,6 +7,16 @@ const genRandomNum = () => {
   return Math.floor(Math.random() * 9) + 1
 }
 
+const createIds = length => {
+  const ids = []
+  for(let i = 1; i <= length; i++) {
+    ids.push(i)
+  }
+
+  return ids
+}
+
+const productIds = createIds(171)
 async function seed() {
   await db.sync({ force: true });
 
@@ -57,410 +67,1360 @@ async function seed() {
   console.log(chalk.red.bgWhite.bold(`seeded ${customers.length} customers`))
 
   const products = await Promise.all([
-      // Product 1 - Whole Bean
-      Product.create({
-        name: "Columbian Supremo",
-        description: "Rich and bold, this Columbian Supremo whole bean coffee is perfect for those who enjoy a strong cup of joe. Grind it fresh for the ultimate flavor experience.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[0],
+      name: "Regular Caffeine Light Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 2 - Ground Coffee
-      Product.create({
-        name: "French Roast",
-        description: "Dark and smooth, our French roast ground coffee is perfect for those who prefer a strong and intense flavor. Ready to brew for a quick and convenient coffee fix.",
-        price: 12.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[1],
+      name: "Regular Caffeine Medium Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 3 - Decaf Coffee
-      Product.create({
-        name: "Decaf French Roast",
-        description: "Enjoy the rich flavor of coffee without the caffeine. Our decaf blend is perfect for those who want a relaxing cup of joe any time of day.",
-        price: 13.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[2],
+      name: "Regular Caffeine Dark Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 4 - Coffee Beans
-      Product.create({
-        name: "Ethiopian Yirgacheffe",
-        description: "Bright and fruity, Ethiopian Yirgacheffe coffee beans are a favorite among coffee connoisseurs. Experience the unique flavor profile of this exotic coffee.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[3],
+      name: "Decaf Light Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 5 - Whole Bean
-      Product.create({
-        name: "Dark Roast Espresso Beans",
-        description: "Intense and bold, our dark roast espresso beans are perfect for creating a rich and creamy espresso. Grind them fresh for the best flavor.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[4],
+      name: "Decaf Medium Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 6 - Coffee Pods
-      Product.create({
-        name: "Coffee Pods",
-        description: "Convenient and eco-friendly, our organic fair trade coffee pods are a great way to enjoy a delicious cup of coffee. Compatible with most single-serve coffee machines.",
-        price: 11.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[5],
+      name: "Decaf Dark Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 7 - Accessories
-      Product.create({
-        name: "French Press Coffee Maker",
-        description: "Brew the perfect cup of coffee with our classic French press. Made with durable stainless steel and easy to use.",
-        price: 39.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[6],
+      name: "Half Caf Light Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 8 - Accessories
-      Product.create({
-        name: "Ceramic Coffee Mug",
-        description: "Enjoy your favorite coffee in style with our ceramic coffee mug. Perfect for everyday use or as a gift.",
-        price: 9.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[7],
+      name: "Half Caf Medium Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 9 - Accessories
-      Product.create({
-        name: "Electric Burr Coffee Grinder",
-        description: "Grind your coffee beans to the perfect consistency with our electric burr coffee grinder. Adjustable settings for precise control.",
-        price: 59.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[8],
+      name: "Half Caf Dark Roast Vanilla Spice",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
     
-      // Product 10 - Syrups and Creamer
-      Product.create({
-        name: "Vanilla Almond Milk Creamer",
-        description: "Add a creamy and delicious flavor to your coffee with our vanilla almond milk creamer. Low-calorie and dairy-free.",
-        price: 4.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-      
-      // Product 11 - Syrups and Creamer
-      Product.create({
-        name: "Caramel Coffee Syrup",
-        description: "Enhance the flavor of your coffee with our rich and delicious caramel coffee syrup. Perfect for lattes, cappuccinos, and iced coffee.",
-        price: 5.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[9],
+      name: "Regular Caffeine Light Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[10],
+      name: "Regular Caffeine Medium Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[11],
+      name: "Regular Caffeine Dark Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 22.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[12],
+      name: " Decaf Light Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[13],
+      name: "Decaf Medium Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[14],
+      name: "Decaf Dark Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[15],
+      name: "Half Caf Light Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[16],
+      name: "Half Caf Medium Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[17],
+      name: "Half Caf Dark Roast Hazelnut Chocolate",
+      description: "Add a little kick to the everyday vanilla",
+      price: 25.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[18],
+      name: "Regular Caffeine Light Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[19],
+      name: "Regular Caffeine Medium Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[20],
+      name: "Regular Caffeine Dark Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[21],
+      name: "Decaf Light Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[22],
+      name: "Decaf Medium Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[23],
+      name: "Decaf Dark Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[24],
+      name: "Half Caf Light Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[25],
+      name: "Half Caf Medium Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[26],
+      name: "Half Caf Dark Roast Caramel Apple",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[27],
+      name: "Regular Caffeine Light Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[28],
+      name: "Regular Caffeine Medium Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[29],
+      name: "Regular Caffeine Dark Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[30],
+      name: "Decaf Light Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[31],
+      name: "Decaf Medium Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[32],
+      name: "Decaf Dark Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[33],
+      name: "Half Caf Light Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[34],
+      name: "Half Caf Medium Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[35],
+      name: "Half Caf Dark Roast Blueberry Lavender",
+      description: "Add a little kick to the everyday vanilla",
+      price: 29.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[36],
+      name: "Regular Caffeine Light Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[37],
+      name: "Regular Caffeine Medium Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[38],
+      name: "Regular Caffeine Dark Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[39],
+      name: "Decaf Light Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[40],
+      name: "Decaf Medium Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[41],
+      name: "Decaf Dark Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[42],
+      name: "Half Caf Light Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[43],
+      name: "Half Caf Medium Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[44],
+      name: "Half Caf Dark Roast Cinnamon Raisin",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[45],
+      name: "Regular Caffeine Light Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[46],
+      name: "Regular Caffeine Medium Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[47],
+      name: "Regular Caffeine Dark Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[48],
+      name: "Decaf Light Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[49],
+      name: "Decaf Medium Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[50],
+      name: "Decaf Dark Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[51],
+      name: "Half Caf Light Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[52],
+      name: "Half Caf Medium Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[53],
+      name: "Half Caf Dark Roast Almond Pecan",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[54],
+      name: "Regular Caffeine Light Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[55],
+      name: "Regular Caffeine Medium Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[56],
+      name: "Regular Caffeine Dark Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 21.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[57],
+      name: "Decaf Light Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[58],
+      name: "Decaf Medium Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[59],
+      name: "Decaf Dark Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[60],
+      name: "Half Caf Light Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[61],
+      name: "Half Caf Medium Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[62],
+      name: "Half Caf Dark Roast Coconut Lime",
+      description: "Add a little kick to the everyday vanilla",
+      price: 24.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[63],
+      name: "Regular Caffeine Light Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 16.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[64],
+      name: "Regular Caffeine Medium Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 16.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[65],
+      name: "Regular Caffeine Dark Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 16.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[66],
+      name: "Decaf Light Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[67],
+      name: "Decaf Medium Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[68],
+      name: "Decaf Dark Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[69],
+      name: "Half Caf Light Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[70],
+      name: "Half Caf Medium Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[71],
+      name: "Half Caf Dark Roast Maple Walnut",
+      description: "Add a little kick to the everyday vanilla",
+      price: 20.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[72],
+      name: "Regular Caffeine Light Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 23.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[73],
+      name: "Regular Caffeine Medium Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 23.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[74],
+      name: "Regular Caffeine Dark Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 23.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[75],
+      name: "Decaf Light Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[76],
+      name: "Decaf Medium Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[77],
+      name: "Decaf Dark Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[78],
+      name: "Half Caf Light Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[79],
+      name: "Half Caf Medium Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[80],
+      name: "Half Caf Dark Roast Cherry Almond",
+      description: "Add a little kick to the everyday vanilla",
+      price: 26.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[81],
+      name: "Regular Caffeine Light Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 12.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[82],
+      name: "Regular Caffeine Medium Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 12.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[83],
+      name: "Regular Caffeine Dark Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 12.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[84],
+      name: "Decaf Light Roast Italian",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[85],
+      name: "Decaf Medium Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[86],
+      name: "Decaf Dark Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[87],
+      name: "Half Caf Light Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[88],
+      name: "Half Caf Medium Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[89],
+      name: "Half Caf Dark Roast Italian",
+      description: "Add a little kick to the everyday vanilla",
+      price: 14.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[90],
+      name: "Regular Caffeine Light Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 15.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[91],
+      name: "Regular Caffeine Medium Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 15.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[92],
+      name: "Regular Caffeine Dark Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 15.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[93],
+      name: "Decaf Light Roast French",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[94],
+      name: "Decaf Medium Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[95],
+      name: "Decaf Dark Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[96],
+      name: "Half Caf Light Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[97],
+      name: "Half Caf Medium Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[98],
+      name: "Half Caf Dark Roast French",
+      description: "Add a little kick to the everyday vanilla",
+      price: 18.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[99],
+      name: "Regular Caffeine Light Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[100],
+      name: "Regular Caffeine Medium Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[101],
+      name: "Regular Caffeine Dark Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 17.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[102],
+      name: "Decaf Light Roast Vienna",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[103],
+      name: "Decaf Medium Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[104],
+      name: "Decaf Dark Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[105],
+      name: "Half Caf Light Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[106],
+      name: "Half Caf Medium Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    Product.create({
+      id: productIds[107],
+      name: "Half Caf Dark Roast Vienna",
+      description: "Add a little kick to the everyday vanilla",
+      price: 19.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[108],
+      name: "Regular Caffeine Light Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 8.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[109],
+      name: "Regular Caffeine Medium Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 8.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[110],
+      name: "Regular Caffeine Dark Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 8.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[111],
+      name: "Decaf Light Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla, but not too much",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[112],
+      name: "Decaf Medium Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[113],
+      name: "Decaf Dark Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[114],
+      name: "Half Caf Light Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[115],
+      name: "Half Caf Medium Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    Product.create({
+      id: productIds[116],
+      name: "Half Caf Dark Roast Donut Shop",
+      description: "Add a little kick to the everyday vanilla",
+      price: 13.99,
+      image: "https://placehold.it/200x200"
+    }),
+    
+    
+    // Accessories
+    
+    Product.create({
+      id: productIds[117],
+      name: "French Press Coffee Maker",
+      description: "Brew the perfect cup of coffee with our classic French press. Made with durable stainless steel and easy to use.",
+      price: 39.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[118],
+      name: "Ceramic Coffee Mug",
+      description: "Enjoy your favorite coffee in style with our ceramic coffee mug. Perfect for everyday use or as a gift.",
+      price: 9.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[119],
+      name: "Electric Burr Coffee Grinder",
+      description: "Grind your coffee beans to the perfect consistency with our electric burr coffee grinder. Adjustable settings for precise control.",
+      price: 59.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[120],
+      name: "Coffee Thermos",
+      description: "Keep your coffee hot or cold for hours with our insulated stainless steel thermos. Perfect for taking your coffee on the go.",
+      price: 24.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[121],
+      name: "Coffee Bean Storage Container",
+      description: "Keep your coffee beans fresh and flavorful with our airtight coffee bean storage container.",
+      price: 14.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[122],
+      name: "Milk Frother",
+      description: "Create frothy, barista-quality milk for your latte art or simply enjoy a creamier coffee with our handheld milk frother.",
+      price: 19.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[123],
+      name: "Coffee Scale",
+      description: "Achieve consistent and delicious coffee by measuring your coffee grounds with our digital coffee scale. For the perfect cup, every time.",
+      price: 29.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[124],
+      name: "Pour Over Coffee Maker",
+      description: "Experience the art of pour-over brewing with our stylish and easy-to-use pour-over coffee maker. Perfect for brewing a single cup of coffee.",
+      price: 24.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[125],
+      name: "Cold Brew Coffee Maker",
+      description: "Brew your own delicious cold brew coffee at home with our convenient cold brew coffee maker. Enjoy smooth and refreshing cold brew anytime.",
+      price: 34.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[126],
+      name: "Coffee Filters",
+      description: "These filters are designed for optimal coffee extraction and minimal waste.",
+      price: 3.99, // Replace with price depending on bleached/unbleached option
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[127],
+      name: "Coffee Tamper",
+      description: "Ensure a level and evenly tamped coffee puck for optimal espresso extraction with our ergonomic coffee tamper.",
+      price: 14.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[128],
+      name: "Moka Pot",
+      description: "Brew strong and flavorful stovetop espresso with our classic Moka pot. Perfect for those who love a bold cup of coffee.",
+      price: 29.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[129],
+      name: "AeroPress Coffee Maker",
+      description: "Brew a quick and delicious cup of coffee with our versatile AeroPress coffee maker. Compact and portable, perfect for travel or on-the-go coffee brewing.",
+      price: 39.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    //Syrups and Creamers
+    Product.create({
+      id: productIds[130],
+      name: "Vanilla Almond Milk Creamer",
+      description: "Add a creamy and delicious flavor to your coffee with our vanilla almond milk creamer. Low-calorie and dairy-free.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[131],
+      name: "Caramel Coffee Syrup",
+      description: "Enhance the flavor of your coffee with our rich and delicious caramel coffee syrup. Perfect for lattes, cappuccinos, and iced coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[132],
+      name: "Hazelnut Coffee Syrup",
+      description: "Add a nutty flavor to your coffee with our Hazelnut Coffee Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[133],
+      name: "Pumpkin Spice Coffee Syrup",
+      description: "Enjoy the warm and cozy flavors of fall with our Pumpkin Spice Coffee Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[134],
+      name: "Chocolate Hazelnut Coffee Syrup",
+      description: "Indulge in the rich and decadent flavor of chocolate hazelnut with our Chocolate Hazelnut Coffee Syrup.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[135],
+      name: "Cinnamon Dolce Syrup",
+      description: "Add a warm and comforting touch to your coffee with our Cinnamon Dolce Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[136],
+      name: "Peppermint Mocha Syrup",
+      description: "Indulge in the refreshing and festive flavors of peppermint and chocolate with our Peppermint Mocha Syrup. Perfect for holiday lattes and iced coffees.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[137],
+      name: "Toasted Coconut Syrup",
+      description: "Escape to paradise with the tropical flavors of our Toasted Coconut Syrup. Perfect for adding a touch of sweetness and a unique twist to your coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[138],
+      name: "Salted Caramel Syrup",
+      description: "Elevate your coffee with the delightful combination of sweet and salty in our Salted Caramel Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[139],
+      name: "Sugar-Free Vanilla Bean Syrup",
+      description: "Enjoy the delicious flavor of vanilla without the guilt with our Sugar-Free Vanilla Bean Syrup. Perfect for those watching their sugar intake.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[140],
+      name: "Oat Milk Creamer (Vanilla)",
+      description: "A delicious and creamy plant-based option! Our Oat Milk Creamer (Vanilla) is perfect for those seeking a dairy-free alternative.",
+      price: 5.49,
+      image: "[https://placehold.it/200x200](https://placehold.it/200x200)", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[141],
+      name: "Coconut Milk Creamer (Caramel)",
+      description: "Indulge in the creamy sweetness of coconut with our Coconut Milk Creamer (Caramel). A delicious dairy-free option for your coffee.",
+      price: 5.49,
+      image: "[https://placehold.it/200x200](https://placehold.it/200x200)", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[142],
+      name: "French Vanilla Creamer",
+      description: "A classic and universally loved flavor! Our French Vanilla Creamer adds a touch of creamy sweetness to your coffee.",
+      price: 4.99,
+      image: "[https://placehold.it/200x200](https://placehold.it/200x200)", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[143],
+      name: "Irish Cream Creamer",
+      description: "Add a touch of Irish flair to your coffee with our Irish Cream Creamer. A delicious blend of whiskey, cream, and vanilla flavors.",
+      price: 5.99,
+      image: "[https://placehold.it/200x200](https://placehold.it/200x200)", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[144],
+      name: "Cold Brew Creamer (Mocha)",
+      description: "Specially formulated for cold brew coffee! Our Cold Brew Creamer (Mocha) adds a rich and creamy chocolate flavor without thinning out your cold brew.",
+      price: 5.99,
+      image: "[https://placehold.it/200x200](https://placehold.it/200x200"
+    }),
+    
+    //Gifts
+    Product.create({
+      name: "Coffee Lover's Gift Set",
+      id: productIds[145],
+      description: "Give the gift of coffee with our curated coffee gift set. Includes a variety of coffee beans, a mug, and a coffee grinder.",
+      price: 69.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
+    }),
+    Product.create({
+      id: productIds[146],
+      name: "The Coffee Connoisseur's Guide",
+      description: "Learn everything there is to know about coffee with this beautifully illustrated coffee table book.",
+      price: 29.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[147],
+      name: "Coffee Bean Body Scrub",
+      description: "Exfoliate and invigorate your skin with our coffee bean body scrub. Made with natural ingredients and perfect for a spa-like experience.",
+      price: 12.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
+    }),
+    Product.create({
+      id: productIds[148],
+      name: "Coffee Scented Soap",
+      description: "Pamper yourself with our coffee scented soap. Made with natural ingredients and perfect for a luxurious bath time experience.",
+      price: 8.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
+    }),
+    Product.create({
+      id: productIds[149],
+      name: "Whole Bean 3 Flavor Set",
+      description: "Discover a variety of flavors with our curated Whole Bean 3 Flavor Set. Perfect for coffee enthusiasts looking to explore new tastes.",
+      price: 62.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[150],
+      name: "Coffee Constellation Mug",
+      description: "Unwind under the stars with this constellation-themed coffee mug. Identify your favorite celestial bodies while you enjoy your morning cup of joe.",
+      price: 14.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: false
+    }),
+    
+    Product.create({
+      id: productIds[151],
+      name: "Color Changing Coffee Mug",
+      description: "Watch your message magically appear as you pour hot coffee into this color-changing mug. Surprise yourself or a loved one with this fun and interactive mug.",
+      price: 12.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: false
+    }),
+    
+    Product.create({
+      id: productIds[152],
+      name: "Travel Mug with Infuser",
+      description: "Brew your favorite loose leaf tea or coffee on the go with this travel mug featuring a built-in infuser. Enjoy a delicious cup of your favorite beverage wherever your adventures take you.",
+      price: 24.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: false
+    }),
+    
+    Product.create({
+      id: productIds[153],
+      name: "Ceramic Double-Walled Mug",
+      description: "Keep your coffee hot for longer and your hands cool with this ceramic double-walled mug. The innovative design prevents heat transfer for a more comfortable coffee drinking experience.",
+      price: 19.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: false
+    }),
+    
+    Product.create({
+      id: productIds[154],
+      name: "Funny Quote Coffee Mug",
+      description: "Start your day with a smile with this funny quote coffee mug. Featuring a humorous coffee-related quote, this mug is sure to brighten your day and anyone else's who sees it.",
+      price: 9.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: false
+    }),
+    
+    //Treats
+    Product.create({
+      id: productIds[155],
+      name: "Moist Coffee Cake",
+      description: "Enjoy a delicious and decadent coffee cake with moist cake and chocolate chips. Perfect for a morning treat or afternoon snack.",
+      price: 8.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+      featured: true
+    }),
 
-      // Product 12 - Accessories
-      Product.create({
-        name: "Coffee Thermos",
-        description: "Keep your coffee hot or cold for hours with our insulated stainless steel thermos. Perfect for taking your coffee on the go.",
-        price: 24.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
+    Product.create({
+      id: productIds[156],
+      name: "Coffee-Flavored Candy",
+      description: "Indulge your sweet tooth with our delicious coffee-flavored candy. Available in a variety of flavors, it's the perfect pick-me-up for coffee lovers.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
 
-      // Product 13 - Gifts
-      Product.create({
-        name: "Coffee Lover's Gift Set",
-        description: "Give the gift of coffee with our curated coffee gift set. Includes a variety of coffee beans, a mug, and a coffee grinder.",
-        price: 69.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-        featured: true
-      }),
-
-      // Product 14 - Gifts
-      Product.create({
-        name: "The Coffee Connoisseur's Guide",
-        description: "Learn everything there is to know about coffee with this beautifully illustrated coffee table book.",
-        price: 29.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 15 - Treats
-      Product.create({
-        name: "Moist Coffee Cake",
-        description: "Enjoy a delicious and decadent coffee cake with moist cake and chocolate chips. Perfect for a morning treat or afternoon snack.",
-        price: 8.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-        featured: true
-      }),
-
-      // Product 16 - Gifts
-      Product.create({
-        name: "Coffee Bean Body Scrub",
-        description: "Exfoliate and invigorate your skin with our coffee bean body scrub. Made with natural ingredients and perfect for a spa-like experience.",
-        price: 12.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-        featured: true
-      }),
-
-      // Product 17 - Gifts
-      Product.create({
-        name: "Coffee Scented Soap",
-        description: "Pamper yourself with our coffee scented soap. Made with natural ingredients and perfect for a luxurious bath time experience.",
-        price: 8.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-        featured: true
-      }),
-
-      // Product 18 - Decaf
-      Product.create({
-        name: "Decaf Italian Roast",
-        description: "Enjoy a rich and flavorful coffee without the caffeine. Our Decaf Italian Roast offers a smooth and satisfying taste.",
-        price: 18.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 19 - Ground Coffee
-      Product.create({
-        name: "Italian Roast",
-        description: "A bold and intense coffee with a smoky flavor profile. Our Italian Roast ground coffee is perfect for those who prefer a strong cup of joe.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 20 - Gifts
-      Product.create({
-        name: "Whole Bean 3 Flavor Set",
-        description: "Discover a variety of flavors with our curated Whole Bean 3 Flavor Set. Perfect for coffee enthusiasts looking to explore new tastes.",
-        price: 62.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-      
-      // Product 21 - Whole Bean
-      Product.create({
-        name: "Dark Roast Blend",
-        description: "A rich and bold blend of coffee beans, perfect for those who enjoy a strong and flavorful cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 22 - Ground Coffee
-      Product.create({
-        name: "Medium Roast Blend",
-        description: "A balanced blend with a smooth and flavorful taste. Our Medium Roast Ground Coffee is perfect for everyday enjoyment.",
-        price: 13.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 23 - Decaf
-      Product.create({
-        name: "Decaf Colombia",
-        description: "Enjoy the smooth and mellow flavor of Colombian coffee without the caffeine. Our Decaf Colombia is perfect for a relaxing cup of joe.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 24 - Decaf
-      Product.create({
-        name: "Decaf French Roast",
-        description: "Experience the rich and intense flavor of French Roast without the caffeine. Our Decaf French Roast is perfect for those who prefer a strong cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 25 - Whole Bean
-      Product.create({
-        name: "Brazilian Santos",
-        description: "A smooth and nutty coffee with a low acidity. Our Brazilian Santos whole beans are perfect for those who prefer a mellow cup of coffee.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 26 - Ground Coffee
-      Product.create({
-        name: "Vienna Roast",
-        description: "A medium-dark roast with a rich, chocolatey flavor. Our Vienna Roast ground coffee is perfect for those who enjoy a bold and flavorful cup.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 27 - Syrups and Creamers
-      Product.create({
-        name: "Hazelnut Coffee Syrup",
-        description: "Add a nutty flavor to your coffee with our Hazelnut Coffee Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
-        price: 5.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 28 - Syrups and Creamers
-      Product.create({
-        name: "Pumpkin Spice Coffee Syrup",
-        description: "Enjoy the warm and cozy flavors of fall with our Pumpkin Spice Coffee Syrup. Perfect for lattes, cappuccinos, and iced coffee.",
-        price: 5.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 29 - Ground Coffee
-      Product.create({
-        name: "Espresso Blend",
-        description: "A finely ground blend of coffee beans, perfect for creating a rich and creamy espresso. Use with a quality espresso machine for the best results.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 30 - Whole Bean
-      Product.create({
-        name: "Peruvian Organic",
-        description: "A smooth and balanced coffee with a hint of chocolate and caramel. Our Peruvian Organic whole beans are perfect for those who enjoy a flavorful and ethical cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 31 - Decaf
-      Product.create({
-        name: "Decaf Sumatra",
-        description: "A bold and earthy flavor without the caffeine. Our Decaf Sumatra is perfect for those who enjoy a strong cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 32 - Syrups and Creamers
-      Product.create({
-        name: "Chocolate Hazelnut Coffee Syrup",
-        description: "Indulge in the rich and decadent flavor of chocolate hazelnut with our Chocolate Hazelnut Coffee Syrup.",
-        price: 5.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 33 - Accessories
-      Product.create({
-        name: "Coffee Bean Storage Container",
-        description: "Keep your coffee beans fresh and flavorful with our airtight coffee bean storage container.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 34 - Treats
-      Product.create({
-        name: "Coffee-Infused Chocolate Bar",
-        description: "Indulge in the rich and decadent flavor of our coffee-infused chocolate bar. Perfect for a sweet treat after a cup of coffee.",
-        price: 3.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 35 - Treats
-      Product.create({
-        name: "Coffee-Infused Jelly Beans",
-        description: "Enjoy a burst of coffee flavor with our coffee-infused jelly beans. A fun and unique treat for coffee lovers.",
-        price: 3.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 36 - Treats
-      Product.create({
-        name: "Coffee-Infused Ice Cream",
-        description: "Cool down with our delicious coffee-infused ice cream. Perfect for a sweet and refreshing treat on a hot day.",
-        price: 4.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 37 - Treats
-      Product.create({
-        name: "Coffee-Infused Cookies",
-        description: "Enjoy the rich flavor of coffee in every bite of our coffee-infused cookies. Perfect for a sweet and satisfying snack.",
-        price: 4.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 38 - Whole Bean
-      Product.create({
-        name: "Sumatra Mandheling",
-        description: "A bold and earthy coffee with a low acidity. Our Sumatra Mandheling whole beans are perfect for those who prefer a strong and flavorful cup.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 39 - Ground Coffee
-      Product.create({
-        name: "Espresso Blend",
-        description: "A finely ground blend of coffee beans, perfect for creating a rich and creamy espresso. Use with a quality espresso machine for the best results.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 40 - Decaf
-      Product.create({
-        name: "Decaf Guatemala",
-        description: "A smooth and balanced coffee with a hint of chocolate and caramel. Our Decaf Guatemala is perfect for those who enjoy a flavorful and ethical cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 41 - Whole Bean
-      Product.create({
-        name: "Guatemala Antigua",
-        description: "A balanced and flavorful coffee with notes of chocolate and caramel. Our Guatemala Antigua whole beans are perfect for those who enjoy a smooth and enjoyable cup.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 42 - Ground Coffee
-      Product.create({
-        name: "Espresso Blend",
-        description: "A finely ground blend of coffee beans, perfect for creating a rich and creamy espresso. Use with a quality espresso machine for the best results.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 43 - Decaf
-      Product.create({
-        name: "Decaf Guatemala",
-        description: "A smooth and balanced coffee with a hint of chocolate and caramel. Our Decaf Guatemala is perfect for those who enjoy a flavorful and ethical cup of coffee.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 44 - Pods
-      Product.create({
-        name: "Organic Fair Trade Coffee Pods",
-        description: "Enjoy a delicious cup of coffee with our convenient and eco-friendly organic fair trade coffee pods.",
-        price: 12.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 45 - Pods
-      Product.create({
-        name: "Decaf Coffee Pods",
-        description: "Enjoy a relaxing cup of coffee without the caffeine with our Decaf Coffee Pods.",
-        price: 13.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 46 - Pods
-      Product.create({
-        name: "Flavored Coffee Pods",
-        description: "Add a burst of flavor to your coffee with our Flavored Coffee Pods. Choose from a variety of delicious options.",
-        price: 13.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 47 - Pods
-      Product.create({
-        name: "Espresso Pods",
-        description: "Create a rich and creamy espresso with our Espresso Pods. Compatible with most single-serve coffee machines.",
-        price: 14.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 48 - Pods
-      Product.create({
-        name: "Decaf Espresso Pods",
-        description: "Enjoy a flavorful espresso without the caffeine with our Decaf Espresso Pods.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 49 - Pods
-      Product.create({
-        name: "Flavored Espresso Pods",
-        description: "Add a burst of flavor to your espresso with our Flavored Espresso Pods. Choose from a variety of delicious options.",
-        price: 15.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-
-      // Product 50 - Pods
-      Product.create({
-        name: "Organic Fair Trade Espresso Pods",
-        description: "Enjoy a delicious and ethical cup of coffee with our Organic Fair Trade Espresso Pods.",
-        price: 16.99,
-        image: "https://placehold.it/200x200", // Replace with your actual image URL
-      }),
-    ])
+    Product.create({
+      id: productIds[157],
+      name: "Coffee-Infused Chocolate Bar",
+      description: "Indulge in the rich and decadent flavor of our coffee-infused chocolate bar. Perfect for a sweet treat after a cup of coffee.",
+      price: 3.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[158],
+      name: "Coffee-Infused Jelly Beans",
+      description: "Enjoy a burst of coffee flavor with our coffee-infused jelly beans. A fun and unique treat for coffee lovers.",
+      price: 3.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[159],
+      name: "Coffee-Infused Ice Cream",
+      description: "Cool down with our delicious coffee-infused ice cream. Perfect for a sweet and refreshing treat on a hot day.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    Product.create({
+      id: productIds[160],
+      name: "Coffee-Infused Cookies",
+      description: "Enjoy the rich flavor of coffee in every bite of our coffee-infused cookies. Perfect for a sweet and satisfying snack.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[161],
+      name: "Salted Caramel Brownies",
+      description: "Decadent brownies infused with rich caramel and a touch of sea salt for a delightful sweet and salty treat.",
+      price: 5.49,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[162],
+      name: "Spiced Pecan Pie",
+      description: "A classic pecan pie bursting with warm spices and crunchy pecans. Perfect for a heartwarming dessert.",
+      price: 12.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[163],
+      name: "Chocolate Chip Cookie Dough Truffles",
+      description: "Indulge in the irresistible flavor of chocolate chip cookie dough in a bite-sized truffle form.",
+      price: 6.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[164],
+      name: "Lemon Poppyseed Muffins",
+      description: "Light and fluffy muffins bursting with fresh lemon zest and crunchy poppyseeds. A delightful breakfast or snack.",
+      price: 3.49,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[165],
+      name: "Peanut Butter Swirl Brownies",
+      description: "Classic brownies with a delicious swirl of peanut butter for a delightful combination of chocolate and peanut butter flavors.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[166],
+      name: "Raspberry White Chocolate Scones",
+      description: "Buttery scones studded with fresh raspberries and white chocolate chips. A perfect pairing with a cup of tea or coffee.",
+      price: 3.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[167],
+      name: "Oatmeal Raisin Cookies",
+      description: "A classic treat! Chewy oatmeal cookies packed with plump raisins for a satisfying and delicious snack.",
+      price: 4.49,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[168],
+      name: "Double Chocolate Chip Cookies",
+      description: "For the ultimate chocolate lover! Cookies loaded with both milk and dark chocolate chips for a rich and decadent treat.",
+      price: 5.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[169],
+      name: "Blueberry Lemon Bars",
+      description: "Tart and sweet lemon bars filled with fresh blueberries. A refreshing and delightful dessert.",
+      price: 4.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+    
+    Product.create({
+      id: productIds[170],
+      name: "Carrot Cake Cupcakes",
+      description: "Moist and flavorful carrot cake cupcakes topped with a creamy cream cheese frosting. A delicious and festive treat.",
+      price: 3.99,
+      image: "https://placehold.it/200x200", // Replace with your actual image URL
+    }),
+  ])
     
   console.log(chalk.red.bgWhite.bold(`seeded ${products.length} products`))
 
@@ -499,8 +1459,67 @@ async function seed() {
     Category.create({
       name: "Pods",
       description: "Convenience in a tiny plastic pod"
+    }),
+    Category.create({
+      name: "Light Roast",
+      description: "Light Roast versions of Flavors"
+    }),
+    Category.create({
+      name: "Medium Roast",
+      description: "Medium Roast versions of Flavors"
+    }),
+    Category.create({
+      name: "Dark Roast",
+      description: "Dark Roast versions of Flavors"
+    }),
+    Category.create({
+      name: "Regular Caffeine",
+      description: "Normal Caffeine levels"
+    }),
+    Category.create({
+      name: "Half Caf",
+      description: "Half the normal level of Caffeine"
     })
   ])
+
+  console.log(chalk.red.bgWhite.bold(`seeded ${categories.length} categories`))
+
+
+  const productCategoryAssociations = []
+
+  categories.forEach(category => {
+    products.forEach(product => {
+      if(product.name.includes(category.name)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})
+      }
+
+      if((category.id === 5 && product.id >= 118 && product.id <= 130)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})
+      }
+
+      if((category.id === 4 && product.id >= 131 && product.id <= 145)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})
+      }
+
+      if((category.id === 6 && product.id >= 146 && product.id <= 155)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})
+      }
+
+      if((category.id === 7 && product.id >= 156 && product.id <= 171)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})
+      }
+
+      if((category.id === 5 && product.id >= 151 && product.id <= 155)) {
+        productCategoryAssociations.push({categoryId: category.id, productId: product.id})  
+      }
+    })
+  })
+
+  productCategoryAssociations.forEach(association => {
+    new Promise( () => ProductCategory.create(association))
+  })
+
+  console.log(chalk.red.bgWhite.bold(`Put products into ${productCategoryAssociations.length} categories`))
 
   console.log(chalk.red.bgWhite.bold(`seeded ${categories.length} categories`))
 
@@ -808,260 +1827,6 @@ async function seed() {
   ])
 
   console.log(chalk.red.bgWhite.bold(`seeded ${reviews.length} reviews`))
-
-  const productCategories = await Promise.all([
-    ProductCategory.create({
-      productId: products[0].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[1].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[2].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[3].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[4].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[5].id,
-      categoryId: categories[3].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[6].id,
-      categoryId: categories[4].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[7].id,
-      categoryId: categories[4].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[8].id,
-      categoryId: categories[4].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[9].id,
-      categoryId: categories[3].id
-    }),
-
-    ProductCategory.create({
-      productId: products[10].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[11].id,
-      categoryId: categories[3].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[12].id,
-      categoryId: categories[4].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[13].id,
-      categoryId: categories[5].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[14].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[15].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[16].id,
-      categoryId: categories[5].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[17].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[18].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[19].id,
-      categoryId: categories[5].id
-    }),
-
-    ProductCategory.create({
-      productId: products[20].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[21].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[22].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[23].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[24].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[25].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[26].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[27].id,
-      categoryId: categories[3].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[28].id,
-      categoryId: categories[3].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[29].id,
-      categoryId: categories[1].id
-    }),
-
-    ProductCategory.create({
-      productId: products[30].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[31].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[32].id,
-      categoryId: categories[3].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[33].id,
-      categoryId: categories[4].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[34].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[35].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[36].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[37].id,
-      categoryId: categories[6].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[38].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[39].id,
-      categoryId: categories[1].id
-    }),
-
-    ProductCategory.create({
-      productId: products[40].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[41].id,
-      categoryId: categories[0].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[42].id,
-      categoryId: categories[1].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[43].id,
-      categoryId: categories[2].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[44].id,
-      categoryId: categories[7].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[45].id,
-      categoryId: categories[7].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[46].id,
-      categoryId: categories[7].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[47].id,
-      categoryId: categories[7].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[48].id,
-      categoryId: categories[7].id
-    }),
-  
-    ProductCategory.create({
-      productId: products[49].id,
-      categoryId: categories[7].id
-    })
-  ])
-
-  console.log(chalk.red.bgWhite.bold(`Put ${productCategories.length} products into their categories`))
 
   const orders = await Promise.all([
     // Create 5 orders for the first customer
@@ -1373,6 +2138,8 @@ async function seed() {
       cartId: carts[0].id,
       productId: products[4].id,
       quantity: 3,
+      style: "Whole Bean",
+      bag_size: 1,
       price: (3 * products[4].price)
     }),
     CartItem.create({
@@ -1380,6 +2147,8 @@ async function seed() {
       cartId: carts[0].id,
       productId: products[10].id,
       quantity: 1,
+      style: "Whole Bean",
+      bag_size: 2,
       price: 1 * products[10].price
     })
   ])
