@@ -25,6 +25,7 @@ const App = () => {
   return  (
     <Router>
       <Wrapper>
+        {console.log('USER DATA: ', userData)}
         <Header user={userData} categories={categoryData} />
         <Routes>
           <Route path="/" element={<HomePage reviews={reviewData} categories={categoryData} products={productData} />} />
