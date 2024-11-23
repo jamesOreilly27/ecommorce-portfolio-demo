@@ -13,7 +13,11 @@ const Address = db.define('address', {
   zip_code: {
     type: Sequelize.STRING,
     allowNull: false
-  }
-});
+  },
+  current: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+})
 
 module.exports = Address

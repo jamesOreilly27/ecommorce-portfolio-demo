@@ -7,7 +7,8 @@ const Wrapper = styled(FlexColContainer)`
 
 `
 
-const DeliveryInfo = ({ user }) => {
+const DeliveryInfo = ({ addresses }) => {
+  console.log('addresses', addresses)
   return (
     <Wrapper>
       <div>

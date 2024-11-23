@@ -2144,7 +2144,8 @@ async function seed() {
       address: '123 Main St',
       town: 'anytown',
       zip_code: '12345',
-      customerId: 1
+      customerId: 1,
+      current: true
     }),
     Address.create({
       address: '456 Elm St',
