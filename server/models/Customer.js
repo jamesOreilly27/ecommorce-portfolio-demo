@@ -20,15 +20,6 @@ const Customer = db.define('customer', {
   },
   password: {
     type: Sequelize.STRING,
-  },
-  address: {
-    type: Sequelize.STRING
-  },
-  town: {
-    type: Sequelize.STRING
-  },
-  zip_code: {
-    type: Sequelize.STRING
   }
 })
 

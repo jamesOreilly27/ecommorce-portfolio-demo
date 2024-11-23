@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem, Address } = require('./server/models')
 const chalk = require('chalk')
 
 
@@ -39,30 +39,6 @@ async function seed() {
           })
       }))
     }
-
-  // Create Customers
-  // const customers = await Promise.all([
-  //   Customer.create({
-  //     first_name: 'John',
-  //     last_name: 'Doe',
-  //     email: 'johndoe@example.com',
-  //     password: 'hashed_password',
-  //     address: '123 Main St',
-  //     town: 'Anytown',
-  //     zip_code: '12345',
-  //   }),
-  //   Customer.create({
-  //     first_name: 'Jane',
-  //     last_name: 'Smith',
-  //     email: 'janesmith@example.com',
-  //     password: 'hashed_password',
-  //     address: '456 Elm St',
-  //     town: 'Cityville',
-  //     zip_code: '54321'
-  //   }),
-  // ])
-
-  
 
   console.log(chalk.red.bgWhite.bold(`seeded ${customers.length} customers`))
 
@@ -2162,6 +2138,69 @@ async function seed() {
   })
 
   carts[0].update({ total_amount: newCartTotal })
+
+  const addresses = await Promise.all([
+    Address.create({
+      address: '123 Main St',
+      town: 'anytown',
+      zip_code: '12345',
+      customerId: 1
+    }),
+    Address.create({
+      address: '456 Elm St',
+      town: 'smallville',
+      zip_code: '54321',
+      customerId: 1
+    }),
+    Address.create({
+      address: '789 Oak Ave',
+      town: 'Big City',
+      zip_code: '98765',
+      customerId: 2
+    }),
+    Address.create({
+      address: '321 Pine Rd',
+      town: 'Seaside',
+      zip_code: '56789',
+      customerId: 2
+    }),
+    Address.create({
+      address: '654 Cedar Ln',
+      town: 'Mountain View',
+      zip_code: '13579',
+      customerId: 3
+    }),
+    Address.create({
+      address: '987 Maple Dr',
+      town: 'Riverton',
+      zip_code: '97531',
+      customerId: 3
+    }),
+    Address.create({
+      address: '246 Willow St',
+      town: 'Sun City',
+      zip_code: '35791',
+      customerId: 4
+    }),
+    Address.create({
+      address: '1810 Birch St',
+      town: 'Desert Oasis',
+      zip_code: '79135',
+      customerId: 4
+    }),
+    Address.create({
+      address: '579 Spruce Ct',
+      town: 'Forestville',
+      zip_code: '19357',
+      customerId: 5
+    }),
+    Address.create({
+      address: '369 Fir Ln',
+      town: 'Lakeview',
+      zip_code: '73195',
+      customerId: 5
+    }),
+  ])
 
 }
 
