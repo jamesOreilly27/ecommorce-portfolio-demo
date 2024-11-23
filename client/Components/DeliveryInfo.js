@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
 //import {  } from '../Components
 
-const Wrapper = styled(FlexContainer)`
+const Wrapper = styled(FlexColContainer)`
 
 `
 
-const DeliveryInfo = ({  }) => {
+const DeliveryInfo = ({ user }) => {
   return (
     <Wrapper>
-      Delivery Info
+      <div>
+        Put a container here for user address info
+      </div>
     </Wrapper>
   )
 }

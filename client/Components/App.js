@@ -29,7 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage reviews={reviewData} categories={categoryData} products={productData} />} />
           <Route path="/account" element={<AccountHome user={userData} />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout user={userData} />} />
           <Route path="/products" element={<ProductsView categories={categoryData} />} />
           <Route path="/category/:id" element={<CategoryFullView />} />
           <Route path="/products/:id" element={<ProductDetailView user={userData} />} />
