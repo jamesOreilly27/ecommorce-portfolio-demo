@@ -8,10 +8,9 @@ const Wrapper = styled(FlexColContainer)`
 `
 
 const Checkout = ({ user }) => {
-  const { addresses } = user
   return (
     <Wrapper>
-      <DeliveryInfo addresses={addresses} />
+      <DeliveryInfo user={user} />
       <PaymentInfo />
       <Cart />
     </Wrapper>

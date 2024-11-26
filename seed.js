@@ -2143,6 +2143,7 @@ async function seed() {
     Address.create({
       address: '123 Main St',
       town: 'anytown',
+      state: "NY",
       zip_code: '12345',
       customerId: 1,
       current: true
@@ -2150,54 +2151,63 @@ async function seed() {
     Address.create({
       address: '456 Elm St',
       town: 'smallville',
+      state: "NY",
       zip_code: '54321',
       customerId: 1
     }),
     Address.create({
       address: '789 Oak Ave',
       town: 'Big City',
+      state: "NY",
       zip_code: '98765',
       customerId: 2
     }),
     Address.create({
       address: '321 Pine Rd',
       town: 'Seaside',
+      state: "NY",
       zip_code: '56789',
       customerId: 2
     }),
     Address.create({
       address: '654 Cedar Ln',
       town: 'Mountain View',
+      state: "NY",
       zip_code: '13579',
       customerId: 3
     }),
     Address.create({
       address: '987 Maple Dr',
       town: 'Riverton',
+      state: "NY",
       zip_code: '97531',
       customerId: 3
     }),
     Address.create({
       address: '246 Willow St',
       town: 'Sun City',
+      state: "NY",
       zip_code: '35791',
       customerId: 4
     }),
     Address.create({
       address: '1810 Birch St',
       town: 'Desert Oasis',
+      state: "NY",
       zip_code: '79135',
       customerId: 4
     }),
     Address.create({
       address: '579 Spruce Ct',
       town: 'Forestville',
+      state: "NY",
       zip_code: '19357',
       customerId: 5
     }),
     Address.create({
       address: '369 Fir Ln',
       town: 'Lakeview',
+      state: "NY",
       zip_code: '73195',
       customerId: 5
     }),

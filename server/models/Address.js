@@ -14,6 +14,10 @@ const Address = db.define('address', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  state: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   current: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
