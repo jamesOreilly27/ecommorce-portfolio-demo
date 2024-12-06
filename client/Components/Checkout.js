@@ -4,13 +4,14 @@ import { FlexContainer, FlexColContainer } from './styled-components/layout'
 import { DeliveryInfo, PaymentInfo, Cart } from '../Components'
 
 const Wrapper = styled(FlexColContainer)`
-
+  background-color: red;
+  align-items: flex-start;
 `
 
-const Checkout = ({ user }) => {
+const Checkout = ({ user, refetchUser }) => {
   return (
     <Wrapper>
-      <DeliveryInfo user={user} />
+      <DeliveryInfo user={user} refetchUser={refetchUser} />
       <PaymentInfo />
       <Cart />
     </Wrapper>

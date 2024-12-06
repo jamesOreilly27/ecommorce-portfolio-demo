@@ -1,32 +1,58 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
-//import {  } from '../Components
+import { Address, AddressRadio } from '../Components'
 
 const Wrapper = styled(FlexColContainer)`
+  background-color: blue;
+  width: 90%;
+`
 
+const MainContainer = styled(FlexContainer)`
+    justify-content: space-between;
 `
 
 const CurrentContainer = styled(FlexColContainer)`
-
+  background-color: pink;
+  width: 50%;
 `
 
-const AddressLine = styled.div`
-  font-size: 10px;
+const ChangeContainer = styled(FlexContainer)`
+  justify-content: flex-end;
+  width: 50%;
 `
 
-const DeliveryInfo = ({ user }) => {
-  console.log('USER:', user)
+const DeliveryInfo = ({ user, refetchUser }) => {
   const { addresses, first_name, last_name } = user
   const currentAddress = addresses.filter(address => address.current)[0]
-  console.log(currentAddress)
+  const inactiveAddresses = addresses.filter(address => !address.current)
+
+  const [displayAddresses, setDisplayAddresses] = useState(false)
   return (
     <Wrapper>
-      <CurrentContainer>
-        <div>{`${first_name} ${last_name}`}</div>
-        <div>{currentAddress.address}</div>
-        <div>{`${currentAddress.town}, ${currentAddress.state} ${currentAddress.zip_code}`}</div>
-      </CurrentContainer>
+      <MainContainer>
+        <CurrentContainer>
+          <h2>{`Deliver To ${first_name} ${last_name}`}</h2>
+          <Address address={currentAddress} />
+        </CurrentContainer>
+        <ChangeContainer onClick={() => {
+          setDisplayAddresses(!displayAddresses)
+        }}>
+          change
+        </ChangeContainer>
+      </MainContainer>
+      <div>
+        {displayAddresses &&
+          <AddressRadio
+            user={user}
+            addresses={addresses}
+            refetchUser={refetchUser}
+            handleClick={() => {
+              setDisplayAddresses(!displayAddresses)
+            }}
+          />
+        }
+      </div>
     </Wrapper>
   )
 }

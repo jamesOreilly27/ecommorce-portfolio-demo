@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `
 
 const App = () => {
-  const { data: userData, isLoading: userFetchLoading, isError: userFetchError } = useGetMeQuery(1)
+  const { data: userData, isLoading: userFetchLoading, isError: userFetchError, refetch: refetchUser } = useGetMeQuery(1)
   const { data: reviewData, isLoading: reviewFetchLoading, isError: reviewFetchError } = useTopReviewsQuery()
   const { data: categoryData, isLoading: categoryFetchLoading, isError: categoryFetchError } = useGetCategoriesQuery()
   const { data: productData, isLoading: productFetchLoading, isError: productFetchError } = useGetFeaturedProductsQuery()
@@ -29,7 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage reviews={reviewData} categories={categoryData} products={productData} />} />
           <Route path="/account" element={<AccountHome user={userData} />} />
-          <Route path="/checkout" element={<Checkout user={userData} />} />
+          <Route path="/checkout" element={<Checkout user={userData} refetchUser={refetchUser} />} />
           <Route path="/products" element={<ProductsView categories={categoryData} />} />
           <Route path="/category/:id" element={<CategoryFullView />} />
           <Route path="/products/:id" element={<ProductDetailView user={userData} />} />
