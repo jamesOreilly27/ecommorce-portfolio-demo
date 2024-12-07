@@ -8,6 +8,7 @@ const Cart = require('./Cart')
 const CartItem = require('./CartItem')
 const Review = require('./Review')
 const Address = require('./Address')
+const PaymentMethod = require('./PaymentMethod')
 
 // Relationships between models
 Category.belongsToMany(Product, { through: ProductCategory })
@@ -40,6 +41,9 @@ Customer.hasOne(Cart)
 CartItem.belongsTo(Product)
 Product.hasMany(CartItem)
 
+Customer.hasMany(PaymentMethod)
+PaymentMethod.belongsTo(Customer)
+
 module.exports = {
   Product,
   Category,
@@ -50,5 +54,6 @@ module.exports = {
   Cart,
   CartItem,
   Review,
-  Address
+  Address,
+  PaymentMethod
 }

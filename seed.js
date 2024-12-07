@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem, Address } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem, Address, PaymentMethod } = require('./server/models')
 const chalk = require('chalk')
 
 
@@ -2210,6 +2210,57 @@ async function seed() {
       state: "NY",
       zip_code: '73195',
       customerId: 5
+    }),
+  ])
+
+  const PaymentsMethods = await Promise.all([
+    PaymentMethod.create({
+      cardHolderName: 'Customer1 LastName1',
+      cardNumber: "5979063992080243",
+      ExpDate: new Date(2028, 9, 30),
+      ccv: '890',
+      billingAddress: '123 Main St',
+      billingTown: 'Anytown',
+      billingZipCode: '12345',
+      billingState: 'CA',
+      current: true,
+      customerId: 1
+    }),
+    PaymentMethod.create({
+      cardHolderName: 'Customer1 LastName1',
+      cardNumber: "6583821752750647",
+      ExpDate: new Date(2030, 7, 31),
+      ccv: '442',
+      billingAddress: '123 Main St',
+      billingTown: 'Anytown',
+      billingZipCode: '12345',
+      billingState: 'CA',
+      current: false,
+      customerId: 1
+    }),
+    PaymentMethod.create({
+      cardHolderName: 'John Doe',
+      cardNumber: "8566442406788006",
+      ExpDate: new Date(2026, 3, 30),
+      ccv: '621',
+      billingAddress: '123 Main St',
+      billingTown: 'Anytown',
+      billingZipCode: '12345',
+      billingState: 'CA',
+      current: false,
+      customerId: 5
+    }),
+    PaymentMethod.create({
+      cardHolderName: 'John Doe',
+      cardNumber: "5992721327984805",
+      ExpDate: new Date(2027, 12, 31),
+      ccv: '834',
+      billingAddress: '123 Main St',
+      billingTown: 'Anytown',
+      billingZipCode: '12345',
+      billingState: 'CA',
+      current: false,
+      customerId: 6
     }),
   ])
 
