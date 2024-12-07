@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const chalk = require('chalk')
 const { findById, upsert } = require('./helpers')
-const { Customer, Cart, Order, Review, OrderItem, CartItem, Address } = require('../models')
+const { Customer, Cart, Order, Review, OrderItem, CartItem, Address, PaymentMethod} = require('../models')
 
 router.put('/addresses/:userId/:addressId', (req, res, next) => {
   const { userId, addressId } = req.params
@@ -21,7 +21,7 @@ router.put('/addresses/:userId/:addressId', (req, res, next) => {
 
 
 router.get('/:id', (req, res, next) => {
-  findById(req, res, Customer, [Cart, Order, Review, Address], {
+  findById(req, res, Customer, [Cart, Order, Review, Address, PaymentMethod], {
     cart: CartItem,
     order: OrderItem
   })
