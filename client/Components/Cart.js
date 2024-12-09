@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FlexContainer, FlexColContainer } from './styled-components/layout'
-//import {  } from '../Components
+import { OrderItemList } from '../Components'
 
 const Wrapper = styled(FlexContainer)`
-
+  
 `
 
-const Cart = ({  }) => {
+const Cart = ({ user, isHeader }) => {
+
+  console.log(user)
   return (
     <Wrapper>
-      Cart
+      <OrderItemList cart={user.cart} displayCart={true} />
     </Wrapper>
   )
 }

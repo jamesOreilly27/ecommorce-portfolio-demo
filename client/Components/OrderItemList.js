@@ -6,11 +6,20 @@ import { CartItem } from '../Components'
 import { useGetCartItemsQuery, useUpdateCartItemMutation, useDeleteCartItemMutation } from '../store/slices'
 
 const Wrapper = styled(FlexColContainer)`
-  min-width: 56vw;
-  background-color: #D2B48C;
-  position: absolute;
-  top: 4.2em;
-  right: -1em
+  ${({ isHeader }) => {
+    if(isHeader) {
+      return `
+        min-width: 56vw;
+        background-color: #D2B48C;
+        position: absolute;
+        top: 4.2em;
+        right: -1em`
+    } else {
+      return `
+        min-width: 100%;
+      `
+    }
+  }}
 `
 
 const TotalPrice = styled(FlexContainer)`
@@ -21,7 +30,7 @@ const ButtonContainer = styled(NoDecLink)`
 
 `
 
-const OrderItemList = ({ cart, displayCart, setDisplayCart }) => {
+const OrderItemList = ({ cart, displayCart, setDisplayCart, isHeader }) => {
   const { data, isLoading, isError, refetch } = useGetCartItemsQuery(cart.id)
   const [cartItems, setCartItems] = useState(data || [])
   const [updateQty] = useUpdateCartItemMutation()
@@ -80,7 +89,7 @@ const OrderItemList = ({ cart, displayCart, setDisplayCart }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper isHeader={isHeader}>
       {cartItems && 
         cartItems.map((item) => (
           <CartItem
@@ -97,9 +106,11 @@ const OrderItemList = ({ cart, displayCart, setDisplayCart }) => {
           to={'/checkout'}
           onClick={handleCheckoutClick}
         >
-          <Button>
-            Checkout
-          </Button>
+          {isHeader &&
+            <Button>
+              Checkout
+            </Button>
+          }
         </ButtonContainer>
     </Wrapper>
   )
