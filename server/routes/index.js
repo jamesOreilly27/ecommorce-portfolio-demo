@@ -7,6 +7,7 @@ router.use('/categories', require('./categories'))
 router.use('/orders', require('./orders'))
 router.use('/reviews', require('./reviews'))
 router.use('/cart-items', require('./cartItem'))
+router.use('/stripe', require('./payment'))
 
 
 module.exports = router

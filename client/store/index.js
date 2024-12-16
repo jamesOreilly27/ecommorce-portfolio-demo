@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { productApi, customerApi, categoryApi, reviewApi, cartItemApi } from "./slices"
+import { productApi, customerApi, categoryApi, reviewApi, cartItemApi, addressApi, orderApi } from "./slices"
 import reviewSlider from "./slices/reviewSlider"
 import logger from 'redux-logger'
 import { composeWithDevTools } from '@redux-devtools/extension'
@@ -18,6 +18,8 @@ const reducer = {
   [categoryApi.reducerPath]: categoryApi.reducer,
   [reviewApi.reducerPath]: reviewApi.reducer,
   [cartItemApi.reducerPath]: cartItemApi.reducer,
+  [addressApi.reducerPath]: addressApi.reducer,
+  [orderApi.reducerPath]: orderApi.reducer,
   reviewSlider
 }
 
@@ -27,6 +29,8 @@ const middleware = [
   categoryApi.middleware,
   reviewApi.middleware,
   cartItemApi.middleware,
+  addressApi.middleware,
+  orderApi.middleware,
   logger,
   composeWithDevTools,
   errHandling

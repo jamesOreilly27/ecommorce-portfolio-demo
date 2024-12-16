@@ -1,5 +1,5 @@
 const db = require('./server/db.js')
-const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem } = require('./server/models')
+const { Customer, Product, Category, Review, ProductCategory, Order, OrderItem, Cart, CartItem, Address, PaymentMethod } = require('./server/models')
 const chalk = require('chalk')
 
 
@@ -39,30 +39,6 @@ async function seed() {
           })
       }))
     }
-
-  // Create Customers
-  // const customers = await Promise.all([
-  //   Customer.create({
-  //     first_name: 'John',
-  //     last_name: 'Doe',
-  //     email: 'johndoe@example.com',
-  //     password: 'hashed_password',
-  //     address: '123 Main St',
-  //     town: 'Anytown',
-  //     zip_code: '12345',
-  //   }),
-  //   Customer.create({
-  //     first_name: 'Jane',
-  //     last_name: 'Smith',
-  //     email: 'janesmith@example.com',
-  //     password: 'hashed_password',
-  //     address: '456 Elm St',
-  //     town: 'Cityville',
-  //     zip_code: '54321'
-  //   }),
-  // ])
-
-  
 
   console.log(chalk.red.bgWhite.bold(`seeded ${customers.length} customers`))
 
@@ -1899,210 +1875,180 @@ async function seed() {
 
   const orderItems = await Promise.all([
     OrderItem.create({
-      id: 1,
       orderId: orders[0].id,
       productId: products[3].id,
       quantity: OrderItemTotals[0],
       price: (products[3].price * OrderItemTotals[0])
     }),
     OrderItem.create({
-      id: 2,
       orderId: orders[0].id,
       productId: products[10].id,
       quantity: OrderItemTotals[1],
       price: (products[10].price * OrderItemTotals[1])
     }),
     OrderItem.create({
-      id: 3,
       orderId: orders[0].id,
       productId: products[15].id,
       quantity: OrderItemTotals[2],
       price: (products[15].price * OrderItemTotals[2])
     }),
     OrderItem.create({
-      id: 4,
       orderId: orders[1].id,
       productId: products[4].id,
       quantity: OrderItemTotals[3],
       price: (products[4].price * OrderItemTotals[3])
     }),
     OrderItem.create({
-      id: 5,
       orderId: orders[1].id,
       productId: products[5].id,
       quantity: OrderItemTotals[4],
       price: (products[5].price * OrderItemTotals[4])
     }),
     OrderItem.create({
-      id: 6,
       orderId: orders[2].id,
       productId: products[5].id,
       quantity: OrderItemTotals[5],
       price: (products[5].price * OrderItemTotals[5])
     }),
     OrderItem.create({
-      id: 7,
       orderId: orders[3].id,
       productId: products[5].id,
       quantity: OrderItemTotals[6],
       price: (products[5].price * OrderItemTotals[6])
     }),
     OrderItem.create({
-      id: 8,
       orderId: orders[3].id,
       productId: products[8].id,
       quantity: OrderItemTotals[7],
       price: (products[8].price * OrderItemTotals[7])
     }),
     OrderItem.create({
-      id: 9,
       orderId: orders[3].id,
       productId: products[4].id,
       quantity: OrderItemTotals[8],
       price: (products[4].price * OrderItemTotals[8])
     }),
     OrderItem.create({
-      id: 10,
       orderId: orders[4].id,
       productId: products[8].id,
       quantity: OrderItemTotals[9],
       price: (products[8].price * OrderItemTotals[9])
     }),
     OrderItem.create({
-      id: 11,
       orderId: orders[5].id,
       productId: products[18].id,
       quantity: OrderItemTotals[10],
       price: (products[18].price * OrderItemTotals[10])
     }),
     OrderItem.create({
-      id: 12,
       orderId: orders[5].id,
       productId: products[6].id,
       quantity: OrderItemTotals[11],
       price: (products[6].price * OrderItemTotals[11])
     }),
     OrderItem.create({
-      id: 13,
       orderId: orders[6].id,
       productId: products[5].id,
       quantity: OrderItemTotals[12],
       price: (products[5].price * OrderItemTotals[12])
     }),
     OrderItem.create({
-      id: 14,
       orderId: orders[6].id,
       productId: products[13].id,
       quantity: OrderItemTotals[13],
       price: (products[13].price * OrderItemTotals[13])
     }),
     OrderItem.create({
-      id: 15,
       orderId: orders[6].id,
       productId: products[8].id,
       quantity: OrderItemTotals[14],
       price: (products[8].price * OrderItemTotals[14])
     }),
     OrderItem.create({
-      id: 16,
       orderId: orders[7].id,
       productId: products[7].id,
       quantity: OrderItemTotals[15],
       price: (products[7].price * OrderItemTotals[15])
     }),
     OrderItem.create({
-      id: 17,
       orderId: orders[7].id,
       productId: products[9].id,
       quantity: OrderItemTotals[16],
       price: (products[9].price * OrderItemTotals[16])
     }),
     OrderItem.create({
-      id: 18,
       orderId: orders[7].id,
       productId: products[17].id,
       quantity: OrderItemTotals[17],
       price: (products[17].price * OrderItemTotals[17])
     }),
     OrderItem.create({
-      id: 19,
       orderId: orders[7].id,
       productId: products[14].id,
       quantity: OrderItemTotals[18],
       price: (products[14].price * OrderItemTotals[18])
     }),
     OrderItem.create({
-      id: 20,
       orderId: orders[8].id,
       productId: products[8].id,
       quantity: OrderItemTotals[19],
       price: (products[8].price * OrderItemTotals[19])
     }),
     OrderItem.create({
-      id: 21,
       orderId: orders[8].id,
       productId: products[16].id,
       quantity: OrderItemTotals[20],
       price: (products[16].price * OrderItemTotals[20])
     }),
     OrderItem.create({
-      id: 22,
       orderId: orders[8].id,
       productId: products[11].id,
       quantity: OrderItemTotals[21],
       price: (products[11].price * OrderItemTotals[21])
     }),
     OrderItem.create({
-      id: 23,
       orderId: orders[8].id,
       productId: products[10].id,
       quantity: OrderItemTotals[22],
       price: (products[10].price * OrderItemTotals[22])
     }),
     OrderItem.create({
-      id: 24,
       orderId: orders[8].id,
       productId: products[5].id,
       quantity: OrderItemTotals[23],
       price: (products[5].price * OrderItemTotals[23])
     }),
     OrderItem.create({
-      id: 25,
       orderId: orders[9].id,
       productId: products[8].id,
       quantity: OrderItemTotals[24],
       price: (products[8].price * OrderItemTotals[24])
     }),
     OrderItem.create({
-      id: 26,
       orderId: orders[9].id,
       productId: products[4].id,
       quantity: OrderItemTotals[25],
       price: (products[4].price * OrderItemTotals[25])
     }),
     OrderItem.create({
-      id: 27,
       orderId: orders[9].id,
       productId: products[3].id,
       quantity: OrderItemTotals[26],
       price: (products[3].price * OrderItemTotals[26])
     }),
     OrderItem.create({
-      id: 28,
       orderId: orders[4].id,
       productId: products[17].id,
       quantity: OrderItemTotals[27],
       price: (products[17].price * OrderItemTotals[27])
     }),
     OrderItem.create({
-      id: 29,
       orderId: orders[4].id,
       productId: products[2].id,
       quantity: OrderItemTotals[28],
       price: (products[2].price * OrderItemTotals[28])
     }),
     OrderItem.create({
-      id: 30,
       orderId: orders[4].id,
       productId: products[3].id,
       quantity: OrderItemTotals[29],
@@ -2162,6 +2108,80 @@ async function seed() {
   })
 
   carts[0].update({ total_amount: newCartTotal })
+
+  const addresses = await Promise.all([
+    Address.create({
+      address: '123 Main St',
+      town: 'anytown',
+      state: "NY",
+      zip_code: '12345',
+      customerId: 1,
+      current: true
+    }),
+    Address.create({
+      address: '456 Elm St',
+      town: 'smallville',
+      state: "NY",
+      zip_code: '54321',
+      customerId: 1
+    }),
+    Address.create({
+      address: '789 Oak Ave',
+      town: 'Big City',
+      state: "NY",
+      zip_code: '98765',
+      customerId: 2
+    }),
+    Address.create({
+      address: '321 Pine Rd',
+      town: 'Seaside',
+      state: "NY",
+      zip_code: '56789',
+      customerId: 2
+    }),
+    Address.create({
+      address: '654 Cedar Ln',
+      town: 'Mountain View',
+      state: "NY",
+      zip_code: '13579',
+      customerId: 3
+    }),
+    Address.create({
+      address: '987 Maple Dr',
+      town: 'Riverton',
+      state: "NY",
+      zip_code: '97531',
+      customerId: 3
+    }),
+    Address.create({
+      address: '246 Willow St',
+      town: 'Sun City',
+      state: "NY",
+      zip_code: '35791',
+      customerId: 4
+    }),
+    Address.create({
+      address: '1810 Birch St',
+      town: 'Desert Oasis',
+      state: "NY",
+      zip_code: '79135',
+      customerId: 4
+    }),
+    Address.create({
+      address: '579 Spruce Ct',
+      town: 'Forestville',
+      state: "NY",
+      zip_code: '19357',
+      customerId: 5
+    }),
+    Address.create({
+      address: '369 Fir Ln',
+      town: 'Lakeview',
+      state: "NY",
+      zip_code: '73195',
+      customerId: 5
+    }),
+  ])
 
 }
 

@@ -65,3 +65,11 @@ export { default as ReviewCard } from './ReviewCard'
 /*************** Misc Utility ***************/
 export { default as IconLink } from './IconLink'
 export { default as IndexIndicator } from './IndexIndicator'
+
+/*************** Checkout  ***************/
+export { default as DeliveryInfo } from './DeliveryInfo'
+export { default as PaymentInfo } from './PaymentInfo'
+export { default as Cart } from './Cart'
+export { default as Address } from "./Address"
+export { default as AddressRadio } from './AddressRadio'
+export { default as OrderConfirmation } from './OrderConfirmation'

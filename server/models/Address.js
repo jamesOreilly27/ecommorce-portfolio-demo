@@ -1,26 +1,27 @@
 const db = require('../db')
 const Sequelize = require('sequelize')
 
-const Customer = db.define('customer', {
-  first_name: {
+const Address = db.define('address', {
+  address: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  last_name: {
+  town: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  email: {
+  zip_code: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true
-    }
+    allowNull: false
   },
-  password: {
+  state: {
     type: Sequelize.STRING,
-  }
+    allowNull: false
+  },
+  current: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
 })
 
-module.exports = Customer
+module.exports = Address

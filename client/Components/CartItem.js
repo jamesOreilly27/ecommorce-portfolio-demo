@@ -16,7 +16,7 @@ const Image = styled.img`
 `
 
 const NewContainer = styled(FlexContainer)`
-  min-width: 37vw;
+  min-width: 50vw;
   justify-content: space-between;
   align-items: center;
 `
