@@ -1,5 +1,5 @@
 const express = require('express')
-const { CartItem, Product } = require('../models')
+const { CartItem, Product, Cart } = require('../models')
 const { findById, getAll, getAllWhere, destroy } = require('./helpers')
 
 const router = express.Router()
@@ -33,6 +33,17 @@ router.put('/:id', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   destroy(req, res, CartItem)
+})
+
+router.delete('/cart/:cartId', (req, res, next) => {
+  CartItem.findAll({
+    where: { cartId: req.params.id },
+  })
+  .then(items => {
+    items.forEach(item => {
+      CartItem.delete(item.id)
+    })
+  })
 })
 
 module.exports = router

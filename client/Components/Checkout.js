@@ -23,7 +23,7 @@ const Checkout = ({ user, refetchUser }) => {
       <Cart user={user} />
       <DeliveryInfo user={user} refetchUser={refetchUser} />
       <Elements stripe={stripePromise} options={options}>
-        <PaymentInfo user={user} />
+        <PaymentInfo user={user} refetchUser={refetchUser} />
       </Elements>
     </Wrapper>
   )

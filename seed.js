@@ -1875,210 +1875,180 @@ async function seed() {
 
   const orderItems = await Promise.all([
     OrderItem.create({
-      id: 1,
       orderId: orders[0].id,
       productId: products[3].id,
       quantity: OrderItemTotals[0],
       price: (products[3].price * OrderItemTotals[0])
     }),
     OrderItem.create({
-      id: 2,
       orderId: orders[0].id,
       productId: products[10].id,
       quantity: OrderItemTotals[1],
       price: (products[10].price * OrderItemTotals[1])
     }),
     OrderItem.create({
-      id: 3,
       orderId: orders[0].id,
       productId: products[15].id,
       quantity: OrderItemTotals[2],
       price: (products[15].price * OrderItemTotals[2])
     }),
     OrderItem.create({
-      id: 4,
       orderId: orders[1].id,
       productId: products[4].id,
       quantity: OrderItemTotals[3],
       price: (products[4].price * OrderItemTotals[3])
     }),
     OrderItem.create({
-      id: 5,
       orderId: orders[1].id,
       productId: products[5].id,
       quantity: OrderItemTotals[4],
       price: (products[5].price * OrderItemTotals[4])
     }),
     OrderItem.create({
-      id: 6,
       orderId: orders[2].id,
       productId: products[5].id,
       quantity: OrderItemTotals[5],
       price: (products[5].price * OrderItemTotals[5])
     }),
     OrderItem.create({
-      id: 7,
       orderId: orders[3].id,
       productId: products[5].id,
       quantity: OrderItemTotals[6],
       price: (products[5].price * OrderItemTotals[6])
     }),
     OrderItem.create({
-      id: 8,
       orderId: orders[3].id,
       productId: products[8].id,
       quantity: OrderItemTotals[7],
       price: (products[8].price * OrderItemTotals[7])
     }),
     OrderItem.create({
-      id: 9,
       orderId: orders[3].id,
       productId: products[4].id,
       quantity: OrderItemTotals[8],
       price: (products[4].price * OrderItemTotals[8])
     }),
     OrderItem.create({
-      id: 10,
       orderId: orders[4].id,
       productId: products[8].id,
       quantity: OrderItemTotals[9],
       price: (products[8].price * OrderItemTotals[9])
     }),
     OrderItem.create({
-      id: 11,
       orderId: orders[5].id,
       productId: products[18].id,
       quantity: OrderItemTotals[10],
       price: (products[18].price * OrderItemTotals[10])
     }),
     OrderItem.create({
-      id: 12,
       orderId: orders[5].id,
       productId: products[6].id,
       quantity: OrderItemTotals[11],
       price: (products[6].price * OrderItemTotals[11])
     }),
     OrderItem.create({
-      id: 13,
       orderId: orders[6].id,
       productId: products[5].id,
       quantity: OrderItemTotals[12],
       price: (products[5].price * OrderItemTotals[12])
     }),
     OrderItem.create({
-      id: 14,
       orderId: orders[6].id,
       productId: products[13].id,
       quantity: OrderItemTotals[13],
       price: (products[13].price * OrderItemTotals[13])
     }),
     OrderItem.create({
-      id: 15,
       orderId: orders[6].id,
       productId: products[8].id,
       quantity: OrderItemTotals[14],
       price: (products[8].price * OrderItemTotals[14])
     }),
     OrderItem.create({
-      id: 16,
       orderId: orders[7].id,
       productId: products[7].id,
       quantity: OrderItemTotals[15],
       price: (products[7].price * OrderItemTotals[15])
     }),
     OrderItem.create({
-      id: 17,
       orderId: orders[7].id,
       productId: products[9].id,
       quantity: OrderItemTotals[16],
       price: (products[9].price * OrderItemTotals[16])
     }),
     OrderItem.create({
-      id: 18,
       orderId: orders[7].id,
       productId: products[17].id,
       quantity: OrderItemTotals[17],
       price: (products[17].price * OrderItemTotals[17])
     }),
     OrderItem.create({
-      id: 19,
       orderId: orders[7].id,
       productId: products[14].id,
       quantity: OrderItemTotals[18],
       price: (products[14].price * OrderItemTotals[18])
     }),
     OrderItem.create({
-      id: 20,
       orderId: orders[8].id,
       productId: products[8].id,
       quantity: OrderItemTotals[19],
       price: (products[8].price * OrderItemTotals[19])
     }),
     OrderItem.create({
-      id: 21,
       orderId: orders[8].id,
       productId: products[16].id,
       quantity: OrderItemTotals[20],
       price: (products[16].price * OrderItemTotals[20])
     }),
     OrderItem.create({
-      id: 22,
       orderId: orders[8].id,
       productId: products[11].id,
       quantity: OrderItemTotals[21],
       price: (products[11].price * OrderItemTotals[21])
     }),
     OrderItem.create({
-      id: 23,
       orderId: orders[8].id,
       productId: products[10].id,
       quantity: OrderItemTotals[22],
       price: (products[10].price * OrderItemTotals[22])
     }),
     OrderItem.create({
-      id: 24,
       orderId: orders[8].id,
       productId: products[5].id,
       quantity: OrderItemTotals[23],
       price: (products[5].price * OrderItemTotals[23])
     }),
     OrderItem.create({
-      id: 25,
       orderId: orders[9].id,
       productId: products[8].id,
       quantity: OrderItemTotals[24],
       price: (products[8].price * OrderItemTotals[24])
     }),
     OrderItem.create({
-      id: 26,
       orderId: orders[9].id,
       productId: products[4].id,
       quantity: OrderItemTotals[25],
       price: (products[4].price * OrderItemTotals[25])
     }),
     OrderItem.create({
-      id: 27,
       orderId: orders[9].id,
       productId: products[3].id,
       quantity: OrderItemTotals[26],
       price: (products[3].price * OrderItemTotals[26])
     }),
     OrderItem.create({
-      id: 28,
       orderId: orders[4].id,
       productId: products[17].id,
       quantity: OrderItemTotals[27],
       price: (products[17].price * OrderItemTotals[27])
     }),
     OrderItem.create({
-      id: 29,
       orderId: orders[4].id,
       productId: products[2].id,
       quantity: OrderItemTotals[28],
       price: (products[2].price * OrderItemTotals[28])
     }),
     OrderItem.create({
-      id: 30,
       orderId: orders[4].id,
       productId: products[3].id,
       quantity: OrderItemTotals[29],
@@ -2210,57 +2180,6 @@ async function seed() {
       state: "NY",
       zip_code: '73195',
       customerId: 5
-    }),
-  ])
-
-  const PaymentsMethods = await Promise.all([
-    PaymentMethod.create({
-      cardHolderName: 'Customer1 LastName1',
-      cardNumber: "5979063992080243",
-      ExpDate: new Date(2028, 9, 30),
-      ccv: '890',
-      billingAddress: '123 Main St',
-      billingTown: 'Anytown',
-      billingZipCode: '12345',
-      billingState: 'CA',
-      current: true,
-      customerId: 1
-    }),
-    PaymentMethod.create({
-      cardHolderName: 'Customer1 LastName1',
-      cardNumber: "6583821752750647",
-      ExpDate: new Date(2030, 7, 31),
-      ccv: '442',
-      billingAddress: '123 Main St',
-      billingTown: 'Anytown',
-      billingZipCode: '12345',
-      billingState: 'CA',
-      current: false,
-      customerId: 1
-    }),
-    PaymentMethod.create({
-      cardHolderName: 'John Doe',
-      cardNumber: "8566442406788006",
-      ExpDate: new Date(2026, 3, 30),
-      ccv: '621',
-      billingAddress: '123 Main St',
-      billingTown: 'Anytown',
-      billingZipCode: '12345',
-      billingState: 'CA',
-      current: false,
-      customerId: 5
-    }),
-    PaymentMethod.create({
-      cardHolderName: 'John Doe',
-      cardNumber: "5992721327984805",
-      ExpDate: new Date(2027, 12, 31),
-      ccv: '834',
-      billingAddress: '123 Main St',
-      billingTown: 'Anytown',
-      billingZipCode: '12345',
-      billingState: 'CA',
-      current: false,
-      customerId: 6
     }),
   ])
 

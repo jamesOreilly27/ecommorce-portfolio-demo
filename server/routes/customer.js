@@ -21,7 +21,7 @@ router.put('/addresses/:userId/:addressId', (req, res, next) => {
 
 
 router.get('/:id', (req, res, next) => {
-  findById(req, res, Customer, [Cart, Order, Review, Address, PaymentMethod], {
+  findById(req, res, Customer, [Cart, Order, Review, Address], {
     cart: CartItem,
     order: OrderItem
   })

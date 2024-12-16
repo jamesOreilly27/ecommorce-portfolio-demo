@@ -44,7 +44,8 @@ const Header = ({ user, categories }) => {
           />
           <IconLink
             icon={faShoppingCart}
-            route="/" user={user}
+            route="/"
+            user={user}
             size="2x"
             isCart 
             displayCart={displayCart}

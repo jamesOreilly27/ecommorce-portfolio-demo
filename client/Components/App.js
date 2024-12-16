@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Footer, HomePage, AccountHome, CategoryFullView, ProductDetailView, Checkout, ProductsView } from '../Components'
+import { Header, Footer, HomePage, AccountHome, CategoryFullView, ProductDetailView, Checkout, ProductsView, OrderConfirmation } from '../Components'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useGetMeQuery, useTopReviewsQuery, useGetCategoriesQuery, useGetFeaturedProductsQuery } from '../store/slices'
 import styled from 'styled-components'
@@ -31,8 +31,9 @@ const App = () => {
           <Route path="/account" element={<AccountHome user={userData} />} />
           <Route path="/checkout" element={<Checkout user={userData} refetchUser={refetchUser} />} />
           <Route path="/products" element={<ProductsView categories={categoryData} />} />
-          <Route path="/category/:id" element={<CategoryFullView />} />
+          <Route path="/categories/:id" element={<CategoryFullView />} />
           <Route path="/products/:id" element={<ProductDetailView user={userData} />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation user={userData} refetchUser={refetchUser} />} />
         </Routes>
         <Footer />
       </Wrapper>

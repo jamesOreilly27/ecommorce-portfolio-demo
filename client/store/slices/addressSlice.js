@@ -6,7 +6,6 @@ export const addressApi = createApi({
   endpoints: builder => ({
     updateCurrentAddress: builder.mutation({
       query: ({ userId, addressId }) => {
-        console.log('TESTING', userId, 'TESTING AGAIN', addressId)
         return {
         url: `${userId}/${addressId}`,
         method: "PUT"
