@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "webpack --mode development -w & nodemon server/app.js --ignore /client --ignore /public",
     "seed": "node seed.js",
+    "build": "webpack --mode development",
     "start": "nodemon server/app.js"
   },
   "keywords": [],
